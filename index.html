@@ -65,3 +65,106 @@ function setWallpaper(index){
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somya Wallpaper Gallery</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 30px;
+        background: #111827;
+        color: white;
+    }
+    h1 {
+        color: #22c55e;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .wallpaper {
+        width: 200px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .wallpaper:hover {
+        transform: scale(1.1);
+    }
+    #previewContainer {
+        margin-top: 40px;
+    }
+    #previewContainer img {
+        max-width: 90%;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+    .download-btn {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #22c55e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Somya Wallpaper Gallery</h1>
+<p>Click on any wallpaper to preview & download:</p>
+
+<div class="gallery" id="gallery"></div>
+
+<div id="previewContainer">
+    <img id="preview" src="" alt="" style="display:none;">
+    <br>
+    <a id="downloadLink" href="" download>
+        <button class="download-btn" style="display:none;">Download Wallpaper</button>
+    </a>
+</div>
+
+<script>
+const wallpapers = [
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1350&q=80",
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80",
+    "https://images.unsplash.com/photo-1493244040629-496f6d136cc3?auto=format&fit=crop&w=1350&q=80",
+    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1350&q=80",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80",
+    "https://images.unsplash.com/photo-1519817650390-64a93db511c3?auto=format&fit=crop&w=1350&q=80",
+    "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1350&q=80"
+];
+
+const gallery = document.getElementById("gallery");
+const preview = document.getElementById("preview");
+const downloadBtn = document.querySelector(".download-btn");
+const downloadLink = document.getElementById("downloadLink");
+
+// Create thumbnails
+wallpapers.forEach((url) => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.className = "wallpaper";
+    img.onclick = () => {
+        preview.src = url;
+        preview.style.display = "block";
+        downloadBtn.style.display = "inline-block";
+        downloadLink.href = url;
+    }
+    gallery.appendChild(img);
+});
+</script>
+
+</body>
+</html>
