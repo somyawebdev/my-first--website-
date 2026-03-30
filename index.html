@@ -313,3 +313,102 @@ function loadTheme(themeNumber){
 
 </body>
     </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Somya Interactive Wallpapers - Search</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+h1 {
+  color: #22c55e;
+}
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+img:hover {
+  transform: scale(1.05);
+}
+#gallery {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Somya Interactive Wallpapers</h1>
+
+<input type="text" id="searchInput" placeholder="Search wallpapers...">
+<button onclick="searchImages()">Search</button>
+
+<div id="gallery"></div>
+
+<script>
+async function searchImages() {
+    const query = document.getElementById('searchInput').value;
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = "Loading...";
+
+    if(!query) return alert("Please type something to search!");
+
+    // Unsplash API URL
+    const url = `https://api.unsplash.com/search/photos?query=${query}&per_page=12&client_id=YOUR_UNSPLASH_API_KEY`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        gallery.innerHTML = "";
+
+        if(data.results.length === 0) {
+            gallery.innerHTML = "No images found!";
+            return;
+        }
+
+        data.results.forEach(img => {
+            const imageElem = document.createElement("img");
+            imageElem.src = img.urls.small;
+            imageElem.alt = img.alt_description;
+            imageElem.title = "Click to open full image";
+            imageElem.onclick = () => window.open(img.links.html, "_blank"); // open full image
+            gallery.appendChild(imageElem);
+        });
+
+    } catch (err) {
+        console.error(err);
+        gallery.innerHTML = "Error fetching images!";
+    }
+}
+</script>
+
+</body>
+</html>
