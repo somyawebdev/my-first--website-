@@ -1,140 +1,7 @@
 <!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Booster - Followers & Views</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #fafafa; color: #333; text-align: center; }
-        header { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 40px 20px; }
-        .container { padding: 30px; max-width: 600px; margin: auto; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h2 { color: #bc1888; }
-        .btn { background: #0095f6; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 10px; }
-        .footer { font-size: 0.8rem; color: #888; margin-top: 50px; }
-        .service-list { text-align: left; display: inline-block; }
-        .service-list li { margin: 10px 0; font-size: 1.1rem; }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>🚀 Instagram Growth Booster</h1>
-    <p>अपने Instagram को रॉकेट की तरह उड़ाएं!</p>
-</header>
-
-<div class="container">
-    <div class="card">
-        <h2>हमारी सेवाएं</h2>
-        <ul class="service-list">
-            <li>✅ <b>असली फॉलोअर्स</b> बढ़ाएं</li>
-            <li>✅ <b>Views</b> में 10x इजाफा</li>
-            <li>✅ <b>Likes</b> की बरसात</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>कैसे शुरू करें?</h3>
-        <p>नीचे दिए गए बटन पर क्लिक करें और अपनी प्रोफाइल लिंक डालें।</p>
-        <a href="#" class="btn">अभी शुरू करें (Get Started)</a>
-    </div>
-</div>
-
-<div class="footer">
-    <p>&copy; 2024 Instagram Booster Tool. सभी अधिकार सुरक्षित।</p>
-    
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Somya AI Video Editor</title>
-
-<style>
-
-body{
-background:#111827;
-color:white;
-font-family:Arial;
-text-align:center;
-padding:40px;
-}
-
-h1{
-color:#22c55e;
-}
-
-video{
-width:320px;
-border-radius:10px;
-margin-top:20px;
-}
-
-button{
-padding:12px 25px;
-background:#22c55e;
-border:none;
-color:white;
-font-size:18px;
-border-radius:8px;
-cursor:pointer;
-margin-top:20px;
-}
-
-canvas{
-display:none;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<h1>Somya AI Background Remover</h1>
-
-<input type="file" id="videoUpload" accept="video/*">
-
-<br>
-
-<video id="video" controls></video>
-
-<br>
-
-<button onclick="processVideo()">Process Video</button>
-
-<canvas id="canvas"></canvas>
-
-<script>
-
-const video = document.getElementById("video")
-
-document.getElementById("videoUpload").onchange = function(e){
-let file = e.target.files[0]
-video.src = URL.createObjectURL(file)
-}
-
-function processVideo(){
-
-document.body.style.backgroundImage =
-"url('https://images.unsplash.com/photo-1501785888041-af3ef285b470')"
-
-document.body.style.backgroundSize="cover"
-
-alert("AI Background Change Activated")
-
-}
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
 <title>Somya AI Video Background</title>
 
 <style>
@@ -144,6 +11,7 @@ background:#0f172a;
 color:white;
 text-align:center;
 font-family:Arial;
+padding:40px;
 }
 
 video,canvas{
@@ -153,13 +21,14 @@ margin-top:20px;
 }
 
 button{
-padding:10px 20px;
+padding:12px 25px;
 margin-top:20px;
 background:#22c55e;
 color:white;
 border:none;
 border-radius:8px;
 font-size:18px;
+cursor:pointer;
 }
 
 </style>
@@ -167,43 +36,44 @@ font-size:18px;
 
 <body>
 
-<h2>Somya AI Video Background Changer</h2>
+<h1>Somya AI Video Background Changer</h1>
 
 <input type="file" id="upload" accept="video/*">
 
 <br>
 
-<video id="video" autoplay muted loop></video>
-<canvas id="canvas"></canvas>
+<video id="video" controls></video>
 
 <br>
 
 <button onclick="startAI()">Start AI Background</button>
 
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation"></script>
+<canvas id="canvas"></canvas>
 
 <script>
 
-const video = document.getElementById("video")
-const canvas = document.getElementById("canvas")
-const ctx = canvas.getContext("2d")
+const video=document.getElementById("video")
+const canvas=document.getElementById("canvas")
+const ctx=canvas.getContext("2d")
 
-document.getElementById("upload").onchange = function(e){
-video.src = URL.createObjectURL(e.target.files[0])
+document.getElementById("upload").onchange=function(e){
+video.src=URL.createObjectURL(e.target.files[0])
 }
-
-const bg = new Image()
-bg.src = "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
 
 function startAI(){
 
-canvas.width = video.videoWidth
-canvas.height = video.videoHeight
+canvas.width=video.videoWidth
+canvas.height=video.videoHeight
+
+const bg=new Image()
+bg.src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
 
 function draw(){
 
 ctx.drawImage(bg,0,0,canvas.width,canvas.height)
+
 ctx.globalCompositeOperation="destination-atop"
+
 ctx.drawImage(video,0,0,canvas.width,canvas.height)
 
 requestAnimationFrame(draw)
