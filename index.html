@@ -1,112 +1,67 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somya Interactive Pro Website</title>
+<title>Somya Interactive Wallpapers</title>
 <style>
 body{
+    margin:0;
     font-family: 'Arial', sans-serif;
-    margin:0; padding:0;
     text-align:center;
     background:#111827;
     color:white;
-    transition: background 0.5s;
+    transition: background 0.5s ease;
 }
-
 header{
-    background: linear-gradient(90deg, #22c55e, #3b82f6);
-    padding:40px 20px;
-    font-size:2rem;
+    background:#22c55e;
+    padding:30px;
+    font-size:2.2rem;
     font-weight:bold;
     color:white;
-    box-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
-
-.container{
-    max-width:800px;
-    margin:40px auto;
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-}
-
-.card{
-    background: rgba(255,255,255,0.1);
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
-}
-
-.card:hover{
-    transform: translateY(-5px);
-}
-
 button{
+    margin:10px;
     padding:12px 25px;
     border:none;
-    border-radius:8px;
+    border-radius:12px;
     cursor:pointer;
     font-weight:bold;
-    font-size:1rem;
-    margin:10px;
-    transition: 0.3s;
+    background:#3b82f6;
+    color:white;
+    transition:0.3s;
 }
-
 button:hover{
-    opacity:0.8;
-}
-
-.wallpaper-btn{background:#22c55e; color:white;}
-.gradient-btn{background:#3b82f6; color:white;}
-.video-btn{background:#f59e0b; color:white;}
-
-#videoPreview{
-    width:320px;
-    border-radius:10px;
-    margin-top:20px;
+    transform:scale(1.1);
 }
 </style>
 </head>
 <body>
 
-<header>Somya Interactive Pro Website</header>
+<header>Somya Interactive Wallpapers</header>
 
-<div class="container">
-
-<div class="card">
-<h2>Wallpapers</h2>
-<p>Click below buttons to change background wallpaper:</p>
-<button class="wallpaper-btn" onclick="changeWallpaper('https://images.unsplash.com/photo-1501785888041-af3ef285b470')">Wallpaper 1</button>
-<button class="wallpaper-btn" onclick="changeWallpaper('https://images.unsplash.com/photo-1518837695005-2083093ee35b')">Wallpaper 2</button>
-<button class="wallpaper-btn" onclick="changeWallpaper('https://images.unsplash.com/photo-1470770841072-f978cf4d019e')">Wallpaper 3</button>
-</div>
-
-<div class="card">
-<h2>Gradient Backgrounds</h2>
-<p>Click below to change gradient background:</p>
-<button class="gradient-btn" onclick="changeGradient('linear-gradient(90deg, #22c55e, #3b82f6)')">Green Blue</button>
-<button class="gradient-btn" onclick="changeGradient('linear-gradient(90deg, #f43f5e, #f59e0b)')">Pink Orange</button>
-<button class="gradient-btn" onclick="changeGradient('linear-gradient(90deg, #6366f1, #14b8a6)')">Purple Teal</button>
-</div>
-
-<div class="card">
-<h2>Video Preview</h2>
-<p>Click button to show dummy video preview:</p>
-<video id="videoPreview" controls></video>
-<br>
-<button class="video-btn" onclick="showVideo()">Play Video</button>
-</div>
-
-</div>
+<h2>Click a button to change background wallpaper:</h2>
+<button onclick="setWallpaper(0)">Wallpaper 1</button>
+<button onclick="setWallpaper(1)">Wallpaper 2</button>
+<button onclick="setWallpaper(2)">Wallpaper 3</button>
+<button onclick="setWallpaper(3)">Wallpaper 4</button>
+<button onclick="setWallpaper(4)">Wallpaper 5</button>
 
 <script>
-function changeWallpaper(url){
-    document.body.style.backgroundImage = `url(${url})`;
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundRepeat = "no-repeat";
-}
+const wallpapers=[
+    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1517817743953-9b8e216b2a38?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=800&q=80'
+];
 
-function changeGradient(grad){
-    document.body.style.backgroundImage
+function setWallpaper(index){
+    document.body.style.backgroundImage=`url(${wallpapers[index]})`;
+    document.body.style.backgroundSize='cover';
+    document.body.style.backgroundRepeat='no-repeat';
+}
+</script>
+
+</body>
+</html>
