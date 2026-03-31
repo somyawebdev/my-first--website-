@@ -1,414 +1,327 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somya Interactive Wallpapers</title>
-<style>
-body{
-    margin:0;
-    font-family: 'Arial', sans-serif;
-    text-align:center;
-    background:#111827;
-    color:white;
-    transition: background 0.5s ease;
+import 'package:hive_flutter/hive_flutter.dart';
+import '../models/story_model.dart';
+
+class HiveService {
+  static const String storiesBox = 'stories';
+  
+  static Future<void> init() async {
+    await Hive.initFlutter();
+    Hive.registerAdapter(StoryModelAdapter());
+    await Hive.openBox(storiesBox);
+  }
+  
+  static Future<void> saveStories(List<StoryModel> stories) async {
+    final box = Hive.box(storiesBox);
+    await box.clear();
+    for (var story in stories) {
+      await box.put(story.id, story);
+    }
+  }
+  
+  static Future<List<StoryModel>> getStories() async {
+    final box = Hive.box(storiesBox);
+    return box.values.cast<StoryModel>().toList();
+  }
+}import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class SceneViewer extends StatelessWidget {
+  final List<String> scenes;
+  final int currentScene;
+  final Function(int) onSceneChanged;
+
+  const SceneViewer({
+    Key? key,
+    required this.scenes,
+    required this.currentScene,
+    required this.onSceneChanged,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // Main Scene
+        Expanded(
+          flex: 3,
+          child: Container(
+            margin: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 20,
+                  spreadRadius: 5,
+                ),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Lottie.asset(
+                scenes[currentScene],
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stack) => Container(
+                  color: Colors.orange.shade100,
+                  child: Icon(Icons.image, size: 100, color: Colors.orange),
+                ),
+              ),
+            ),
+          ),
+        ),
+        
+        // Scene Navigation
+        Expanded(
+          flex: 1,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: currentScene > 0
+                    ? () => onSceneChanged(currentScene - 1)
+                    : null,
+                icon: Icon(Icons.arrow_back_ios, size: 32),
+                style: IconButton.styleFrom(
+                  backgroundColor: Colors.deepOrange.shade100,
+                  shape: CircleBorder(),
+                ),
+              ),
+              Text(
+                '${currentScene + 1}/${scenes.length}',
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepOrange,
+                ),
+              ),
+              IconButton(
+                onPressed: currentScene < scenes.length - 1
+                    ? () => onSceneChanged(currentScene + 1)
+                    : null,
+                icon: Icon(Icons.arrow_forward_ios, size: 32),
+                style: IconButton.styleFrom(
+                  backgroundColor: Colors.deepOrange.shade100,
+                  shape: CircleBorder(),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}import 'package:flutter/material.dart';
+import 'package:confetti/confetti.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class QuizScreen extends StatefulWidget {
+  final Map<String, dynamic> quiz;
+
+  const QuizScreen({Key? key, required this.quiz}) : super(key: key);
+
+  @override
+  _QuizScreenState createState() => _QuizScreenState();
 }
-header{
-    background:#22c55e;
-    padding:30px;
-    font-size:2.2rem;
-    font-weight:bold;
-    color:white;
-}
-button{
-    margin:10px;
-    padding:12px 25px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    background:#3b82f6;
-    color:white;
-    transition:0.3s;
-}
-button:hover{
-    transform:scale(1.1);
-}
-</style>
-</head>
-<body>
 
-<header>Somya Interactive Wallpapers</header>
+class _QuizScreenState extends State<QuizScreen> {
+  int selectedAnswer = -1;
+  bool showResult = false;
+  late ConfettiController _controllerCenter;
 
-<h2>Click a button to change background wallpaper:</h2>
-<button onclick="setWallpaper(0)">Wallpaper 1</button>
-<button onclick="setWallpaper(1)">Wallpaper 2</button>
-<button onclick="setWallpaper(2)">Wallpaper 3</button>
-<button onclick="setWallpaper(3)">Wallpaper 4</button>
-<button onclick="setWallpaper(4)">Wallpaper 5</button>
+  @override
+  void initState() {
+    super.initState();
+    _controllerCenter = ConfettiController(duration: Duration(seconds: 3));
+  }
 
-<script>
-const wallpapers=[
-    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1517817743953-9b8e216b2a38?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=800&q=80'
-];
+  @override
+  void dispose() {
+    _controllerCenter.dispose();
+    super.dispose();
+  }
 
-function setWallpaper(index){
-    document.body.style.backgroundImage=`url(${wallpapers[index]})`;
-    document.body.style.backgroundSize='cover';
-    document.body.style.backgroundRepeat='no-repeat';
-}
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somya Wallpaper Gallery</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 30px;
-        background: #111827;
-        color: white;
-    }
-    h1 {
-        color: #22c55e;
-    }
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 30px;
-    }
-    .wallpaper {
-        width: 200px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-    .wallpaper:hover {
-        transform: scale(1.1);
-    }
-    #previewContainer {
-        margin-top: 40px;
-    }
-    #previewContainer img {
-        max-width: 90%;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    }
-    .download-btn {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #22c55e;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-</style>
-</head>
-<body>
-
-<h1>Somya Wallpaper Gallery</h1>
-<p>Click on any wallpaper to preview & download:</p>
-
-<div class="gallery" id="gallery"></div>
-
-<div id="previewContainer">
-    <img id="preview" src="" alt="" style="display:none;">
-    <br>
-    <a id="downloadLink" href="" download>
-        <button class="download-btn" style="display:none;">Download Wallpaper</button>
-    </a>
-</div>
-
-<script>
-const wallpapers = [
-    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1350&q=80",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80",
-    "https://images.unsplash.com/photo-1493244040629-496f6d136cc3?auto=format&fit=crop&w=1350&q=80",
-    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1350&q=80",
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80",
-    "https://images.unsplash.com/photo-1519817650390-64a93db511c3?auto=format&fit=crop&w=1350&q=80",
-    "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1350&q=80"
-];
-
-const gallery = document.getElementById("gallery");
-const preview = document.getElementById("preview");
-const downloadBtn = document.querySelector(".download-btn");
-const downloadLink = document.getElementById("downloadLink");
-
-// Create thumbnails
-wallpapers.forEach((url) => {
-    const img = document.createElement("img");
-    img.src = url;
-    img.className = "wallpaper";
-    img.onclick = () => {
-        preview.src = url;
-        preview.style.display = "block";
-        downloadBtn.style.display = "inline-block";
-        downloadLink.href = url;
-    }
-    gallery.appendChild(img);
-});
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somya Interactive Wallpapers</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 30px;
-        background: #111827;
-        color: white;
-    }
-    h1 {
-        color: #22c55e;
-    }
-    .button-container {
-        margin-top: 20px;
-    }
-    .btn {
-        padding: 10px 20px;
-        margin: 5px;
-        background: #22c55e;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        color: white;
-        transition: transform 0.2s;
-    }
-    .btn:hover {
-        transform: scale(1.1);
-    }
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 30px;
-    }
-    .wallpaper {
-        width: 200px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-    .wallpaper:hover {
-        transform: scale(1.1);
-    }
-    #previewContainer {
-        margin-top: 40px;
-    }
-    #previewContainer img {
-        max-width: 90%;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    }
-    .download-btn {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #22c55e;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-</style>
-</head>
-<body>
-
-<h1>Somya Interactive Wallpapers</h1>
-<p>Click a button to select wallpapers by theme:</p>
-
-<div class="button-container">
-    <button class="btn" onclick="loadTheme(1)">Wallpaper 1</button>
-    <button class="btn" onclick="loadTheme(2)">Wallpaper 2</button>
-    <button class="btn" onclick="loadTheme(3)">Wallpaper 3</button>
-    <button class="btn" onclick="loadTheme(4)">Wallpaper 4</button>
-    <button class="btn" onclick="loadTheme(5)">Wallpaper 5</button>
-</div>
-
-<h2>Gallery</h2>
-<p>Click on any wallpaper to preview & download:</p>
-<div class="gallery" id="gallery"></div>
-
-<div id="previewContainer">
-    <img id="preview" src="" alt="" style="display:none;">
-    <br>
-    <a id="downloadLink" href="" download>
-        <button class="download-btn" style="display:none;">Download Wallpaper</button>
-    </a>
-</div>
-
-<script>
-const themes = {
-    1: [
-        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80"
-    ],
-    2: [
-        "https://images.unsplash.com/photo-1493244040629-496f6d136cc3?auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1350&q=80"
-    ],
-    3: [
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1519817650390-64a93db511c3?auto=format&fit=crop&w=1350&q=80"
-    ],
-    4: [
-        "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1350&q=80"
-    ],
-    5: [
-        "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1350&q=80"
-    ]
-};
-
-const gallery = document.getElementById("gallery");
-const preview = document.getElementById("preview");
-const downloadBtn = document.querySelector(".download-btn");
-const downloadLink = document.getElementById("downloadLink");
-
-function loadTheme(themeNumber){
-    gallery.innerHTML = ""; // clear previous images
-    themes[themeNumber].forEach((url)=>{
-        const img = document.createElement("img");
-        img.src = url;
-        img.className = "wallpaper";
-        img.onclick = () => {
-            preview.src = url;
-            preview.style.display = "block";
-            downloadBtn.style.display = "inline-block";
-            downloadLink.href = url;
-        }
-        gallery.appendChild(img);
+  void checkAnswer(int index) {
+    setState(() {
+      selectedAnswer = index;
+      showResult = true;
     });
-}
-</script>
-
-</body>
-    </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Somya Interactive Wallpapers - Search</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #111827;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-h1 {
-  color: #22c55e;
-}
-input[type="text"] {
-  width: 300px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  font-size: 16px;
-}
-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  border-radius: 5px;
-  border: none;
-  background: #22c55e;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-}
-img {
-  width: 200px;
-  margin: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-img:hover {
-  transform: scale(1.05);
-}
-#gallery {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-</style>
-</head>
-<body>
-
-<h1>Somya Interactive Wallpapers</h1>
-
-<input type="text" id="searchInput" placeholder="Search wallpapers...">
-<button onclick="searchImages()">Search</button>
-
-<div id="gallery"></div>
-
-<script>
-async function searchImages() {
-    const query = document.getElementById('searchInput').value;
-    const gallery = document.getElementById('gallery');
-    gallery.innerHTML = "Loading...";
-
-    if(!query) return alert("Please type something to search!");
-
-    // Unsplash API URL
-    const url = `https://api.unsplash.com/search/photos?query=${query}&per_page=12&client_id=YOUR_UNSPLASH_API_KEY`;
-
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        gallery.innerHTML = "";
-
-        if(data.results.length === 0) {
-            gallery.innerHTML = "No images found!";
-            return;
-        }
-
-        data.results.forEach(img => {
-            const imageElem = document.createElement("img");
-            imageElem.src = img.urls.small;
-            imageElem.alt = img.alt_description;
-            imageElem.title = "Click to open full image";
-            imageElem.onclick = () => window.open(img.links.html, "_blank"); // open full image
-            gallery.appendChild(imageElem);
-        });
-
-    } catch (err) {
-        console.error(err);
-        gallery.innerHTML = "Error fetching images!";
+    if (index == widget.quiz['answer']) {
+      _controllerCenter.play();
     }
-}
-</script>
+  }
 
-</body>
-</html>
+  @override
+  Widget build(BuildContext context) {
+    final options = List<String>.from(widget.quiz['options']);
+    final correctAnswer = widget.quiz['answer'];
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Quiz Time!', style: GoogleFonts.poppins()),
+        backgroundColor: Colors.green,
+      ),
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              // Question
+              Container(
+                padding: EdgeInsets.all(24),
+                child: Text(
+                  widget.quiz['question'],
+                  style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              
+              // Options
+              Expanded(
+                child: ListView.builder(
+                  padding: EdgeInsets.all(16),
+                  itemCount: options.length,
+                  itemBuilder: (context, index) {
+                    final isCorrect = index == correctAnswer;
+                    final isSelected = selectedAnswer == index;
+                    
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: 12),
+                      child: GestureDetector(
+                        onTap: showResult ? null : () => checkAnswer(index),
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? (isCorrect ? Colors.green.shade100 : Colors.red.shade100)
+                                : Colors.grey.shade100,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: isSelected
+                                  ? (isCorrect ? Colors.green : Colors.red)
+                                  : Colors.grey.shade300,
+                              width: 2,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: isSelected
+                                      ? (isCorrect ? Colors.green : Colors.red)
+                                      : Colors.deepOrange,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Text(
+                                  '${index + 1}',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 16),
+                              Expanded(
+                                child: Text(
+                                  options[index],
+                                  style: GoogleFonts.poppins(fontSize: 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+          
+          // Confetti
+          Align(
+            alignment: Alignment.topCenter,
+            child: ConfettiWidget(
+              confettiController: _controllerCenter,
+              blastDirection: 0.5,
+              emissionFrequency: 0.05,
+              numberOfParticles: 50,
+              gravity: 0.1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/story_provider.dart';
+import '../widgets/story_card.dart';
+
+class FavoritesScreen extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('मेरी पसंदीदा कहानियाँ'),
+        backgroundColor: Colors.deepOrange,
+      ),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.favorite, size: 100, color: Colors.grey),
+              SizedBox(height: 20),
+              Text(
+                'कोई पसंदीदा कहानी नहीं',
+                style: TextStyle(fontSize: 18, color: Colors.grey),
+              ),
+              Text(
+                'कहानियों को bookmark करें',
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}// story_model.dart के अंत में ये add करें
+class StoryModelAdapter extends TypeAdapter<StoryModel> {
+  @override
+  final int typeId = 0;
+
+  @override
+  StoryModel read(BinaryReader reader) {
+    // Implementation
+    return StoryModel(id: '', title: '', description: '', category: '', 
+                     scenes: [], narrationAudio: '', heroImage: '', quiz: {});
+  }
+
+  @override
+  void write(BinaryWriter writer, StoryModel obj) {
+    // Implementation
+  }
+}1. flutter pub get
+2. flutter clean  
+3. flutter run
+    assets/images/
+├── ram.png
+├── shivaji.png  
+├── pratap.png
+
+assets/audio/
+├── ramayana_hindi.mp3
+├── shivaji_hindi.mp3
+├── pratap_hindi.mp3
+
+assets/animations/
+├── welcome.json
+├── ram1.json
+├── ram2.json
+└── shivaji1.json
