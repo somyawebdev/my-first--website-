@@ -3,78 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Learning App</title>
+    <title>Kids Super App</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f0f9ff; text-align: center; margin: 0; padding: 20px; }
-        .header { background: #0284c7; color: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; max-width: 800px; margin: 0 auto; }
-        .card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; border: 2px solid #e0e0e0; }
-        .card:hover { transform: scale(1.05); background-color: #e0f2fe; }
-        .card b { font-size: 28px; display: block; color: #0369a1; }
-        .card span { font-size: 14px; color: #64748b; }
-        h2 { color: #0369a1; border-bottom: 2px solid #bae6fd; padding-bottom: 10px; margin-top: 40px; }
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #fdfcf0; text-align: center; margin: 0; padding: 10px; }
+        .header { background: linear-gradient(to right, #ff7e5f, #feb47b); color: white; padding: 15px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { background: #fff; display: inline-block; padding: 5px 20px; border-radius: 50px; color: #ff4757; border: 2px dashed #ff4757; margin-top: 30px; }
+        
+        /* कार्ड स्टाइल */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 12px; padding: 10px; }
+        .card { background: white; padding: 15px; border-radius: 18px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); cursor: pointer; transition: 0.2s; border-bottom: 5px solid #ddd; }
+        .card:active { transform: scale(0.9); border-bottom: 2px solid #ddd; }
+        .card b { font-size: 26px; display: block; color: #2f3542; }
+        .card span { font-size: 12px; color: #747d8c; font-weight: bold; }
+
+        /* वीडियो सेक्शन */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .video-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid #ffa502; }
+        .video-card img { width: 100%; height: 100px; object-fit: cover; }
+        .video-card p { padding: 8px; font-weight: bold; margin: 0; font-size: 14px; }
+
+        /* वीडियो विंडो (Modal) */
+        #videoPlayer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; flex-direction: column; }
+        iframe { width: 90%; height: 50%; border-radius: 15px; }
+        .close-btn { color: white; background: red; padding: 10px 20px; border: none; border-radius: 50px; margin-top: 20px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>Welcome to My Learning App 🌟</h1>
-        <p>यहाँ सीखें Warriors, ABC, 123 और बहुत कुछ!</p>
+        <h1>🌟 Kids Magic World 🌟</h1>
     </div>
 
-    <!-- 1. Warriors Section -->
-    <h2>🛡️ Great Warriors</h2>
-    <div class="grid" id="warriors-list">
-        <!-- यहाँ योद्धाओं के नाम और आवाज़ -->
-        <div class="card" onclick="speak('Maharana Pratap - The Brave King')">
-            <b>⚔️</b> <span>Maharana Pratap</span>
-        </div>
-        <div class="card" onclick="speak('Chhatrapati Shivaji Maharaj')">
-            <b>🚩</b> <span>Shivaji Maharaj</span>
-        </div>
+    <!-- 1. English Alphabet with Voice -->
+    <h2>🅰️ ABC (A for Apple)</h2>
+    <div class="grid" id="abc-grid"></div>
+
+    <!-- 2. Numbers 1 to 100 -->
+    <h2>🔢 Counting (1 to 100)</h2>
+    <div class="grid" id="num-grid"></div>
+
+    <!-- 3. Hindi Swar (अ-अः) -->
+    <h2>🍎 स्वर (अ से अः)</h2>
+    <div class="grid" id="swar-grid"></div>
+
+    <!-- 4. Hindi Vyanjan (क-ज्ञ) -->
+    <h2>🇮🇳 व्यंजन (क से ज्ञ)</h2>
+    <div class="grid" id="vyanjan-grid"></div>
+
+    <!-- 5. Video Stories (Warriors & Gods) -->
+    <h2>📺 Stories & Fun</h2>
+    <div class="video-grid">
+        <div class="video-card" onclick="playVid('Cbe5_fE4o7E')"> <img src="https://youtube.com"><p>महाराणा प्रताप</p> </div>
+        <div class="video-card" onclick="playVid('S_vH9D0v40A')"> <img src="https://youtube.com"><p>शिवाजी महाराज</p> </div>
+        <div class="video-card" onclick="playVid('z9B5BvI6R0s')"> <img src="https://youtube.com"><p>गणेश जी</p> </div>
+        <div class="video-card" onclick="playVid('u8k22X8t-38')"> <img src="https://youtube.com"><p>महादेव</p> </div>
+        <div class="video-card" onclick="playVid('3Rk9G9kK7kE')"> <img src="https://youtube.com"><p>रामायण</p> </div>
+        <div class="video-card" onclick="playVid('v_vP9T5Y2jU')"> <img src="https://youtube.com"><p>महाभारत</p> </div>
+        <div class="video-card" onclick="playVid('yUj_7E-fM9k')"> <img src="https://youtube.com"><p>प्यारी लोरियां</p> </div>
     </div>
 
-    <!-- 2. English Alphabets with Voice -->
-    <h2>🍎 English ABC (A-Z)</h2>
-    <div class="grid" id="abc-list"></div>
-
-    <!-- 3. Numbers 1-2-3 -->
-    <h2>🔢 Numbers (1-10)</h2>
-    <div class="grid" id="numbers-list"></div>
-
-    <!-- 4. Hindi Varnamala -->
-    <h2>🇮🇳 हिंदी वर्णमाला (क-ख-ग)</h2>
-    <div class="grid" id="hindi-list"></div>
+    <!-- Video Modal -->
+    <div id="videoPlayer">
+        <iframe id="vidFrame" src="" frameborder="0" allowfullscreen></iframe>
+        <button class="close-btn" onclick="closeVid()">CLOSE [X]</button>
+    </div>
 
     <script>
-        // आवाज़ वाला फंक्शन
-        function speak(text, lang = 'en-US') {
-            const speech = new SpeechSynthesisUtterance(text);
-            speech.lang = lang;
-            speech.rate = 0.9;
-            window.speechSynthesis.speak(speech);
+        function speak(t, l='en-US') {
+            const s = new SpeechSynthesisUtterance(t);
+            s.lang = l; window.speechSynthesis.speak(s);
         }
 
-        // ABC List Generate करना
-        const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-        const abcDiv = document.getElementById('abc-list');
-        abc.forEach(l => {
-            abcDiv.innerHTML += `<div class="card" onclick="speak('${l}')"><b>${l}</b></div>`;
+        // ABC Setup
+        const abcData = [{a:'A',w:'Apple'},{a:'B',w:'Ball'},{a:'C',w:'Cat'},{a:'D',w:'Dog'},{a:'E',w:'Elephant'},{a:'F',w:'Fish'},{a:'G',w:'Grapes'},{a:'H',w:'Horse'},{a:'I',w:'Ice Cream'},{a:'J',w:'Jug'},{a:'K',w:'Kite'},{a:'L',w:'Lion'},{a:'M',w:'Monkey'},{a:'N',w:'Nest'},{a:'O',w:'Orange'},{a:'P',w:'Peacock'},{a:'Q',w:'Queen'},{a:'R',w:'Rabbit'},{a:'S',w:'Sun'},{a:'T',w:'Tiger'},{a:'U',w:'Umbrella'},{a:'V',w:'Van'},{a:'W',w:'Watch'},{a:'X',w:'Xylophone'},{a:'Y',w:'Yak'},{a:'Z',w:'Zebra'}];
+        abcData.forEach(i => {
+            document.getElementById('abc-grid').innerHTML += `<div class="card" onclick="speak('${i.a} for ${i.w}')"><b>${i.a}</b><span>${i.w}</span></div>`;
         });
 
-        // Numbers List
-        const numDiv = document.getElementById('numbers-list');
-        for(let i=1; i<=10; i++) {
-            numDiv.innerHTML += `<div class="card" onclick="speak('${i}')"><b>${i}</b></div>`;
+        // 1-100 Numbers
+        for(let i=1; i<=100; i++) {
+            document.getElementById('num-grid').innerHTML += `<div class="card" onclick="speak('${i}')"><b>${i}</b></div>`;
         }
 
-        // Hindi List
-        const hindi = ["क", "ख", "ग", "घ", "अ", "आ", "इ", "ई"];
-        const hindiDiv = document.getElementById('hindi-list');
-        hindi.forEach(h => {
-            hindiDiv.innerHTML += `<div class="card" onclick="speak('${h}', 'hi-IN')"><b>${h}</b></div>`;
-        });
+        // Hindi Swar & Vyanjan
+        const swars = ["अ","आ","इ","ई","उ","ऊ","ऋ","ए","ऐ","ओ","औ","अं","अः"];
+        swars.forEach(s => { document.getElementById('swar-grid').innerHTML += `<div class="card" onclick="speak('${s}', 'hi-IN')"><b>${s}</b></div>`; });
+
+        const vyanjans = ["क","ख","ग","घ","ङ","च","छ","ज","झ","ञ","ट","ठ","ड","ढ","ण","त","थ","द","ध","न","प","फ","ब","भ","म","य","र","ल","व","श","ष","स","ह","क्ष","त्र","ज्ञ"];
+        vyanjans.forEach(v => { document.getElementById('vyanjan-grid').innerHTML += `<div class="card" onclick="speak('${v}', 'hi-IN')"><b>${v}</b></div>`; });
+
+        // Video Player Functions
+        function playVid(id) {
+            document.getElementById('vidFrame').src = "https://youtube.com" + id + "?autoplay=1";
+            document.getElementById('videoPlayer').style.display = "flex";
+        }
+        function closeVid() {
+            document.getElementById('videoPlayer').style.display = "none";
+            document.getElementById('vidFrame').src = "";
+        }
     </script>
-
 </body>
 </html>
