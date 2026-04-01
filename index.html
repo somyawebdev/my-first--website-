@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<title>somya Kids knowledge</title>
+<title>Soumya Kids 🌟</title> <!-- 1. यहाँ नाम बदला गया है (Browser Tab के लिए) -->
 <style>
     body { font-family: 'Segoe UI', Arial; margin: 0; background: #f0f8ff; scroll-behavior: smooth; }
     header { background: linear-gradient(45deg, #ff7b00, #ffcc00); color: white; text-align: center; padding: 30px; }
@@ -22,7 +22,7 @@
 <body>
 
 <header>
-    <h1>Mega Kids Learning World 🌍🚩</h1>
+    <h1>Soumya Kids 🌍🚩</h1> <!-- 2. यहाँ मुख्य नाम बदला गया है -->
     <p>सब कुछ एक जगह: ABC, गिनती, हिंदी, रंग, जानवर और महान ग्रंथ</p>
 </header>
 
@@ -35,44 +35,19 @@
     <a href="#history">कहानियाँ & गीता</a>
 </nav>
 
-<!-- 1. ABC Section -->
-<section id="abc">
-    <h2>Learn ABC 🔤</h2>
-    <div class="container" id="abcContainer"></div>
-</section>
+<!-- Sections (ABC, Numbers, Hindi, etc. same as before) -->
+<section id="abc"><h2>Learn ABC 🔤</h2><div class="container" id="abcContainer"></div></section>
+<section id="numbers"><h2>Learn Counting 1-100 🔢</h2><div class="container" id="numberContainer"></div></section>
+<section id="hindi"><h2>हिंदी वर्णमाला (क से ज्ञ) 🇮🇳</h2><div class="container" id="hindiContainer"></div></section>
+<section id="colors"><h2>रंगों के नाम (Color Names) 🎨</h2><div class="container" id="colorContainer"></div></section>
+<section id="animals"><h2>जानवरों के नाम (Animals) 🦁</h2><div class="container" id="animalContainer"></div></section>
 
-<!-- 2. Numbers Section -->
-<section id="numbers">
-    <h2>Learn Counting 1-100 🔢</h2>
-    <div class="container" id="numberContainer"></div>
-</section>
-
-<!-- 3. Hindi Section -->
-<section id="hindi">
-    <h2>हिंदी वर्णमाला (क से ज्ञ) 🇮🇳</h2>
-    <div class="container" id="hindiContainer"></div>
-</section>
-
-<!-- 4. Colors Section -->
-<section id="colors">
-    <h2>रंगों के नाम (Color Names) 🎨</h2>
-    <div class="container" id="colorContainer"></div>
-</section>
-
-<!-- 5. Animals Section -->
-<section id="animals">
-    <h2>जानवरों के नाम (Animals) 🦁</h2>
-    <div class="container" id="animalContainer"></div>
-</section>
-
-<!-- 6. History & Scriptures Section -->
 <section id="history">
     <h2>वीर इतिहास और दिव्य ग्रंथ 🚩📜</h2>
     <div class="container">
-        <!-- Bhagavad Gita Added -->
         <div class="card story-card" onclick="readStory('Gita')">
             <h3>🕉️ श्रीमद्भगवद्गीता</h3>
-            <p>भगवान श्री कृष्ण द्वारा अर्जुन को दिया गया दिव्य ज्ञान। सुनने के लिए क्लिक करें।</p>
+            <p>भगवान श्री कृष्ण द्वारा अर्जुन को दिया गया दिव्य ज्ञान।</p>
         </div>
         <div class="card story-card" onclick="readStory('Ramayana')">
             <h3>🚩 रामायण</h3>
@@ -80,12 +55,14 @@
         </div>
         <div class="card story-card" onclick="readStory('Pratap')">
             <h3>⚔️ महाराणा प्रताप</h3>
-            <p>मेवाड़ के वीर योद्धा और उनके प्रिय अश्व चेतक की गाथा।</p>
+            <p>मेवाड़ के वीर योद्धा की गाथा।</p>
         </div>
     </div>
 </section>
 
-<footer><p>© 2026 Kids Learning World | शिक्षा और संस्कार</p></footer>
+<footer>
+    <p>© 2026 Soumya Kids | शिक्षा और संस्कार</p> <!-- 3. यहाँ Footer में नाम बदला गया है -->
+</footer>
 
 <script>
 // --- Voice Functions ---
@@ -104,7 +81,7 @@ function speakHindi(text) {
     window.speechSynthesis.speak(speech);
 }
 
-// --- 1. ABC ---
+// --- Data Generation (ABC, Numbers, Hindi, Colors, Animals) ---
 const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const words=["Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"];
 let abcContainer=document.getElementById("abcContainer");
@@ -116,7 +93,6 @@ for(let i=0;i<letters.length;i++){
     abcContainer.appendChild(card);
 }
 
-// --- 2. Numbers ---
 let numberContainer=document.getElementById("numberContainer");
 for(let i=1;i<=100;i++){
     let card=document.createElement("div");
@@ -127,16 +103,7 @@ for(let i=1;i<=100;i++){
     numberContainer.appendChild(card);
 }
 
-// --- 3. Hindi ---
-const hindiData = [
-    {a: 'क', w: 'कबूतर'}, {a: 'ख', w: 'खरगोश'}, {a: 'ग', w: 'गमला'}, {a: 'घ', w: 'घर'}, {a: 'ङ', w: 'खाली'},
-    {a: 'च', w: 'चम्मच'}, {a: 'छ', w: 'छतरी'}, {a: 'ज', w: 'जहाज'}, {a: 'झ', w: 'झंडा'}, {a: 'ञ', w: 'खाली'},
-    {a: 'ट', w: 'टमाटर'}, {a: 'ठ', w: 'ठठेरा'}, {a: 'ड', w: 'डमरू'}, {a: 'ढ', w: 'ढोलक'}, {a: 'ण', w: 'खाली'},
-    {a: 'त', w: 'तरबूज'}, {a: 'थ', w: 'थर्मस'}, {a: 'द', w: 'दवात'}, {a: 'ध', w: 'धनुष'}, {a: 'न', w: 'नल'},
-    {a: 'प', w: 'पतंग'}, {a: 'फ', w: 'फल'}, {a: 'ब', w: 'बकरी'}, {a: 'भ', w: 'भालू'}, {a: 'म', w: 'मछली'},
-    {a: 'य', w: 'यज्ञ'}, {a: 'र', w: 'रस्सी'}, {a: 'ल', w: 'लट्टू'}, {a: 'व', w: 'वन'}, {a: 'श', w: 'शेर'},
-    {a: 'ष', w: 'षट्कोण'}, {a: 'स', w: 'सपेरा'}, {a: 'ह', w: 'हाथी'}, {a: 'क्ष', w: 'क्षत्रिय'}, {a: 'त्र', w: 'त्रिशूल'}, {a: 'ज्ञ', w: 'ज्ञानी'}
-];
+const hindiData = [{a:'क',w:'कबूतर'},{a:'ख',w:'खरगोश'},{a:'ग',w:'गमला'},{a:'घ',w:'घर'},{a:'ङ',w:'खाली'},{a:'च',w:'चम्मच'},{a:'छ',w:'छतरी'},{a:'ज',w:'जहाज'},{a:'झ',w:'झंडा'},{a:'ञ',w:'खाली'},{a:'ट',w:'टमाटर'},{a:'ठ',w:'ठठेरा'},{a:'ड',w:'डमरू'},{a:'ढ',w:'ढोलक'},{a:'ण',w:'खाली'},{a:'त',w:'तरबूज'},{a:'थ',w:'थर्मस'},{a:'द',w:'दवात'},{a:'ध',w:'धनुष'},{a:'न',w:'नल'},{a:'प',w:'पतंग'},{a:'फ',w:'फल'},{a:'ब',w:'बकरी'},{a:'भ',w:'भालू'},{a:'म',w:'मछली'},{a:'य',w:'यज्ञ'},{a:'र',w:'रस्सी'},{a:'ल',w:'लट्टू'},{a:'व',w:'वन'},{a:'श',w:'शेर'},{a:'ष',w:'षट्कोण'},{a:'स',w:'सपेरा'},{a:'ह',w:'हाथी'},{a:'क्ष',w:'क्षत्रिय'},{a:'त्र',w:'त्रिशूल'},{a:'ज्ञ',w:'ज्ञानी'}];
 let hindiContainer = document.getElementById("hindiContainer");
 hindiData.forEach(item => {
     let card = document.createElement("div");
@@ -146,12 +113,7 @@ hindiData.forEach(item => {
     hindiContainer.appendChild(card);
 });
 
-// --- 4. Colors ---
-const colorData = [
-    {n: 'लाल', e: 'Red', c: 'red'}, {n: 'नीला', e: 'Blue', c: 'blue'}, {n: 'हरा', e: 'Green', c: 'green'},
-    {n: 'पीला', e: 'Yellow', c: 'yellow'}, {n: 'सफ़ेद', e: 'White', c: 'white'}, {n: 'काला', e: 'Black', c: 'black'},
-    {n: 'गुलाबी', e: 'Pink', c: 'pink'}, {n: 'नारंगी', e: 'Orange', c: 'orange'}
-];
+const colorData = [{n:'लाल',e:'Red',c:'red'},{n:'नीला',e:'Blue',c:'blue'},{n:'हरा',e:'Green',c:'green'},{n:'पीला',e:'Yellow',c:'yellow'},{n:'सफ़ेद',e:'White',c:'white'},{n:'काला',e:'Black',c:'black'},{n:'गुलाबी',e:'Pink',c:'pink'},{n:'नारंगी',e:'Orange',c:'orange'}];
 let colorContainer = document.getElementById("colorContainer");
 colorData.forEach(color => {
     let card = document.createElement("div");
@@ -161,12 +123,7 @@ colorData.forEach(color => {
     colorContainer.appendChild(card);
 });
 
-// --- 5. Animals ---
-const animalData = [
-    {n: 'शेर', e: 'Lion', i: '🦁'}, {n: 'हाथी', e: 'Elephant', i: '🐘'}, {n: 'बाघ', e: 'Tiger', i: '🐅'},
-    {n: 'गाय', e: 'Cow', i: '🐄'}, {n: 'कुत्ता', e: 'Dog', i: '🐕'}, {n: 'बिल्ली', e: 'Cat', i: '🐈'},
-    {n: 'बंदर', e: 'Monkey', i: '🐒'}, {n: 'खरगोश', e: 'Rabbit', i: '🐇'}
-];
+const animalData = [{n:'शेर',e:'Lion',i:'🦁'},{n:'हाथी',e:'Elephant',i:'🐘'},{n:'बाघ',e:'Tiger',i:'🐅'},{n:'गाय',e:'Cow',i:'🐄'},{n:'कुत्ता',e:'Dog',i:'🐕'},{n:'बिल्ली',e:'Cat',i:'🐈'},{n:'बंदर',e:'Monkey',i:'🐒'},{n:'खरगोश',e:'Rabbit',i:'🐇'}];
 let animalContainer = document.getElementById("animalContainer");
 animalData.forEach(animal => {
     let card = document.createElement("div");
@@ -176,11 +133,10 @@ animalData.forEach(animal => {
     animalContainer.appendChild(card);
 });
 
-// --- 6. Story/History Data ---
 const stories = {
-    'Gita': 'श्रीमद्भगवद्गीता में भगवान श्री कृष्ण ने अर्जुन को धर्म और कर्म का महान ज्ञान दिया। यह हमें सिखाती है कि फल की चिंता किए बिना अपना कर्तव्य निभाना चाहिए। गीता का ज्ञान दुनिया का सबसे पवित्र और सर्वोच्च ज्ञान है।',
+    'Gita': 'श्रीमद्भगवद्गीता में भगवान श्री कृष्ण ने अर्जुन को धर्म और कर्म का महान ज्ञान दिया। यह हमें सिखाती है कि फल की चिंता किए बिना अपना कर्तव्य निभाना चाहिए।',
     'Ramayana': 'रामायण भगवान श्री राम की पावन कहानी है। राम जी ने धर्म की मर्यादा को निभाया और रावण का वध कर बुराई पर अच्छाई की जीत हासिल की।',
-    'Pratap': 'महाराणा प्रताप मेवाड़ के वीर राजपूत राजा थे। उन्होंने मातृभूमि की रक्षा के लिए अकबर से लोहा लिया और कभी हार नहीं मानी। उनके वीर अश्व चेतक की वीरता भी अमर है।'
+    'Pratap': 'महाराणा प्रताप मेवाड़ के वीर राजपूत राजा थे। उन्होंने मातृभूमि की रक्षा के लिए अकबर से लोहा लिया और कभी हार नहीं मानी।'
 };
 function readStory(key) { speakHindi(stories[key]); }
 
