@@ -4,89 +4,20 @@
 <title>Kids Learning World</title>
 
 <style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f0f8ff;
-}
-
-header{
-background:linear-gradient(45deg,#ff7b00,#ffcc00);
-color:white;
-text-align:center;
-padding:40px;
-}
-
-nav{
-background:#333;
-padding:15px;
-text-align:center;
-}
-
-nav a{
-color:white;
-margin:15px;
-text-decoration:none;
-font-size:18px;
-}
-
-nav a:hover{
-color:yellow;
-}
-
-.banner{
-text-align:center;
-padding:60px;
-background:#fff3cd;
-}
-
-.container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-padding:20px;
-}
-
-.card{
-background:white;
-width:220px;
-margin:15px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-text-align:center;
-}
-
-.card img{
-width:120px;
-}
-
-section{
-padding:40px;
-text-align:center;
-}
-
-footer{
-background:#333;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-button{
-background:#ff7b00;
-border:none;
-padding:10px 20px;
-color:white;
-border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-background:#ff5500;
-}
-
+body{ font-family:Arial; margin:0; background:#f0f8ff; }
+header{ background:linear-gradient(45deg,#ff7b00,#ffcc00); color:white; text-align:center; padding:40px; }
+nav{ background:#333; padding:15px; text-align:center; position: sticky; top: 0; z-index: 1000; }
+nav a{ color:white; margin:15px; text-decoration:none; font-size:18px; }
+nav a:hover{ color:yellow; }
+.banner{ text-align:center; padding:60px; background:#fff3cd; }
+.container{ display:flex; flex-wrap:wrap; justify-content:center; padding:20px; }
+.card{ background:white; width:220px; margin:15px; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center; cursor: pointer; transition: 0.3s; }
+.card:hover { transform: scale(1.05); background: #fffdf0; }
+.card img{ width:120px; border-radius: 10px; }
+section{ padding:40px; text-align:center; }
+footer{ background:#333; color:white; text-align:center; padding:20px; }
+button{ background:#ff7b00; border:none; padding:10px 20px; color:white; border-radius:5px; cursor:pointer; font-size: 16px; }
+button:hover{ background:#ff5500; }
 </style>
 </head>
 
@@ -110,74 +41,63 @@ background:#ff5500;
 </div>
 
 <section id="abc">
-
 <h2>Learn ABC 🔤</h2>
-
 <div class="container" id="abcContainer"></div>
-
 </section>
 
 <section id="numbers">
-
 <h2>Learn Counting 1-100 🔢</h2>
-
+<p>(नंबर पर क्लिक करें सुनने के लिए)</p>
 <div class="container" id="numberContainer"></div>
-
 </section>
 
 <section id="hindi">
-
 <h2>Hindi Alphabet 🇮🇳</h2>
-
+<p>(अक्षर पर क्लिक करें सुनने के लिए)</p>
 <div class="container">
-
-<div class="card"><h3>क – कबूतर</h3></div>
-<div class="card"><h3>ख – खरगोश</h3></div>
-<div class="card"><h3>ग – गमला</h3></div>
-<div class="card"><h3>घ – घर</h3></div>
-<div class="card"><h3>ङ – अंगूर</h3></div>
-<div class="card"><h3>च – चम्मच</h3></div>
-<div class="card"><h3>छ – छतरी</h3></div>
-<div class="card"><h3>ज – जहाज</h3></div>
-<div class="card"><h3>झ – झंडा</h3></div>
-<div class="card"><h3>ञ – ज्ञान</h3></div>
-<div class="card"><h3>ट – टमाटर</h3></div>
-<div class="card"><h3>ठ – ठेला</h3></div>
-<div class="card"><h3>ड – डमरू</h3></div>
-<div class="card"><h3>ढ – ढोल</h3></div>
-<div class="card"><h3>ण – बाण</h3></div>
-<div class="card"><h3>त – तरबूज</h3></div>
-<div class="card"><h3>थ – थाली</h3></div>
-<div class="card"><h3>द – दरवाज़ा</h3></div>
-<div class="card"><h3>ध – धनुष</h3></div>
-<div class="card"><h3>न – नल</h3></div>
-<div class="card"><h3>प – पतंग</h3></div>
-<div class="card"><h3>फ – फल</h3></div>
-<div class="card"><h3>ब – बकरी</h3></div>
-<div class="card"><h3>भ – भालू</h3></div>
-<div class="card"><h3>म – मछली</h3></div>
-<div class="card"><h3>य – यज्ञ</h3></div>
-<div class="card"><h3>र – रस्सी</h3></div>
-<div class="card"><h3>ल – लड्डू</h3></div>
-<div class="card"><h3>व – वन</h3></div>
-<div class="card"><h3>श – शेर</h3></div>
-<div class="card"><h3>ष – षट्कोण</h3></div>
-<div class="card"><h3>स – साँप</h3></div>
-<div class="card"><h3>ह – हाथी</h3></div>
-<div class="card"><h3>क्ष – क्षत्रिय</h3></div>
-<div class="card"><h3>त्र – त्रिशूल</h3></div>
-<div class="card"><h3>ज्ञ – ज्ञान</h3></div>
-
+<!-- हिंदी अक्षरों में Voice फंक्शन जोड़ दिया गया है -->
+<div class="card" onclick="speakHindi('क से कबूतर')"><h3>क – कबूतर</h3></div>
+<div class="card" onclick="speakHindi('ख से खरगोश')"><h3>ख – खरगोश</h3></div>
+<div class="card" onclick="speakHindi('ग से गमला')"><h3>ग से गमला</h3></div>
+<div class="card" onclick="speakHindi('घ से घर')"><h3>घ से घर</h3></div>
+<div class="card" onclick="speakHindi('अंगा खाली')"><h3>ङ – खाली</h3></div>
+<div class="card" onclick="speakHindi('च से चम्मच')"><h3>च – चम्मच</h3></div>
+<div class="card" onclick="speakHindi('छ से छतरी')"><h3>छ – छतरी</h3></div>
+<div class="card" onclick="speakHindi('ज से जहाज')"><h3>ज – जहाज</h3></div>
+<div class="card" onclick="speakHindi('झ से झंडा')"><h3>झ – झंडा</h3></div>
+<div class="card" onclick="speakHindi('इयां खाली')"><h3>ञ – खाली</h3></div>
+<div class="card" onclick="speakHindi('ट से टमाटर')"><h3>ट – टमाटर</h3></div>
+<div class="card" onclick="speakHindi('ठ से ठठेरा')"><h3>ठ – ठठेरा</h3></div>
+<div class="card" onclick="speakHindi('ड से डमरू')"><h3>ड – डमरू</h3></div>
+<div class="card" onclick="speakHindi('ढ से ढोलक')"><h3>ढ – ढोल</h3></div>
+<div class="card" onclick="speakHindi('णा खाली')"><h3>ण – खाली</h3></div>
+<div class="card" onclick="speakHindi('त से तरबूज')"><h3>त – तरबूज</h3></div>
+<div class="card" onclick="speakHindi('थ से थर्मामीटर या थाली')"><h3>थ – थाली</h3></div>
+<div class="card" onclick="speakHindi('द से दवात या दरवाजा')"><h3>द – दरवाज़ा</h3></div>
+<div class="card" onclick="speakHindi('ध से धनुष')"><h3>ध – धनुष</h3></div>
+<div class="card" onclick="speakHindi('न से नल')"><h3>न – नल</h3></div>
+<div class="card" onclick="speakHindi('प से पतंग')"><h3>प – पतंग</h3></div>
+<div class="card" onclick="speakHindi('फ से फल')"><h3>फ – फल</h3></div>
+<div class="card" onclick="speakHindi('ब से बकरी')"><h3>ब – बकरी</h3></div>
+<div class="card" onclick="speakHindi('भ से भालू')"><h3>भ – भालू</h3></div>
+<div class="card" onclick="speakHindi('म से मछली')"><h3>म – मछली</h3></div>
+<div class="card" onclick="speakHindi('य से यज्ञ')"><h3>य – यज्ञ</h3></div>
+<div class="card" onclick="speakHindi('र से रस्सी')"><h3>र – रस्सी</h3></div>
+<div class="card" onclick="speakHindi('ल से लट्टू')"><h3>ल – लड्डू</h3></div>
+<div class="card" onclick="speakHindi('व से वन')"><h3>व – वन</h3></div>
+<div class="card" onclick="speakHindi('श से शलगम या शेर')"><h3>श – शेर</h3></div>
+<div class="card" onclick="speakHindi('ष से षट्कोण')"><h3>ष – षट्कोण</h3></div>
+<div class="card" onclick="speakHindi('स से सपेरा या साँप')"><h3>स – साँप</h3></div>
+<div class="card" onclick="speakHindi('ह से हाथी')"><h3>ह – हाथी</h3></div>
+<div class="card" onclick="speakHindi('क्ष से क्षत्रिय')"><h3>क्ष – क्षत्रिय</h3></div>
+<div class="card" onclick="speakHindi('त्र से त्रिशूल')"><h3>त्र – त्रिशूल</h3></div>
+<div class="card" onclick="speakHindi('ज्ञ से ज्ञानी')"><h3>ज्ञ – ज्ञानी</h3></div>
 </div>
-
 </section>
 
 <section id="game">
-
 <h2>🎮 Guess the Number Game</h2>
-
 <button onclick="playGame()">Play Game</button>
-
 </section>
 
 <footer>
@@ -185,182 +105,60 @@ background:#ff5500;
 </footer>
 
 <script>
-
 const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-const words=[
-"Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"
-]
+const words=["Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"]
 
 let abcContainer=document.getElementById("abcContainer")
-
 for(let i=0;i<letters.length;i++){
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`
-<h3>${letters[i]} for ${words[i]}</h3>
-<img src="https://source.unsplash.com/120x120/?${words[i]}">
-<br><br>
-<button onclick="speak('${letters[i]} for ${words[i]}')">Hear</button>
-`
-
-abcContainer.appendChild(card)
-
+    let card=document.createElement("div")
+    card.className="card"
+    card.onclick = () => speak(`${letters[i]} for ${words[i]}`); // पूरे कार्ड पर क्लिक से आवाज आएगी
+    card.innerHTML=`
+    <h3>${letters[i]} for ${words[i]}</h3>
+    <img src="https://dicebear.com{words[i]}"> <!-- Fixed Image Source -->
+    <br><br>
+    <button>Hear</button>
+    `
+    abcContainer.appendChild(card)
 }
 
 let numberContainer=document.getElementById("numberContainer")
-
 for(let i=1;i<=100;i++){
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`<h3>${i}</h3>`
-
-numberContainer.appendChild(card)
-
+    let card=document.createElement("div")
+    card.className="card"
+    card.style.width = "80px"; // गिनती के लिए छोटे बॉक्स
+    card.onclick = () => speak(i); // नंबर पर क्लिक करने पर आवाज
+    card.innerHTML=`<h3>${i}</h3>`
+    numberContainer.appendChild(card)
 }
 
 function playGame(){
-
-let number=Math.floor(Math.random()*5)+1
-
-let guess=prompt("Guess number between 1-5")
-
-if(guess==number){
-
-alert("🎉 Correct!")
-
-}else{
-
-alert("Wrong! Correct number was "+number)
-
+    let number=Math.floor(Math.random()*5)+1
+    let guess=prompt("Guess number between 1-5")
+    if(guess==number){
+        alert("🎉 Correct!");
+        speak("Correct Answer!");
+    }else{
+        alert("Wrong! Correct number was "+number);
+        speak("Wrong! The number was " + number);
+    }
 }
 
-}
-
+// अंग्रेजी के लिए Function
 function speak(text){
-
-let speech=new SpeechSynthesisUtterance(text)
-
-speech.lang="en-US"
-
-window.speechSynthesis.speak(speech)
-
+    let speech=new SpeechSynthesisUtterance(text)
+    speech.lang="en-US"
+    window.speechSynthesis.speak(speech)
 }
 
+// हिंदी के लिए Function
+function speakHindi(text){
+    let speech=new SpeechSynthesisUtterance(text)
+    speech.lang="hi-IN" // हिंदी भाषा सेट की गई
+    window.speechSynthesis.speak(speech)
+}
 </script>
 
 </body>
- <!DOCTYPE html>
-<html>
-<head>
-<title>Kids Learning World 🌍</title>
-<style>
-body{
-font-family:Arial;
-margin:0;
-background:#f0f8ff;
-}
-header{
-background:linear-gradient(45deg,#ff7b00,#ffcc00);
-color:white;
-text-align:center;
-padding:40px;
-}
-nav{
-background:#333;
-padding:15px;
-text-align:center;
-}
-nav a{
-color:white;
-margin:15px;
-text-decoration:none;
-font-size:18px;
-}
-nav a:hover{
-color:yellow;
-}
-.banner{
-text-align:center;
-padding:60px;
-background:#fff3cd;
-}
-.container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-padding:20px;
-}
-.card{
-background:white;
-width:220px;
-margin:15px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-text-align:center;
-}
-.card img{
-width:120px;
-}
-section{
-padding:40px;
-text-align:center;
-}
-footer{
-background:#333;
-color:white;
-text-align:center;
-padding:20px;
-}
-button{
-background:#ff7b00;
-border:none;
-padding:10px 20px;
-color:white;
-border-radius:5px;
-cursor:pointer;
-margin:5px;
-}
-button:hover{
-background:#ff5500;
-}
-</style>
-</head>
-<body>
-<header>
-<h1>Kids Learning World 🌍</h1>
-<p>Fun Learning – ABC, Numbers, Hindi & Indian Stories</p>
-</header>
-
-<nav>
-<a href="#abc">ABC</a>
-<a href="#numbers">Numbers</a>
-<a href="#h                                       </html>
-<section id="numbers">
-<h2>Learn Counting 1-100 🔢</h2>
-<div class="container" id="numberContainer"></div>
-</section>
-
-<script>
-// Numbers 1-100 with voice
-let numberContainer = document.getElementById("numberContainer");
-
-for (let i = 1; i <= 100; i++) {
-    let card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `<h3>${i}</h3>
-                      <button onclick="speakNumber(${i})">🔊 सुनो</button>`;
-    numberContainer.appendChild(card);
-}
-
-function speakNumber(number) {
-    let speech = new SpeechSynthesisUtterance(number.toString());
-    speech.lang = "hi-IN"; // Hindi voice
-    window.speechSynthesis.speak(speech);
-}
-</script>
+ </html>
+ 
