@@ -1,164 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-<title>Kids Learning World</title>
-
+<meta charset="UTF-8">
+<title>Kids Learning & History World</title>
 <style>
-body{ font-family:Arial; margin:0; background:#f0f8ff; }
-header{ background:linear-gradient(45deg,#ff7b00,#ffcc00); color:white; text-align:center; padding:40px; }
-nav{ background:#333; padding:15px; text-align:center; position: sticky; top: 0; z-index: 1000; }
-nav a{ color:white; margin:15px; text-decoration:none; font-size:18px; }
-nav a:hover{ color:yellow; }
-.banner{ text-align:center; padding:60px; background:#fff3cd; }
-.container{ display:flex; flex-wrap:wrap; justify-content:center; padding:20px; }
-.card{ background:white; width:220px; margin:15px; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center; cursor: pointer; transition: 0.3s; }
-.card:hover { transform: scale(1.05); background: #fffdf0; }
-.card img{ width:120px; border-radius: 10px; }
-section{ padding:40px; text-align:center; }
-footer{ background:#333; color:white; text-align:center; padding:20px; }
-button{ background:#ff7b00; border:none; padding:10px 20px; color:white; border-radius:5px; cursor:pointer; font-size: 16px; }
-button:hover{ background:#ff5500; }
+    body { font-family: 'Segoe UI', Arial; margin: 0; background: #f0f8ff; scroll-behavior: smooth; }
+    header { background: linear-gradient(45deg, #ff7b00, #ffcc00); color: white; text-align: center; padding: 30px; }
+    nav { background: #333; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
+    nav a { color: white; margin: 8px; text-decoration: none; font-size: 14px; font-weight: bold; border: 1px solid orange; padding: 5px 10px; border-radius: 5px; }
+    nav a:hover { background: orange; color: black; }
+    section { padding: 40px 20px; text-align: center; border-bottom: 2px solid #ddd; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .card { background: white; width: 160px; padding: 15px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); background: #fffbe6; border: 2px solid #ff7b00; }
+    .story-card { width: 300px; background: #fff; padding: 20px; border-left: 5px solid #ff7b00; text-align: left; }
+    h2 { color: #d35400; background: #ffeaa7; padding: 10px 20px; border-radius: 50px; display: inline-block; }
+    footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
 </style>
 </head>
-
 <body>
 
 <header>
-<h1>Kids Learning World 🌍</h1>
-<p>Fun Learning for Kids – ABC, Numbers & Hindi</p>
+    <h1>Kids Learning & History World 🌍🚩</h1>
+    <p>ABC, गिनती, हिंदी और वीर गाथाएं</p>
 </header>
 
 <nav>
-<a href="#abc">ABC</a>
-<a href="#numbers">Numbers</a>
-<a href="#hindi">Hindi</a>
-<a href="#game">Game</a>
+    <a href="#abc">ABC (Alphabets)</a>
+    <a href="#numbers">1-100 (Counting)</a>
+    <a href="#hindi">हिंदी (क-ज्ञ)</a>
+    <a href="#history">वीर इतिहास & कहानियाँ</a>
 </nav>
 
-<div class="banner">
-<h2>Welcome to Kids Learning World</h2>
-<p>Learn Alphabets, Numbers and Hindi in a Fun Way!</p>
-</div>
-
+<!-- 1. Alphabets Section -->
 <section id="abc">
-<h2>Learn ABC 🔤</h2>
-<div class="container" id="abcContainer"></div>
+    <h2>Learn ABC 🔤</h2>
+    <p>(Click to hear A for Apple...)</p>
+    <div class="container" id="abcContainer"></div>
 </section>
 
+<!-- 2. Numbers Section -->
 <section id="numbers">
-<h2>Learn Counting 1-100 🔢</h2>
-<p>(नंबर पर क्लिक करें सुनने के लिए)</p>
-<div class="container" id="numberContainer"></div>
+    <h2>Learn Counting 1-100 🔢</h2>
+    <p>(नंबर पर क्लिक करें सुनने के लिए)</p>
+    <div class="container" id="numberContainer"></div>
 </section>
 
+<!-- 3. Hindi Section -->
 <section id="hindi">
-<h2>Hindi Alphabet 🇮🇳</h2>
-<p>(अक्षर पर क्लिक करें सुनने के लिए)</p>
-<div class="container">
-<!-- हिंदी अक्षरों में Voice फंक्शन जोड़ दिया गया है -->
-<div class="card" onclick="speakHindi('क से कबूतर')"><h3>क – कबूतर</h3></div>
-<div class="card" onclick="speakHindi('ख से खरगोश')"><h3>ख – खरगोश</h3></div>
-<div class="card" onclick="speakHindi('ग से गमला')"><h3>ग से गमला</h3></div>
-<div class="card" onclick="speakHindi('घ से घर')"><h3>घ से घर</h3></div>
-<div class="card" onclick="speakHindi('अंगा खाली')"><h3>ङ – खाली</h3></div>
-<div class="card" onclick="speakHindi('च से चम्मच')"><h3>च – चम्मच</h3></div>
-<div class="card" onclick="speakHindi('छ से छतरी')"><h3>छ – छतरी</h3></div>
-<div class="card" onclick="speakHindi('ज से जहाज')"><h3>ज – जहाज</h3></div>
-<div class="card" onclick="speakHindi('झ से झंडा')"><h3>झ – झंडा</h3></div>
-<div class="card" onclick="speakHindi('इयां खाली')"><h3>ञ – खाली</h3></div>
-<div class="card" onclick="speakHindi('ट से टमाटर')"><h3>ट – टमाटर</h3></div>
-<div class="card" onclick="speakHindi('ठ से ठठेरा')"><h3>ठ – ठठेरा</h3></div>
-<div class="card" onclick="speakHindi('ड से डमरू')"><h3>ड – डमरू</h3></div>
-<div class="card" onclick="speakHindi('ढ से ढोलक')"><h3>ढ – ढोल</h3></div>
-<div class="card" onclick="speakHindi('णा खाली')"><h3>ण – खाली</h3></div>
-<div class="card" onclick="speakHindi('त से तरबूज')"><h3>त – तरबूज</h3></div>
-<div class="card" onclick="speakHindi('थ से थर्मामीटर या थाली')"><h3>थ – थाली</h3></div>
-<div class="card" onclick="speakHindi('द से दवात या दरवाजा')"><h3>द – दरवाज़ा</h3></div>
-<div class="card" onclick="speakHindi('ध से धनुष')"><h3>ध – धनुष</h3></div>
-<div class="card" onclick="speakHindi('न से नल')"><h3>न – नल</h3></div>
-<div class="card" onclick="speakHindi('प से पतंग')"><h3>प – पतंग</h3></div>
-<div class="card" onclick="speakHindi('फ से फल')"><h3>फ – फल</h3></div>
-<div class="card" onclick="speakHindi('ब से बकरी')"><h3>ब – बकरी</h3></div>
-<div class="card" onclick="speakHindi('भ से भालू')"><h3>भ – भालू</h3></div>
-<div class="card" onclick="speakHindi('म से मछली')"><h3>म – मछली</h3></div>
-<div class="card" onclick="speakHindi('य से यज्ञ')"><h3>य – यज्ञ</h3></div>
-<div class="card" onclick="speakHindi('र से रस्सी')"><h3>र – रस्सी</h3></div>
-<div class="card" onclick="speakHindi('ल से लट्टू')"><h3>ल – लड्डू</h3></div>
-<div class="card" onclick="speakHindi('व से वन')"><h3>व – वन</h3></div>
-<div class="card" onclick="speakHindi('श से शलगम या शेर')"><h3>श – शेर</h3></div>
-<div class="card" onclick="speakHindi('ष से षट्कोण')"><h3>ष – षट्कोण</h3></div>
-<div class="card" onclick="speakHindi('स से सपेरा या साँप')"><h3>स – साँप</h3></div>
-<div class="card" onclick="speakHindi('ह से हाथी')"><h3>ह – हाथी</h3></div>
-<div class="card" onclick="speakHindi('क्ष से क्षत्रिय')"><h3>क्ष – क्षत्रिय</h3></div>
-<div class="card" onclick="speakHindi('त्र से त्रिशूल')"><h3>त्र – त्रिशूल</h3></div>
-<div class="card" onclick="speakHindi('ज्ञ से ज्ञानी')"><h3>ज्ञ – ज्ञानी</h3></div>
-</div>
+    <h2>हिंदी वर्णमाला (क से ज्ञ) 🇮🇳</h2>
+    <div class="container" id="hindiContainer"></div>
 </section>
 
-<section id="game">
-<h2>🎮 Guess the Number Game</h2>
-<button onclick="playGame()">Play Game</button>
+<!-- 4. History Section -->
+<section id="history">
+    <h2>वीर इतिहास और कहानियाँ 🚩📜</h2>
+    <div class="container">
+        <div class="card story-card" onclick="readStory('Ramayana')">
+            <h3>🚩 रामायण</h3>
+            <p>भगवान श्री राम की पावन कहानी।</p>
+        </div>
+        <div class="card story-card" onclick="readStory('Pratap')">
+            <h3>⚔️ महाराणा प्रताप</h3>
+            <p>मेवाड़ के वीर योद्धा और चेतक की कहानी।</p>
+        </div>
+        <div class="card story-card" onclick="readStory('Prithviraj')">
+            <h3>🛡️ पृथ्वीराज चौहान</h3>
+            <p>वीर राजपूत राजा का पराक्रम।</p>
+        </div>
+    </div>
 </section>
 
-<footer>
-<p>© 2026 Kids Learning World</p>
-</footer>
+<footer><p>© 2026 Kids Learning World | Made for Education</p></footer>
 
 <script>
-const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const words=["Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"]
+// --- Voice Functions ---
+function speakEnglish(text) {
+    window.speechSynthesis.cancel();
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    window.speechSynthesis.speak(speech);
+}
 
-let abcContainer=document.getElementById("abcContainer")
+function speakHindi(text) {
+    window.speechSynthesis.cancel();
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "hi-IN";
+    speech.rate = 0.9;
+    window.speechSynthesis.speak(speech);
+}
+
+// --- 1. ABC Generation ---
+const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const words=["Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"];
+let abcContainer=document.getElementById("abcContainer");
 for(let i=0;i<letters.length;i++){
-    let card=document.createElement("div")
-    card.className="card"
-    card.onclick = () => speak(`${letters[i]} for ${words[i]}`); // पूरे कार्ड पर क्लिक से आवाज आएगी
-    card.innerHTML=`
-    <h3>${letters[i]} for ${words[i]}</h3>
-    <img src="https://dicebear.com{words[i]}"> <!-- Fixed Image Source -->
-    <br><br>
-    <button>Hear</button>
-    `
-    abcContainer.appendChild(card)
+    let card=document.createElement("div");
+    card.className="card";
+    card.onclick = () => speakEnglish(`${letters[i]} for ${words[i]}`);
+    card.innerHTML=`<h3>${letters[i]}</h3><p>${words[i]}</p>`;
+    abcContainer.appendChild(card);
 }
 
-let numberContainer=document.getElementById("numberContainer")
+// --- 2. Numbers Generation ---
+let numberContainer=document.getElementById("numberContainer");
 for(let i=1;i<=100;i++){
-    let card=document.createElement("div")
-    card.className="card"
-    card.style.width = "80px"; // गिनती के लिए छोटे बॉक्स
-    card.onclick = () => speak(i); // नंबर पर क्लिक करने पर आवाज
-    card.innerHTML=`<h3>${i}</h3>`
-    numberContainer.appendChild(card)
+    let card=document.createElement("div");
+    card.className="card";
+    card.style.width = "60px";
+    card.onclick = () => speakHindi(i);
+    card.innerHTML=`<h3>${i}</h3>`;
+    numberContainer.appendChild(card);
 }
 
-function playGame(){
-    let number=Math.floor(Math.random()*5)+1
-    let guess=prompt("Guess number between 1-5")
-    if(guess==number){
-        alert("🎉 Correct!");
-        speak("Correct Answer!");
-    }else{
-        alert("Wrong! Correct number was "+number);
-        speak("Wrong! The number was " + number);
-    }
-}
+// --- 3. Hindi Generation ---
+const hindiData = [
+    {a: 'क', w: 'कबूतर'}, {a: 'ख', w: 'खरगोश'}, {a: 'ग', w: 'गमला'}, {a: 'घ', w: 'घर'}, {a: 'ङ', w: 'खाली'},
+    {a: 'च', w: 'चम्मच'}, {a: 'छ', w: 'छतरी'}, {a: 'ज', w: 'जहाज'}, {a: 'झ', w: 'झंडा'}, {a: 'ञ', w: 'खाली'},
+    {a: 'ट', w: 'टमाटर'}, {a: 'ठ', w: 'ठठेरा'}, {a: 'ड', w: 'डमरू'}, {a: 'ढ', w: 'ढोलक'}, {a: 'ण', w: 'खाली'},
+    {a: 'त', w: 'तरबूज'}, {a: 'थ', w: 'थर्मस'}, {a: 'द', w: 'दवात'}, {a: 'ध', w: 'धनुष'}, {a: 'न', w: 'नल'},
+    {a: 'प', w: 'पतंग'}, {a: 'फ', w: 'फल'}, {a: 'ब', w: 'बकरी'}, {a: 'भ', w: 'भालू'}, {a: 'म', w: 'मछली'},
+    {a: 'य', w: 'यज्ञ'}, {a: 'र', w: 'रस्सी'}, {a: 'ल', w: 'लट्टू'}, {a: 'व', w: 'वन'}, {a: 'श', w: 'शेर'},
+    {a: 'ष', w: 'षट्कोण'}, {a: 'स', w: 'सपेरा'}, {a: 'ह', w: 'हाथी'}, {a: 'क्ष', w: 'क्षत्रिय'}, {a: 'त्र', w: 'त्रिशूल'}, {a: 'ज्ञ', w: 'ज्ञानी'}
+];
+let hindiContainer = document.getElementById("hindiContainer");
+hindiData.forEach(item => {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.onclick = () => speakHindi(`${item.a} से ${item.w}`);
+    card.innerHTML = `<h3>${item.a}</h3><p>${item.w}</p>`;
+    hindiContainer.appendChild(card);
+});
 
-// अंग्रेजी के लिए Function
-function speak(text){
-    let speech=new SpeechSynthesisUtterance(text)
-    speech.lang="en-US"
-    window.speechSynthesis.speak(speech)
-}
+// --- 4. History Data ---
+const stories = {
+    'Ramayana': 'रामायण भगवान श्री राम की कहानी है। राम जी ने धर्म की रक्षा के लिए रावण का वध किया। यह हमें सिखाती है कि बुराई पर हमेशा अच्छाई की जीत होती है।',
+    'Pratap': 'महाराणा प्रताप मेवाड़ के महान राजपूत राजा थे। उन्होंने अपनी मातृभूमि के लिए घास की रोटी खाई पर मुगलों की गुलामी नहीं की। उनके वीर घोड़े का नाम चेतक था।',
+    'Prithviraj': 'पृथ्वीराज चौहान दिल्ली के महान राजपूत राजा थे। उन्होंने मोहम्मद गोरी को कई बार हराया और वह शब्दभेदी बाण चलाने में माहिर थे।'
+};
+function readStory(key) { speakHindi(stories[key]); }
 
-// हिंदी के लिए Function
-function speakHindi(text){
-    let speech=new SpeechSynthesisUtterance(text)
-    speech.lang="hi-IN" // हिंदी भाषा सेट की गई
-    window.speechSynthesis.speak(speech)
-}
 </script>
-
 </body>
- </html>
- 
+</html>
