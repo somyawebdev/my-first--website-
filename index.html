@@ -1,53 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Kids Learning World</title>
-
+<title>Kids Learning World 🌍</title>
 <style>
-
 body{
 font-family:Arial;
 margin:0;
 background:#f0f8ff;
 }
-
 header{
 background:linear-gradient(45deg,#ff7b00,#ffcc00);
 color:white;
 text-align:center;
 padding:40px;
 }
-
 nav{
 background:#333;
 padding:15px;
 text-align:center;
 }
-
 nav a{
 color:white;
 margin:15px;
 text-decoration:none;
 font-size:18px;
 }
-
 nav a:hover{
 color:yellow;
 }
-
 .banner{
 text-align:center;
 padding:60px;
 background:#fff3cd;
 }
-
 .container{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 padding:20px;
 }
-
 .card{
 background:white;
 width:220px;
@@ -57,23 +48,19 @@ border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 text-align:center;
 }
-
 .card img{
 width:120px;
 }
-
 section{
 padding:40px;
 text-align:center;
 }
-
 footer{
 background:#333;
 color:white;
 text-align:center;
 padding:20px;
 }
-
 button{
 background:#ff7b00;
 border:none;
@@ -81,103 +68,79 @@ padding:10px 20px;
 color:white;
 border-radius:5px;
 cursor:pointer;
+margin:5px;
 }
-
 button:hover{
 background:#ff5500;
 }
-
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>Kids Learning World 🌍</h1>
-<p>Fun Learning for Kids – ABC, Numbers & Hindi</p>
+<p>Fun Learning – ABC, Numbers, Hindi & Indian Stories</p>
 </header>
 
 <nav>
 <a href="#abc">ABC</a>
 <a href="#numbers">Numbers</a>
 <a href="#hindi">Hindi</a>
+<a href="#stories">Stories</a>
 <a href="#game">Game</a>
+<a href="#quiz">Quiz</a>
 </nav>
 
 <div class="banner">
 <h2>Welcome to Kids Learning World</h2>
-<p>Learn Alphabets, Numbers and Hindi in a Fun Way!</p>
+<p>Learn Alphabets, Numbers, Hindi & Indian Stories in a Fun Way!</p>
 </div>
 
+<!-- ABC Section -->
 <section id="abc">
-
 <h2>Learn ABC 🔤</h2>
-
 <div class="container" id="abcContainer"></div>
-
 </section>
 
+<!-- Numbers Section -->
 <section id="numbers">
-
 <h2>Learn Counting 1-100 🔢</h2>
-
 <div class="container" id="numberContainer"></div>
-
 </section>
 
+<!-- Hindi Alphabet Section -->
 <section id="hindi">
-
 <h2>Hindi Alphabet 🇮🇳</h2>
-
-<div class="container">
-
-<div class="card"><h3>क – कबूतर</h3></div>
-<div class="card"><h3>ख – खरगोश</h3></div>
-<div class="card"><h3>ग – गमला</h3></div>
-<div class="card"><h3>घ – घर</h3></div>
-<div class="card"><h3>ङ – अंगूर</h3></div>
-<div class="card"><h3>च – चम्मच</h3></div>
-<div class="card"><h3>छ – छतरी</h3></div>
-<div class="card"><h3>ज – जहाज</h3></div>
-<div class="card"><h3>झ – झंडा</h3></div>
-<div class="card"><h3>ञ – ज्ञान</h3></div>
-<div class="card"><h3>ट – टमाटर</h3></div>
-<div class="card"><h3>ठ – ठेला</h3></div>
-<div class="card"><h3>ड – डमरू</h3></div>
-<div class="card"><h3>ढ – ढोल</h3></div>
-<div class="card"><h3>ण – बाण</h3></div>
-<div class="card"><h3>त – तरबूज</h3></div>
-<div class="card"><h3>थ – थाली</h3></div>
-<div class="card"><h3>द – दरवाज़ा</h3></div>
-<div class="card"><h3>ध – धनुष</h3></div>
-<div class="card"><h3>न – नल</h3></div>
-<div class="card"><h3>प – पतंग</h3></div>
-<div class="card"><h3>फ – फल</h3></div>
-<div class="card"><h3>ब – बकरी</h3></div>
-<div class="card"><h3>भ – भालू</h3></div>
-<div class="card"><h3>म – मछली</h3></div>
-<div class="card"><h3>य – यज्ञ</h3></div>
-<div class="card"><h3>र – रस्सी</h3></div>
-<div class="card"><h3>ल – लड्डू</h3></div>
-<div class="card"><h3>व – वन</h3></div>
-<div class="card"><h3>श – शेर</h3></div>
-<div class="card"><h3>ष – षट्कोण</h3></div>
-<div class="card"><h3>स – साँप</h3></div>
-<div class="card"><h3>ह – हाथी</h3></div>
-<div class="card"><h3>क्ष – क्षत्रिय</h3></div>
-<div class="card"><h3>त्र – त्रिशूल</h3></div>
-<div class="card"><h3>ज्ञ – ज्ञान</h3></div>
-
-</div>
-
+<div class="container" id="hindiContainer"></div>
 </section>
 
+<!-- Indian Stories Section -->
+<section id="stories">
+<h2>Indian Stories 📖</h2>
+<div class="container">
+<div class="card">
+<h3>रामायण</h3>
+<button onclick="ramayan()">कहानी सुनो</button>
+</div>
+<div class="card">
+<h3>महाभारत</h3>
+<button onclick="mahabharat()">कहानी सुनो</button>
+</div>
+</div>
+</section>
+
+<!-- Guess Number Game -->
 <section id="game">
-
 <h2>🎮 Guess the Number Game</h2>
-
 <button onclick="playGame()">Play Game</button>
+</section>
 
+<!-- Quiz Game -->
+<section id="quiz">
+<h2>📝 ABC Quiz</h2>
+<h3 id="scoreBoard">Score: 0</h3>
+<div id="quizContainer"></div>
+<button onclick="startQuiz()">Start Quiz</button>
 </section>
 
 <footer>
@@ -185,73 +148,47 @@ background:#ff5500;
 </footer>
 
 <script>
-
-const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
+// ABC Letters
+const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const words=[
 "Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"
-]
-
-let abcContainer=document.getElementById("abcContainer")
-
+];
+let abcContainer=document.getElementById("abcContainer");
 for(let i=0;i<letters.length;i++){
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`
-<h3>${letters[i]} for ${words[i]}</h3>
-<img src="https://source.unsplash.com/120x120/?${words[i]}">
-<br><br>
-<button onclick="speak('${letters[i]} for ${words[i]}')">Hear</button>
-`
-
-abcContainer.appendChild(card)
-
+let card=document.createElement("div");
+card.className="card";
+card.innerHTML=`<h3>${letters[i]} for ${words[i]}</h3>
+<img src="https://source.unsplash.com/120x120/?${words[i]}"><br><br>
+<button onclick="speak('${letters[i]} for ${words[i]}')">Hear</button>`;
+abcContainer.appendChild(card);
 }
 
-let numberContainer=document.getElementById("numberContainer")
-
+// Numbers 1-100
+let numberContainer=document.getElementById("numberContainer");
 for(let i=1;i<=100;i++){
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`<h3>${i}</h3>`
-
-numberContainer.appendChild(card)
-
+let card=document.createElement("div");
+card.className="card";
+card.innerHTML=`<h3>${i}</h3><button onclick="speakHindi('${i}')">सुनो</button>`;
+numberContainer.appendChild(card);
 }
 
+// Hindi Letters
+const hindiLetters=[
+"क – कबूतर","ख – खरगोश","ग – गमला","घ – घर","ङ – अंगूर","च – चम्मच","छ – छतरी",
+"ज – जहाज","झ – झंडा","ञ – ज्ञान","ट – टमाटर","ठ – ठेला","ड – डमरू","ढ – ढोल",
+"ण – बाण","त – तरबूज","थ – थाली","द – दरवाज़ा","ध – धनुष","न – नल","प – पतंग",
+"फ – फल","ब – बकरी","भ – भालू","म – मछली","य – यज्ञ","र – रस्सी","ल – लड्डू","व – वन",
+"श – शेर","ष – षट्कोण","स – साँप","ह – हाथी","क्ष – क्षत्रिय","त्र – त्रिशूल","ज्ञ – ज्ञान"
+];
+let hindiContainer=document.getElementById("hindiContainer");
+for(let i=0;i<hindiLetters.length;i++){
+let card=document.createElement("div");
+card.className="card";
+card.innerHTML=`<h3>${hindiLetters[i]}</h3><button onclick="speakHindi('${hindiLetters[i]}')">सुनो</button>`;
+hindiContainer.appendChild(card);
+}
+
+// Games & Speak
 function playGame(){
-
-let number=Math.floor(Math.random()*5)+1
-
-let guess=prompt("Guess number between 1-5")
-
-if(guess==number){
-
-alert("🎉 Correct!")
-
-}else{
-
-alert("Wrong! Correct number was "+number)
-
-}
-
-}
-
-function speak(text){
-
-let speech=new SpeechSynthesisUtterance(text)
-
-speech.lang="en-US"
-
-window.speechSynthesis.speak(speech)
-
-}
-
-</script>
-
-</body>
-  </html>
+let number=Math.floor(Math.random()*5)+1;
+let guess=prompt("Guess
