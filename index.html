@@ -3,91 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Learning World - Fixed</title>
+    <title>Kids Learning Website</title>
     <style>
-        body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #fff9db; text-align: center; margin: 0; padding: 10px; }
-        .header { background: #ff4757; color: white; padding: 15px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        h2 { background: #ffa502; color: white; padding: 10px 25px; border-radius: 50px; margin-top: 30px; display: inline-block; border: 2px solid white; }
-        
-        /* Grid and Card Styles */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; padding: 10px; }
-        .card { background: white; padding: 15px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; border-bottom: 5px solid #e0e0e0; transition: 0.2s; }
-        .card:active { transform: scale(0.92); }
-        .card b { font-size: 32px; color: #2f3542; display: block; }
-        .card span { font-size: 13px; color: #57606f; font-weight: bold; }
+        /* CSS: Design Fixes */
+        body {
+            background-color: #fffde7; /* Light yellow background jaisa screenshot mein hai */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
 
-        /* Video Grid Section - Direct Links */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; padding: 10px; }
-        .v-link { text-decoration: none; background: white; border-radius: 15px; overflow: hidden; border: 3px solid #ff4757; cursor: pointer; display: block; color: inherit; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .v-link img { width: 100%; height: 100px; object-fit: cover; }
-        .v-link p { padding: 8px; font-weight: bold; font-size: 14px; margin: 0; color: #2f3542; }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Banner Design */
+        .banner {
+            background: linear-gradient(to right, #ff9800, #ffc107);
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            margin: 20px 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Video Section */
+        .video-box {
+            background: white;
+            border: 4px solid #ff4d6d;
+            border-radius: 20px;
+            margin: 15px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        /* Grid Layout (2 Columns) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        /* Card Design */
+        .card {
+            background: white;
+            border: 3px solid #ff4d6d; /* Pink/Red border */
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain; /* Cartoon images ko sahi fit karne ke liye */
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .card-text {
+            border-top: 1px solid #eee;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="header"><h1>🌟 मेरा जादुई स्कूल 🌟</h1></div>
+<div class="container">
 
-    <h2>🍎 English ABC (A-Z)</h2>
-    <div class="grid" id="abc-grid"></div>
-
-    <h2>🔢 गिनती (1 से 100)</h2>
-    <div class="grid" id="num-grid"></div>
-
-    <h2>🇮🇳 स्वर (अ से अः)</h2>
-    <div class="grid" id="swar-grid"></div>
-
-    <h2>🇮🇳 व्यंजन (क से ज्ञ)</h2>
-    <div class="grid" id="vyanjan-grid"></div>
-
-    <h2>📺 कहानियाँ और लोरियां (क्लिक करें)</h2>
-    <div class="video-grid">
-        <!-- यहाँ 'target="_blank"' का मतलब है कि वीडियो नए टैब या YouTube ऐप में खुलेगा -->
-        <a href="https://youtube.com" target="_blank" class="v-link">
-            <img src="https://youtube.com"><p>महाराणा प्रताप</p>
-        </a>
-        <a href="https://youtube.com" target="_blank" class="v-link">
-            <img src="https://youtube.com"><p>शिवाजी महाराज</p>
-        </a>
-        <a href="https://youtube.com" target="_blank" class="v-link">
-            <img src="https://youtube.com"><p>गणेश जी</p>
-        </a>
-        <a href="https://youtube.com" target="_blank" class="v-link">
-            <img src="https://youtube.com"><p>रामायण</p>
-        </a>
-        <a href="https://youtube.com" target="_blank" class="v-link">
-            <img src="https://youtube.com"><p>प्यारी लोरी</p>
-        </a>
-        <a href="https://youtube.com" target="_blank" class="v-link">
-            <img src="https://youtube.com"><p>छोटा भीम</p>
-        </a>
+    <!-- 1. Learning Section (A for Apple, 1, 2) -->
+    <div class="grid-container">
+        <div class="card">
+            <img src="apple_cartoon.png" alt="Apple"> <!-- Yahan apni file ka naam check karein -->
+            <div class="card-text">A for Apple</div>
+        </div>
+        <div class="card">
+            <img src="one.png" alt="1">
+            <div class="card-text">1 (One)</div>
+        </div>
+        <div class="card">
+            <img src="two.png" alt="2">
+            <div class="card-text">2 (Two)</div>
+        </div>
     </div>
 
-    <script>
-        function speak(text, lang = 'en-US') {
-            window.speechSynthesis.cancel(); 
-            const s = new SpeechSynthesisUtterance(text);
-            s.lang = lang; s.rate = 0.85; 
-            window.speechSynthesis.speak(s);
-        }
+    <!-- 2. Video Section (Jo nahi chal raha tha) -->
+    <div class="banner">📺 कहानियाँ और लोरियां</div>
+    <div class="video-box">
+        <!-- Local Video File: Agar video file folder mein hai toh 'video.mp4' likhein -->
+        <video width="100%" controls>
+            <source src="your_video_file.mp4" type="video/mp4">
+            Aapka browser video support nahi karta.
+        </div>
+    </div>
 
-        const abcData = [{l:'A', w:'Apple'}, {l:'B', w:'Ball'}, {l:'C', w:'Cat'}, {l:'D', w:'Dog'}, {l:'E', w:'Elephant'}, {l:'F', w:'Fish'}, {l:'G', w:'Grapes'}, {l:'H', w:'Horse'}, {l:'I', w:'Ice Cream'}, {l:'J', w:'Jug'}, {l:'K', w:'Kite'}, {l:'L', w:'Lion'}, {l:'M', w:'Monkey'}, {l:'N', w:'Nest'}, {l:'O', w:'Orange'}, {l:'P', w:'Peacock'}, {l:'Q', w:'Queen'}, {l:'R', w:'Rabbit'}, {l:'S', w:'Sun'}, {l:'T', w:'Tiger'}, {l:'U', w:'Umbrella'}, {l:'V', w:'Van'}, {l:'W', w:'Watch'}, {l:'X', w:'Xylophone'}, {l:'Y', w:'Yak'}, {l:'Z', w:'Zebra'}];
-        abcData.forEach(item => {
-            document.getElementById('abc-grid').innerHTML += `<div class="card" onclick="speak('${item.l} for ${item.w}')"><b>${item.l}</b><span>${item.w}</span></div>`;
-        });
+    <!-- 3. Stories Section (Maharana Pratap etc.) -->
+    <div class="grid-container">
+        <!-- Maharana Pratap -->
+        <div class="card">
+            <img src="maharana_pratap.jpg" alt="Maharana Pratap">
+            <div class="card-text">महाराणा प्रताप</div>
+        </div>
 
-        for(let i=1; i<=100; i++) {
-            document.getElementById('num-grid').innerHTML += `<div class="card" onclick="speak('${i}')"><b>${i}</b></div>`;
-        }
+        <!-- Shivaji Maharaj -->
+        <div class="card">
+            <img src="shivaji_maharaj.jpg" alt="Shivaji Maharaj">
+            <div class="card-text">शिवाजी महाराज</div>
+        </div>
 
-        const swar = { "अ":"अनार", "आ":"आम", "इ":"इमली", "ई":"ईख", "उ":"उल्लू", "ऊ":"ऊन", "ऋ":"ऋषि", "ए":"एड़ी", "ऐ":"ऐनक", "ओ":"ओखली", "औ":"औरत", "अं":"अंगूर", "अः":"खाली" };
-        for (let s in swar) {
-            document.getElementById('swar-grid').innerHTML += `<div class="card" onclick="speak('${s} से ${swar[s]}', 'hi-IN')"><b>${s}</b><span>${swar[s]}</span></div>`;
-        }
+        <!-- Ganesh Ji -->
+        <div class="card">
+            <img src="ganesh_ji.jpg" alt="Ganesh Ji">
+            <div class="card-text">गणेश जी</div>
+        </div>
 
-        const vyanjan = { "क":"कबूतर", "ख":"खरगोश", "ग":"गमला", "घ":"घड़ी", "ङ":"खाली", "च":"चम्मच", "छ":"छाता", "ज":"जहाज", "झ":"झंडा", "ञ":"खाली", "ट":"टमाटर", "ठ":"ठठेरा", "ड":"डमरू", "ढ":"ढक्कन", "ण":"खाली", "त":"तरबूज", "थ":"थर्मस", "द":"दवात", "ध":"धनुष", "न":"नल", "प":"पतंग", "फ":"फल", "ब":"बकरी", "भ":"भालू", "म":"मछली", "य":"यज्ञ", "र":"रथ", "ल":"लट्टू", "व":"वक", "श":"शलगम", "ष":"षटकोण", "स":"सपेरा", "ह":"हाथी", "क्ष":"क्षत्रिय", "त्र":"त्रिशूल", "ज्ञ":"ज्ञानी" };
-        for (let v in vyanjan) {
-            document.getElementById('vyanjan-grid').innerHTML += `<div class="card" onclick="speak('${v} से ${vyanjan[v]}', 'hi-IN')"><b>${v}</b><span>${vyanjan[v]}</span></div>`;
-        }
-    </script>
+        <!-- Ramayan -->
+        <div class="card">
+            <img src="ramayan.jpg" alt="Ramayan">
+            <div class="card-text">रामायण</div>
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
