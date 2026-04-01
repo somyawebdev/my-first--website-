@@ -341,3 +341,26 @@ background:#ff5500;
 <a href="#abc">ABC</a>
 <a href="#numbers">Numbers</a>
 <a href="#h                                       </html>
+<section id="numbers">
+<h2>Learn Counting 1-100 🔢</h2>
+<div class="container" id="numberContainer"></div>
+</section>
+
+<script>
+// Numbers 1-100 with voice
+let numberContainer = document.getElementById("numberContainer");
+
+for (let i = 1; i <= 100; i++) {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<h3>${i}</h3>
+                      <button onclick="speakNumber(${i})">🔊 सुनो</button>`;
+    numberContainer.appendChild(card);
+}
+
+function speakNumber(number) {
+    let speech = new SpeechSynthesisUtterance(number.toString());
+    speech.lang = "hi-IN"; // Hindi voice
+    window.speechSynthesis.speak(speech);
+}
+</script>
