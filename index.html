@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Learning World - Final</title>
+    <title>Kids Learning World - Fixed Version</title>
     <style>
         body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #fff9db; text-align: center; margin: 0; padding: 10px; }
         .header { background: #ff4757; color: white; padding: 15px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
         h2 { background: #ffa502; color: white; padding: 10px 25px; border-radius: 50px; margin-top: 30px; display: inline-block; border: 2px solid white; }
         
-        /* Grid and Card Styles */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; padding: 10px; }
         .card { background: white; padding: 15px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; border-bottom: 5px solid #e0e0e0; transition: 0.2s; }
-        .card:active { transform: scale(0.92); border-bottom: 2px solid #e0e0e0; }
+        .card:active { transform: scale(0.92); }
         .card b { font-size: 32px; color: #2f3542; display: block; }
         .card span { font-size: 13px; color: #57606f; font-weight: bold; }
 
-        /* Video Section Styles */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; padding: 10px; }
-        .v-card { background: white; border-radius: 15px; overflow: hidden; border: 3px solid #ff4757; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .v-card { background: white; border-radius: 15px; overflow: hidden; border: 3px solid #ff4757; cursor: pointer; }
         .v-card img { width: 100%; height: 100px; object-fit: cover; }
         .v-card p { padding: 8px; font-weight: bold; font-size: 14px; margin: 0; color: #2f3542; }
 
-        /* Video Popup Window (Modal) */
-        #videoPlayer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; flex-direction: column; }
-        iframe { width: 90%; height: 60%; border: 4px solid white; border-radius: 15px; box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+        #videoPlayer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; flex-direction: column; }
+        iframe { width: 90%; height: 55%; border: 4px solid white; border-radius: 15px; background: black; }
         .close-btn { background: #ff4757; color: white; border: none; padding: 15px 40px; border-radius: 50px; margin-top: 25px; font-weight: bold; font-size: 18px; cursor: pointer; }
     </style>
 </head>
@@ -32,23 +29,18 @@
 
     <div class="header"><h1>🌟 मेरा जादुई स्कूल 🌟</h1></div>
 
-    <!-- 1. English ABC with Voice -->
-    <h2>🍎 A for Apple (A-Z)</h2>
+    <h2>🍎 English ABC (A-Z)</h2>
     <div class="grid" id="abc-grid"></div>
 
-    <!-- 2. Numbers 1 to 100 -->
     <h2>🔢 गिनती (1 से 100)</h2>
     <div class="grid" id="num-grid"></div>
 
-    <!-- 3. Hindi Swar (अ-अः) -->
     <h2>🇮🇳 स्वर (अ से अः)</h2>
     <div class="grid" id="swar-grid"></div>
 
-    <!-- 4. Hindi Vyanjan (क-ज्ञ) -->
     <h2>🇮🇳 व्यंजन (क से ज्ञ)</h2>
     <div class="grid" id="vyanjan-grid"></div>
 
-    <!-- 5. Stories & Cartoons Section -->
     <h2>📺 कहानियाँ और लोरियां</h2>
     <div class="video-grid">
         <div class="v-card" onclick="playVid('C7ppYXAKics')"><img src="https://youtube.com"><p>महाराणा प्रताप</p></div>
@@ -61,52 +53,46 @@
         <div class="v-card" onclick="playVid('Y_2kaLgaZOI')"><img src="https://youtube.com"><p>छोटा भीम</p></div>
     </div>
 
-    <!-- Video Modal Player -->
     <div id="videoPlayer">
         <iframe id="vidFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <button class="close-btn" onclick="closeVid()">वापस जाएँ ❌</button>
     </div>
 
     <script>
-        // Voice Function for Accurate Pronunciation
         function speak(text, lang = 'en-US') {
             window.speechSynthesis.cancel(); 
             const s = new SpeechSynthesisUtterance(text);
-            s.lang = lang;
-            s.rate = 0.85; // थोड़ी धीमी रफ़्तार ताकि बच्चे समझ सकें
+            s.lang = lang; s.rate = 0.85; 
             window.speechSynthesis.speak(s);
         }
 
-        // 1. English ABC with Voice
         const abcData = [{l:'A', w:'Apple'}, {l:'B', w:'Ball'}, {l:'C', w:'Cat'}, {l:'D', w:'Dog'}, {l:'E', w:'Elephant'}, {l:'F', w:'Fish'}, {l:'G', w:'Grapes'}, {l:'H', w:'Horse'}, {l:'I', w:'Ice Cream'}, {l:'J', w:'Jug'}, {l:'K', w:'Kite'}, {l:'L', w:'Lion'}, {l:'M', w:'Monkey'}, {l:'N', w:'Nest'}, {l:'O', w:'Orange'}, {l:'P', w:'Peacock'}, {l:'Q', w:'Queen'}, {l:'R', w:'Rabbit'}, {l:'S', w:'Sun'}, {l:'T', w:'Tiger'}, {l:'U', w:'Umbrella'}, {l:'V', w:'Van'}, {l:'W', w:'Watch'}, {l:'X', w:'Xylophone'}, {l:'Y', w:'Yak'}, {l:'Z', w:'Zebra'}];
         abcData.forEach(item => {
-            document.getElementById('abc-grid').innerHTML += `<div class="card" onclick="speak('${item.l} for ${item.word || item.w}')"><b>${item.l}</b><span>${item.w}</span></div>`;
+            document.getElementById('abc-grid').innerHTML += `<div class="card" onclick="speak('${item.l} for ${item.w}')"><b>${item.l}</b><span>${item.w}</span></div>`;
         });
 
-        // 2. Numbers 1 to 100
         for(let i=1; i<=100; i++) {
             document.getElementById('num-grid').innerHTML += `<div class="card" onclick="speak('${i}')"><b>${i}</b></div>`;
         }
 
-        // 3. Hindi Swar (Voice: अ से अनार)
         const swar = { "अ":"अनार", "आ":"आम", "इ":"इमली", "ई":"ईख", "उ":"उल्लू", "ऊ":"ऊन", "ऋ":"ऋषि", "ए":"एड़ी", "ऐ":"ऐनक", "ओ":"ओखली", "औ":"औरत", "अं":"अंगूर", "अः":"खाली" };
         for (let s in swar) {
             document.getElementById('swar-grid').innerHTML += `<div class="card" onclick="speak('${s} से ${swar[s]}', 'hi-IN')"><b>${s}</b><span>${swar[s]}</span></div>`;
         }
 
-        // 4. Hindi Vyanjan (Voice: क से कबूतर)
         const vyanjan = { "क":"कबूतर", "ख":"खरगोश", "ग":"गमला", "घ":"घड़ी", "ङ":"खाली", "च":"चम्मच", "छ":"छाता", "ज":"जहाज", "झ":"झंडा", "ञ":"खाली", "ट":"टमाटर", "ठ":"ठठेरा", "ड":"डमरू", "ढ":"ढक्कन", "ण":"खाली", "त":"तरबूज", "थ":"थर्मस", "द":"दवात", "ध":"धनुष", "न":"नल", "प":"पतंग", "फ":"फल", "ब":"बकरी", "भ":"भालू", "म":"मछली", "य":"यज्ञ", "र":"रथ", "ल":"लट्टू", "व":"वक", "श":"शलगम", "ष":"षटकोण", "स":"सपेरा", "ह":"हाथी", "क्ष":"क्षत्रिय", "त्र":"त्रिशूल", "ज्ञ":"ज्ञानी" };
         for (let v in vyanjan) {
             document.getElementById('vyanjan-grid').innerHTML += `<div class="card" onclick="speak('${v} से ${vyanjan[v]}', 'hi-IN')"><b>${v}</b><span>${vyanjan[v]}</span></div>`;
         }
 
-        // 5. Video Modal Logic
+        // FIXED VIDEO FUNCTION (Slashing Issue Solved)
         function playVid(id) {
             const frame = document.getElementById('vidFrame');
-            // Using YouTube Embed URL correctly
-            frame.src = "https://youtube.com" + id + "?autoplay=1&rel=0&modestbranding=1";
+            // 'embed/' के बाद 'id' को सही से जोड़ा गया है
+            frame.src = "https://youtube.com" + id + "?autoplay=1&rel=0";
             document.getElementById('videoPlayer').style.display = "flex";
         }
+
         function closeVid() {
             document.getElementById('videoPlayer').style.display = "none";
             document.getElementById('vidFrame').src = "";
