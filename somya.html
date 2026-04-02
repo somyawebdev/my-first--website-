@@ -3,191 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Learning World 🌍</title>
-    
-    <!-- External Libraries -->
+    <title>Kids Story World 🌍</title>
     <link href="https://unpkg.com" rel="stylesheet">
-    
     <style>
-        :root {
-            --primary-color: #ff7b00;
-            --secondary-color: #ffcc00;
-        }
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Kids style font */
-            margin: 0;
-            background: #f0f8ff;
-            overflow-x: hidden;
-            cursor: url('https://flaticon.com'), auto; /* Magic wand cursor */
-        }
-        header {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            border-bottom: 5px solid #fff;
-        }
-        nav {
-            background: #333;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        nav a:hover { color: #ffcc00; }
-
-        /* Floating Background Shapes */
-        .shape {
-            position: absolute;
-            background: rgba(255, 123, 0, 0.1);
-            border-radius: 50%;
-            z-index: -1;
-            animation: float 6s infinite ease-in-out;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .banner {
-            text-align: center;
-            padding: 60px 20px;
-            background: #fff3cd;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 40px 20px;
-        }
-        .card {
-            background: white;
-            width: 250px;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: 0.3s;
-            border: 3px solid transparent;
-        }
-        .card:hover {
-            transform: scale(1.05);
-            border-color: var(--primary-color);
-        }
-        .card img { width: 100px; margin-bottom: 15px; }
-
-        .contact-form input, .contact-form textarea {
-            width: 90%;
-            max-width: 400px;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid #ffcc00;
-            border-radius: 10px;
-            outline: none;
-        }
-        button {
-            background: var(--primary-color);
-            border: none;
-            padding: 12px 25px;
-            color: white;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 0 #b35600;
-        }
-        button:active { transform: translateY(4px); box-shadow: none; }
-        
-        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+        :root { --p-color: #ff7b00; --s-color: #ffcc00; }
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; margin: 0; background: #f0f8ff; overflow-x: hidden; }
+        header { background: linear-gradient(45deg, var(--p-color), var(--s-color)); color: white; text-align: center; padding: 40px; }
+        nav { background: #333; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .section-title { text-align: center; color: #ff5500; font-size: 32px; margin-top: 40px; text-decoration: underline; }
+        .story-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+        .story-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 5px solid var(--p-color); transition: 0.3s; }
+        .story-card:hover { transform: scale(1.02); background: #fffdf5; }
+        .story-card h3 { color: #d35400; margin-top: 0; }
+        .safety-box { background: #ffeaa7; padding: 30px; margin: 20px; border-radius: 20px; border: 2px dashed #fab1a0; }
+        .badge-good { background: #55efc4; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+        .badge-bad { background: #ff7675; padding: 5px 10px; border-radius: 5px; font-weight: bold; color: white; }
+        button { background: var(--p-color); border: none; padding: 10px 20px; color: white; border-radius: 20px; cursor: pointer; margin-top: 10px; font-weight: bold;}
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-<!-- Floating Elements -->
-<div class="shape" style="width: 80px; height: 80px; top: 20%; left: 10%;"></div>
-<div class="shape" style="width: 120px; height: 120px; top: 50%; right: 5%; background: rgba(0,123,255,0.1);"></div>
-
-<header data-aos="zoom-in">
-    <h1>Kids Learning World 🌍</h1>
-    <p style="font-size: 22px;">Masti aur Padhai - <span id="typing-text" style="color: #333; background: #fff; padding: 0 10px; border-radius: 5px;"></span></p>
+<header>
+    <h1>Kids Learning & Story World 🌍</h1>
+    <p>Fun Learning - <span id="typing-text" style="color: #333;"></span></p>
 </header>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#abc">ABC</a>
-    <a href="#numbers">Numbers</a>
-    <a href="#contact">Contact</a>
+    <a href="#mythology">Pauranik Kahaniyan</a>
+    <a href="#science">Science & Earth</a>
+    <a href="#safety">Safety Corner</a>
 </nav>
 
-<div class="banner" data-aos="fade-up">
-    <h2>Welcome Little Explorer! 🚀</h2>
-    <p>Chalo aaj kuch naya aur mazedaar seekhte hain.</p>
+<!-- 1. Pauranik Kahaniyan Section -->
+<h2 id="mythology" class="section-title" data-aos="fade-down">Devi-Devtaon ki Kahaniyan 🕉️</h2>
+<div class="story-container">
+    <div class="story-card" data-aos="fade-up">
+        <h3>🐘 Ganeshji aur Kartikeya</h3>
+        <p>Jaaniye kaise Ganesh ji ne apni buddhi se poori duniya ki parikrama apne mata-pita ke charno mein ki.</p>
+        <button onclick="alert('Kahani jald aa rahi hai!')">Padhein</button>
+    </div>
+    <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>🏹 Mata Sita aur Luv-Kush</h3>
+        <p>Valmiki ashram mein Luv aur Kush ki veerta aur Mata Sita ke tyag ki preranadayak kahani.</p>
+        <button>Padhein</button>
+    </div>
+    <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>🦚 Natkhat Krishna</h3>
+        <p>Makhan chori se lekar Kaliya Naag ka mardan karne tak, Kanha ki adbhut leelayein.</p>
+        <button>Padhein</button>
+    </div>
+    <div class="story-card" data-aos="fade-up">
+        <h3>🔱 Mahadev ki Mahima</h3>
+        <p>Bhole Nath kaise bane Neelkanth aur unki kshama aur shakti ki kahaniyan.</p>
+        <button>Padhein</button>
+    </div>
 </div>
 
-<div class="container">
-    <div class="card" data-aos="flip-left">
-        <img src="https://flaticon.com" alt="ABC">
-        <h3>A B C D</h3>
-        <button onclick="playClick()">Start Learning</button>
+<!-- 2. Science & Earth Section -->
+<h2 id="science" class="section-title" data-aos="fade-down">Duniya aur Vigyan 🚀</h2>
+<div class="story-container">
+    <div class="story-card" data-aos="zoom-in">
+        <h3>🌍 Hamari Prithvi</h3>
+        <p>Prithvi kaise bani? Dhool aur gas ke badalon se lekar sundar neele grah tak ka safar.</p>
+        <button>Jaaniye Kaise</button>
     </div>
-    <div class="card" data-aos="flip-right" data-aos-delay="200">
-        <img src="https://flaticon.com" alt="123">
-        <h3>1 2 3 Numbers</h3>
-        <button onclick="playClick()">Start Counting</button>
+    <div class="story-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>🧪 Scientist ki Kahani</h3>
+        <p>Newton, Einstein aur Kalam ji ne kaise apni mehnat se duniya ko badal diya.</p>
+        <button>Padhein</button>
     </div>
 </div>
 
-<section id="contact" data-aos="fade-up">
-    <div style="background: white; display: inline-block; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <h2>Parents Corner ✉️</h2>
-        <p>Humein apna feedback bheinjein</p>
-        <form class="contact-form" action="https://formspree.io" method="POST">
-            <input type="text" name="name" placeholder="Aapka Naam" required><br>
-            <input type="email" name="email" placeholder="Aapki Email" required><br>
-            <textarea name="message" placeholder="Aapka Message"></textarea><br>
-            <button type="submit">Message Bheinjein</button>
-        </form>
-    </div>
-</section>
+<!-- 3. Moral & Safety Section -->
+<h2 id="safety" class="section-title" data-aos="fade-down">Sahi aur Galat ki Samajh ✅</h2>
+<div class="safety-box" data-aos="flip-up">
+    <h3>🛡️ Good Touch vs Bad Touch (Zaroori Seekh)</h3>
+    <p>Bachon, aapka sharir aapka apna hai. Ise samajhna bahut zaroori hai:</p>
+    <ul>
+        <li><span class="badge-good">Good Touch:</span> Jab mummy-papa gale lagayein ya doctor checkup karein (parents ke samne). Isse aapko surakshit lagta hai.</li>
+        <li><span class="badge-bad">Bad Touch:</span> Agar koi aapke 'Private Parts' ko chhuye ya aapko uncomfortable mehsoos ho.</li>
+        <li><strong>Kya Karein?</strong> Turant zor se <strong>"NO"</strong> bolein, wahan se bhagein aur apne mummy-papa ko batayein. Kuch bhi chhupayein nahi!</li>
+    </ul>
+</div>
+
+<div class="story-card" style="margin: 20px;" data-aos="fade-up">
+    <h3>😇 Acche aur Bure Log</h3>
+    <p>Hamesha yaad rakhein: Jo log humein jhoot bolne ko kahein ya darayein, unse door rahein. Acche log hamesha sach bolne aur madad karne ki seekh dete hain.</p>
+</div>
 
 <footer>
-    <p>&copy; 2026 Kids Learning World | Banaya gaya hai ❤️ ke saath</p>
+    <p>&copy; 2026 Kids Learning World | Sabhi bachon ke liye ek surakshit jagah ❤️</p>
 </footer>
 
-<!-- Scripts -->
 <script src="https://unpkg.com"></script>
 <script src="https://unpkg.com"></script>
-
 <script>
-    // 1. Initialize Animations
-    AOS.init({ duration: 1000, once: true });
-
-    // 2. Typing Effect
+    AOS.init({ duration: 1000 });
     var typed = new Typed('#typing-text', {
-        strings: ['Alphabet Seekho', 'Ginti Karo', 'Kahaniyan Suno', 'Mazedaar Games'],
-        typeSpeed: 70,
-        backSpeed: 50,
-        loop: true
+        strings: ['Ganeshji ki Kahani', 'Prithvi ki Utpatti', 'Good Touch Bad Touch', 'Krishna Leela'],
+        typeSpeed: 50, backSpeed: 30, loop: true
     });
-
-    // 3. Sound Effect Function
-    function playClick() {
-        let audio = new Audio('https://soundjay.com');
-        audio.play();
-        alert("Chalo shuru karte hain! 🎉");
-    }
 </script>
 
 </body>
-  </html>
-  
+</html>
