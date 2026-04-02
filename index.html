@@ -1,219 +1,111 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<title>Soumya Kids 🌟</title> <!-- 1. यहाँ नाम बदला गया है (Browser Tab के लिए) -->
-<style>
-    body { font-family: 'Segoe UI', Arial; margin: 0; background: #f0f8ff; scroll-behavior: smooth; }
-    header { background: linear-gradient(45deg, #ff7b00, #ffcc00); color: white; text-align: center; padding: 30px; }
-    nav { background: #333; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
-    nav a { color: white; margin: 8px; text-decoration: none; font-size: 14px; font-weight: bold; border: 1px solid orange; padding: 5px 10px; border-radius: 5px; }
-    nav a:hover { background: orange; color: black; }
-    section { padding: 40px 20px; text-align: center; border-bottom: 2px solid #ddd; }
-    .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .card { background: white; width: 160px; padding: 15px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
-    .card:hover { transform: translateY(-5px); background: #fffbe6; border: 2px solid #ff7b00; }
-    .story-card { width: 320px; background: #fff; padding: 20px; border-left: 6px solid #ff7b00; text-align: left; }
-    .color-box { width: 40px; height: 40px; border-radius: 50%; margin: 10px auto; border: 1px solid #ddd; }
-    h2 { color: #d35400; background: #ffeaa7; padding: 10px 25px; border-radius: 50px; display: inline-block; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
-    footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Story World 🌍</title>
+    <link href="https://unpkg.com" rel="stylesheet">
+    <style>
+        :root { --p-color: #ff7b00; --s-color: #ffcc00; }
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; margin: 0; background: #f0f8ff; overflow-x: hidden; }
+        header { background: linear-gradient(45deg, var(--p-color), var(--s-color)); color: white; text-align: center; padding: 40px; }
+        nav { background: #333; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .section-title { text-align: center; color: #ff5500; font-size: 32px; margin-top: 40px; text-decoration: underline; }
+        .story-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+        .story-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 5px solid var(--p-color); transition: 0.3s; }
+        .story-card:hover { transform: scale(1.02); background: #fffdf5; }
+        .story-card h3 { color: #d35400; margin-top: 0; }
+        .safety-box { background: #ffeaa7; padding: 30px; margin: 20px; border-radius: 20px; border: 2px dashed #fab1a0; }
+        .badge-good { background: #55efc4; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+        .badge-bad { background: #ff7675; padding: 5px 10px; border-radius: 5px; font-weight: bold; color: white; }
+        button { background: var(--p-color); border: none; padding: 10px 20px; color: white; border-radius: 20px; cursor: pointer; margin-top: 10px; font-weight: bold;}
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>Soumya Kids 🌍🚩</h1> <!-- 2. यहाँ मुख्य नाम बदला गया है -->
-    <p>सब कुछ एक जगह: ABC, गिनती, हिंदी, रंग, जानवर और महान ग्रंथ</p>
+    <h1>Kids Learning & Story World 🌍</h1>
+    <p>Fun Learning - <span id="typing-text" style="color: #333;"></span></p>
 </header>
 
 <nav>
-    <a href="#abc">ABC</a>
-    <a href="#numbers">1-100</a>
-    <a href="#hindi">हिंदी</a>
-    <a href="#colors">रंग (Colors)</a>
-    <a href="#animals">जानवर (Animals)</a>
-    <a href="#history">कहानियाँ & गीता</a>
+    <a href="#mythology">Pauranik Kahaniyan</a>
+    <a href="#science">Science & Earth</a>
+    <a href="#safety">Safety Corner</a>
 </nav>
 
-<!-- Sections (ABC, Numbers, Hindi, etc. same as before) -->
-<section id="abc"><h2>Learn ABC 🔤</h2><div class="container" id="abcContainer"></div></section>
-<section id="numbers"><h2>Learn Counting 1-100 🔢</h2><div class="container" id="numberContainer"></div></section>
-<section id="hindi"><h2>हिंदी वर्णमाला (क से ज्ञ) 🇮🇳</h2><div class="container" id="hindiContainer"></div></section>
-<section id="colors"><h2>रंगों के नाम (Color Names) 🎨</h2><div class="container" id="colorContainer"></div></section>
-<section id="animals"><h2>जानवरों के नाम (Animals) 🦁</h2><div class="container" id="animalContainer"></div></section>
-
-<section id="history">
-    <h2>वीर इतिहास और दिव्य ग्रंथ 🚩📜</h2>
-    <div class="container">
-        <div class="card story-card" onclick="readStory('Gita')">
-            <h3>🕉️ श्रीमद्भगवद्गीता</h3>
-            <p>भगवान श्री कृष्ण द्वारा अर्जुन को दिया गया दिव्य ज्ञान।</p>
-        </div>
-        <div class="card story-card" onclick="readStory('Ramayana')">
-            <h3>🚩 रामायण</h3>
-            <p>भगवान श्री राम की पावन और आदर्श कहानी।</p>
-        </div>
-        <div class="card story-card" onclick="readStory('Pratap')">
-            <h3>⚔️ महाराणा प्रताप</h3>
-            <p>मेवाड़ के वीर योद्धा की गाथा।</p>
-        </div>
+<!-- 1. Pauranik Kahaniyan Section -->
+<h2 id="mythology" class="section-title" data-aos="fade-down">Devi-Devtaon ki Kahaniyan 🕉️</h2>
+<div class="story-container">
+    <div class="story-card" data-aos="fade-up">
+        <h3>🐘 Ganeshji aur Kartikeya</h3>
+        <p>Jaaniye kaise Ganesh ji ne apni buddhi se poori duniya ki parikrama apne mata-pita ke charno mein ki.</p>
+        <button onclick="alert('Kahani jald aa rahi hai!')">Padhein</button>
     </div>
-</section>
+    <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>🏹 Mata Sita aur Luv-Kush</h3>
+        <p>Valmiki ashram mein Luv aur Kush ki veerta aur Mata Sita ke tyag ki preranadayak kahani.</p>
+        <button>Padhein</button>
+    </div>
+    <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>🦚 Natkhat Krishna</h3>
+        <p>Makhan chori se lekar Kaliya Naag ka mardan karne tak, Kanha ki adbhut leelayein.</p>
+        <button>Padhein</button>
+    </div>
+    <div class="story-card" data-aos="fade-up">
+        <h3>🔱 Mahadev ki Mahima</h3>
+        <p>Bhole Nath kaise bane Neelkanth aur unki kshama aur shakti ki kahaniyan.</p>
+        <button>Padhein</button>
+    </div>
+</div>
+
+<!-- 2. Science & Earth Section -->
+<h2 id="science" class="section-title" data-aos="fade-down">Duniya aur Vigyan 🚀</h2>
+<div class="story-container">
+    <div class="story-card" data-aos="zoom-in">
+        <h3>🌍 Hamari Prithvi</h3>
+        <p>Prithvi kaise bani? Dhool aur gas ke badalon se lekar sundar neele grah tak ka safar.</p>
+        <button>Jaaniye Kaise</button>
+    </div>
+    <div class="story-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>🧪 Scientist ki Kahani</h3>
+        <p>Newton, Einstein aur Kalam ji ne kaise apni mehnat se duniya ko badal diya.</p>
+        <button>Padhein</button>
+    </div>
+</div>
+
+<!-- 3. Moral & Safety Section -->
+<h2 id="safety" class="section-title" data-aos="fade-down">Sahi aur Galat ki Samajh ✅</h2>
+<div class="safety-box" data-aos="flip-up">
+    <h3>🛡️ Good Touch vs Bad Touch (Zaroori Seekh)</h3>
+    <p>Bachon, aapka sharir aapka apna hai. Ise samajhna bahut zaroori hai:</p>
+    <ul>
+        <li><span class="badge-good">Good Touch:</span> Jab mummy-papa gale lagayein ya doctor checkup karein (parents ke samne). Isse aapko surakshit lagta hai.</li>
+        <li><span class="badge-bad">Bad Touch:</span> Agar koi aapke 'Private Parts' ko chhuye ya aapko uncomfortable mehsoos ho.</li>
+        <li><strong>Kya Karein?</strong> Turant zor se <strong>"NO"</strong> bolein, wahan se bhagein aur apne mummy-papa ko batayein. Kuch bhi chhupayein nahi!</li>
+    </ul>
+</div>
+
+<div class="story-card" style="margin: 20px;" data-aos="fade-up">
+    <h3>😇 Acche aur Bure Log</h3>
+    <p>Hamesha yaad rakhein: Jo log humein jhoot bolne ko kahein ya darayein, unse door rahein. Acche log hamesha sach bolne aur madad karne ki seekh dete hain.</p>
+</div>
 
 <footer>
-    <p>© 2026 Soumya Kids | शिक्षा और संस्कार</p> <!-- 3. यहाँ Footer में नाम बदला गया है -->
+    <p>&copy; 2026 Kids Learning World | Sabhi bachon ke liye ek surakshit jagah ❤️</p>
 </footer>
 
+<script src="https://unpkg.com"></script>
+<script src="https://unpkg.com"></script>
 <script>
-// --- Voice Functions ---
-function speakEnglish(text) {
-    window.speechSynthesis.cancel();
-    let speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "en-US";
-    window.speechSynthesis.speak(speech);
-}
-
-function speakHindi(text) {
-    window.speechSynthesis.cancel();
-    let speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "hi-IN";
-    speech.rate = 0.95;
-    window.speechSynthesis.speak(speech);
-}
-
-// --- Data Generation (ABC, Numbers, Hindi, Colors, Animals) ---
-const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const words=["Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"];
-let abcContainer=document.getElementById("abcContainer");
-for(let i=0;i<letters.length;i++){
-    let card=document.createElement("div");
-    card.className="card";
-    card.onclick = () => speakEnglish(`${letters[i]} for ${words[i]}`);
-    card.innerHTML=`<h3>${letters[i]}</h3><p>${words[i]}</p>`;
-    abcContainer.appendChild(card);
-}
-
-let numberContainer=document.getElementById("numberContainer");
-for(let i=1;i<=100;i++){
-    let card=document.createElement("div");
-    card.className="card";
-    card.style.width = "60px";
-    card.onclick = () => speakHindi(i);
-    card.innerHTML=`<h3>${i}</h3>`;
-    numberContainer.appendChild(card);
-}
-
-const hindiData = [{a:'क',w:'कबूतर'},{a:'ख',w:'खरगोश'},{a:'ग',w:'गमला'},{a:'घ',w:'घर'},{a:'ङ',w:'खाली'},{a:'च',w:'चम्मच'},{a:'छ',w:'छतरी'},{a:'ज',w:'जहाज'},{a:'झ',w:'झंडा'},{a:'ञ',w:'खाली'},{a:'ट',w:'टमाटर'},{a:'ठ',w:'ठठेरा'},{a:'ड',w:'डमरू'},{a:'ढ',w:'ढोलक'},{a:'ण',w:'खाली'},{a:'त',w:'तरबूज'},{a:'थ',w:'थर्मस'},{a:'द',w:'दवात'},{a:'ध',w:'धनुष'},{a:'न',w:'नल'},{a:'प',w:'पतंग'},{a:'फ',w:'फल'},{a:'ब',w:'बकरी'},{a:'भ',w:'भालू'},{a:'म',w:'मछली'},{a:'य',w:'यज्ञ'},{a:'र',w:'रस्सी'},{a:'ल',w:'लट्टू'},{a:'व',w:'वन'},{a:'श',w:'शेर'},{a:'ष',w:'षट्कोण'},{a:'स',w:'सपेरा'},{a:'ह',w:'हाथी'},{a:'क्ष',w:'क्षत्रिय'},{a:'त्र',w:'त्रिशूल'},{a:'ज्ञ',w:'ज्ञानी'}];
-let hindiContainer = document.getElementById("hindiContainer");
-hindiData.forEach(item => {
-    let card = document.createElement("div");
-    card.className = "card";
-    card.onclick = () => speakHindi(`${item.a} से ${item.w}`);
-    card.innerHTML = `<h3>${item.a}</h3><p>${item.w}</p>`;
-    hindiContainer.appendChild(card);
-});
-
-const colorData = [{n:'लाल',e:'Red',c:'red'},{n:'नीला',e:'Blue',c:'blue'},{n:'हरा',e:'Green',c:'green'},{n:'पीला',e:'Yellow',c:'yellow'},{n:'सफ़ेद',e:'White',c:'white'},{n:'काला',e:'Black',c:'black'},{n:'गुलाबी',e:'Pink',c:'pink'},{n:'नारंगी',e:'Orange',c:'orange'}];
-let colorContainer = document.getElementById("colorContainer");
-colorData.forEach(color => {
-    let card = document.createElement("div");
-    card.className = "card";
-    card.onclick = () => speakHindi(`${color.n} रंग - ${color.e}`);
-    card.innerHTML = `<div class="color-box" style="background:${color.c}"></div><h3>${color.e}</h3><p>${color.n}</p>`;
-    colorContainer.appendChild(card);
-});
-
-const animalData = [{n:'शेर',e:'Lion',i:'🦁'},{n:'हाथी',e:'Elephant',i:'🐘'},{n:'बाघ',e:'Tiger',i:'🐅'},{n:'गाय',e:'Cow',i:'🐄'},{n:'कुत्ता',e:'Dog',i:'🐕'},{n:'बिल्ली',e:'Cat',i:'🐈'},{n:'बंदर',e:'Monkey',i:'🐒'},{n:'खरगोश',e:'Rabbit',i:'🐇'}];
-let animalContainer = document.getElementById("animalContainer");
-animalData.forEach(animal => {
-    let card = document.createElement("div");
-    card.className = "card";
-    card.onclick = () => speakHindi(`${animal.n} - ${animal.e}`);
-    card.innerHTML = `<h1 style="margin:0">${animal.i}</h1><h3>${animal.e}</h3><p>${animal.n}</p>`;
-    animalContainer.appendChild(card);
-});
-
-const stories = {
-    'Gita': 'श्रीमद्भगवद्गीता में भगवान श्री कृष्ण ने अर्जुन को धर्म और कर्म का महान ज्ञान दिया। यह हमें सिखाती है कि फल की चिंता किए बिना अपना कर्तव्य निभाना चाहिए।',
-    'Ramayana': 'रामायण भगवान श्री राम की पावन कहानी है। राम जी ने धर्म की मर्यादा को निभाया और रावण का वध कर बुराई पर अच्छाई की जीत हासिल की।',
-    'Pratap': 'महाराणा प्रताप मेवाड़ के वीर राजपूत राजा थे। उन्होंने मातृभूमि की रक्षा के लिए अकबर से लोहा लिया और कभी हार नहीं मानी।'
-};
-function readStory(key) { speakHindi(stories[key]); }
-
+    AOS.init({ duration: 1000 });
+    var typed = new Typed('#typing-text', {
+        strings: ['Ganeshji ki Kahani', 'Prithvi ki Utpatti', 'Good Touch Bad Touch', 'Krishna Leela'],
+        typeSpeed: 50, backSpeed: 30, loop: true
+    });
 </script>
+
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somya Digital | Premium Starter Site</title>
-    <script src="https://tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-
-    <!-- Header / Navigation -->
-    <nav class="p-6 bg-white shadow-sm flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-blue-600">Somya<span class="text-gray-800">Digital</span></h1>
-        <div class="space-x-6 hidden md:block">
-            <a href="#" class="hover:text-blue-600">Home</a>
-            <a href="#" class="hover:text-blue-600">Articles</a>
-            <a href="#" class="hover:text-blue-600">About</a>
-            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Contact Us</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section (यही खरीदार को आकर्षित करेगा) -->
-    <header class="py-20 px-6 text-center bg-gradient-to-r from-blue-50 to-indigo-50">
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Welcome to Your New Digital Asset</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">This is a high-potential starter website built for growth. Ready for SEO, content, and monetization.</p>
-        <button class="bg-blue-600 text-white text-lg px-8 py-3 rounded-full hover:shadow-lg transition">Explore Articles</button>
-    </header>
-
-    <!-- Content Sections (यहाँ आपके 10-15 आर्टिकल्स के डमी बॉक्स हैं) -->
-    <main class="max-w-6xl mx-auto py-16 px-6">
-        <h3 class="text-3xl font-bold mb-10 text-center">Featured Insights</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Article Card 1 -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="h-48 bg-gray-200"></div> <!-- यहाँ इमेज आएगी -->
-                <div class="p-6">
-                    <h4 class="font-bold text-xl mb-2">The Future of Digital Marketing</h4>
-                    <p class="text-gray-600 text-sm">Learn how to scale your business using the latest online tools...</p>
-                    <a href="#" class="text-blue-600 mt-4 inline-block font-semibold">Read More &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Article Card 2 -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="h-48 bg-gray-300"></div>
-                <div class="p-6">
-                    <h4 class="font-bold text-xl mb-2">Top 10 Productivity Hacks</h4>
-                    <p class="text-gray-600 text-sm">Boost your daily output with these simple and effective tips...</p>
-                    <a href="#" class="text-blue-600 mt-4 inline-block font-semibold">Read More &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Article Card 3 -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="h-48 bg-gray-400"></div>
-                <div class="p-6">
-                    <h4 class="font-bold text-xl mb-2">SEO Strategy for 2024</h4>
-                    <p class="text-gray-600 text-sm">Everything you need to know about ranking on the first page of Google...</p>
-                    <a href="#" class="text-blue-600 mt-4 inline-block font-semibold">Read More &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-10 text-center">
-        <p>&copy; 2024 SomyaDigital.com - All Rights Reserved.</p>
-        <p class="text-gray-500 text-sm mt-2">Built for Flippa Marketplace</p>
-    </footer>
-<script defer src="/_vercel/insights/script.js"></script>
-</body>
-</html>
-
