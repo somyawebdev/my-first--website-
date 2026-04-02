@@ -1,165 +1,257 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kids Learning World 🌍</title>
-    <!-- Animation CSS -->
-    <link href="https://unpkg.com" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f0f8ff;
-            overflow-x: hidden; /* Scroll animation ke liye */
-        }
-        header {
-            background: linear-gradient(45deg, #ff7b00, #ffcc00);
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
-        nav {
-            background: #333;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            color: white;
-            margin: 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        nav a:hover {
-            color: yellow;
-        }
-        .banner {
-            text-align: center;
-            padding: 60px;
-            background: #fff3cd;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-        .card {
-            background: white;
-            width: 220px;
-            margin: 15px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        .card img {
-            width: 120px;
-        }
-        section {
-            padding: 40px;
-            text-align: center;
-        }
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        button {
-            background: #ff7b00;
-            border: none;
-            padding: 10px 20px;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-        }
-        button:hover {
-            background: #ff5500;
-        }
-        /* Contact Form Style */
-        .contact-form input, .contact-form textarea {
-            width: 80%;
-            max-width: 400px;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-    </style>
+<title>Kids Learning World</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f0f8ff;
+}
+
+header{
+background:linear-gradient(45deg,#ff7b00,#ffcc00);
+color:white;
+text-align:center;
+padding:40px;
+}
+
+nav{
+background:#333;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-size:18px;
+}
+
+nav a:hover{
+color:yellow;
+}
+
+.banner{
+text-align:center;
+padding:60px;
+background:#fff3cd;
+}
+
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+padding:20px;
+}
+
+.card{
+background:white;
+width:220px;
+margin:15px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card img{
+width:120px;
+}
+
+section{
+padding:40px;
+text-align:center;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+button{
+background:#ff7b00;
+border:none;
+padding:10px 20px;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff5500;
+}
+
+</style>
 </head>
+
 <body>
 
-<header data-aos="fade-down">
-    <h1>Kids Learning World 🌍</h1>
-    <!-- Typing Animation Section -->
-    <p style="font-size: 20px; font-weight: bold;">Fun Learning - <span id="typing-text" style="color: #333;"></span></p>
+<header>
+<h1>Kids Learning World 🌍</h1>
+<p>Fun Learning for Kids – ABC, Numbers & Hindi</p>
 </header>
 
 <nav>
-    <a href="#abc">ABC</a>
-    <a href="#numbers">Numbers</a>
-    <a href="#stories">Stories</a>
-    <a href="#contact">Contact</a>
+<a href="#abc">ABC</a>
+<a href="#numbers">Numbers</a>
+<a href="#hindi">Hindi</a>
+<a href="#game">Game</a>
 </nav>
 
-<div class="banner" data-aos="zoom-in">
-    <h2>Welcome to the World of Learning!</h2>
-    <p>Chalo milkar kuch naya seekhte hain.</p>
+<div class="banner">
+<h2>Welcome to Kids Learning World</h2>
+<p>Learn Alphabets, Numbers and Hindi in a Fun Way!</p>
 </div>
+
+<section id="abc">
+
+<h2>Learn ABC 🔤</h2>
+
+<div class="container" id="abcContainer"></div>
+
+</section>
+
+<section id="numbers">
+
+<h2>Learn Counting 1-100 🔢</h2>
+
+<div class="container" id="numberContainer"></div>
+
+</section>
+
+<section id="hindi">
+
+<h2>Hindi Alphabet 🇮🇳</h2>
 
 <div class="container">
-    <!-- Card 1 -->
-    <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://flaticon.com" alt="ABC">
-        <h3>Learn ABC</h3>
-        <button>Start</button>
-    </div>
-    <!-- Card 2 -->
-    <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://flaticon.com" alt="Numbers">
-        <h3>Learn Numbers</h3>
-        <button>Start</button>
-    </div>
+
+<div class="card"><h3>क – कबूतर</h3></div>
+<div class="card"><h3>ख – खरगोश</h3></div>
+<div class="card"><h3>ग – गमला</h3></div>
+<div class="card"><h3>घ – घर</h3></div>
+<div class="card"><h3>ङ – अंगूर</h3></div>
+<div class="card"><h3>च – चम्मच</h3></div>
+<div class="card"><h3>छ – छतरी</h3></div>
+<div class="card"><h3>ज – जहाज</h3></div>
+<div class="card"><h3>झ – झंडा</h3></div>
+<div class="card"><h3>ञ – ज्ञान</h3></div>
+<div class="card"><h3>ट – टमाटर</h3></div>
+<div class="card"><h3>ठ – ठेला</h3></div>
+<div class="card"><h3>ड – डमरू</h3></div>
+<div class="card"><h3>ढ – ढोल</h3></div>
+<div class="card"><h3>ण – बाण</h3></div>
+<div class="card"><h3>त – तरबूज</h3></div>
+<div class="card"><h3>थ – थाली</h3></div>
+<div class="card"><h3>द – दरवाज़ा</h3></div>
+<div class="card"><h3>ध – धनुष</h3></div>
+<div class="card"><h3>न – नल</h3></div>
+<div class="card"><h3>प – पतंग</h3></div>
+<div class="card"><h3>फ – फल</h3></div>
+<div class="card"><h3>ब – बकरी</h3></div>
+<div class="card"><h3>भ – भालू</h3></div>
+<div class="card"><h3>म – मछली</h3></div>
+<div class="card"><h3>य – यज्ञ</h3></div>
+<div class="card"><h3>र – रस्सी</h3></div>
+<div class="card"><h3>ल – लड्डू</h3></div>
+<div class="card"><h3>व – वन</h3></div>
+<div class="card"><h3>श – शेर</h3></div>
+<div class="card"><h3>ष – षट्कोण</h3></div>
+<div class="card"><h3>स – साँप</h3></div>
+<div class="card"><h3>ह – हाथी</h3></div>
+<div class="card"><h3>क्ष – क्षत्रिय</h3></div>
+<div class="card"><h3>त्र – त्रिशूल</h3></div>
+<div class="card"><h3>ज्ञ – ज्ञान</h3></div>
+
 </div>
 
-<!-- Naya Contact Section -->
-<section id="contact" data-aos="fade-up">
-    <h2>Humein Contact Karein</h2>
-    <form class="contact-form" action="https://formspree.io" method="POST">
-        <input type="text" name="name" placeholder="Aapka Naam" required><br>
-        <input type="email" name="email" placeholder="Aapki Email" required><br>
-        <textarea name="message" placeholder="Aapka Message"></textarea><br>
-        <button type="submit">Message Bheinjein</button>
-    </form>
+</section>
+
+<section id="game">
+
+<h2>🎮 Guess the Number Game</h2>
+
+<button onclick="playGame()">Play Game</button>
+
 </section>
 
 <footer>
-    <p>&copy; 2026 Kids Learning World | Made with ❤️</p>
+<p>© 2026 Kids Learning World</p>
 </footer>
 
-<!-- Scripts: AOS aur Typed.js -->
-<script src="https://unpkg.com"></script>
-<script src="https://unpkg.com"></script>
-
 <script>
-    // 1. Scroll Animation Start
-    AOS.init({ duration: 1000, once: true });
 
-    // 2. Typing Effect Start
-    var typed = new Typed('#typing-text', {
-        strings: ['ABC Learning', 'Number Counting', 'Hindi Stories', 'Fun Games'],
-        typeSpeed: 60,
-        backSpeed: 40,
-        loop: true
-    });
+const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+const words=[
+"Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"
+]
+
+let abcContainer=document.getElementById("abcContainer")
+
+for(let i=0;i<letters.length;i++){
+
+let card=document.createElement("div")
+card.className="card"
+
+card.innerHTML=`
+<h3>${letters[i]} for ${words[i]}</h3>
+<img src="https://source.unsplash.com/120x120/?${words[i]}">
+<br><br>
+<button onclick="speak('${letters[i]} for ${words[i]}')">Hear</button>
+`
+
+abcContainer.appendChild(card)
+
+}
+
+let numberContainer=document.getElementById("numberContainer")
+
+for(let i=1;i<=100;i++){
+
+let card=document.createElement("div")
+card.className="card"
+
+card.innerHTML=`<h3>${i}</h3>`
+
+numberContainer.appendChild(card)
+
+}
+
+function playGame(){
+
+let number=Math.floor(Math.random()*5)+1
+
+let guess=prompt("Guess number between 1-5")
+
+if(guess==number){
+
+alert("🎉 Correct!")
+
+}else{
+
+alert("Wrong! Correct number was "+number)
+
+}
+
+}
+
+function speak(text){
+
+let speech=new SpeechSynthesisUtterance(text)
+
+speech.lang="en-US"
+
+window.speechSynthesis.speak(speech)
+
+}
+
 </script>
 
 </body>
-</html>
+                                      </html>
