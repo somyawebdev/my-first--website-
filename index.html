@@ -2,100 +2,192 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kids Learning World 🌍</title>
-    <!-- Animations ke liye -->
+    
+    <!-- External Libraries -->
     <link href="https://unpkg.com" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; background: #f0f8ff; overflow-x: hidden; }
-        header { background: linear-gradient(45deg, #ff7b00, #ffcc00); color: white; text-align: center; padding: 40px; }
-        nav { background: #333; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .section-title { text-align: center; color: #ff5500; font-size: 28px; margin-top: 30px; }
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 20px; }
-        .card { background: white; width: 280px; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #ff7b00; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .safety-box { background: #fff3cd; padding: 25px; margin: 20px; border-radius: 15px; border: 2px dashed #ff7b00; }
-        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 30px; }
-        .btn { background: #ff7b00; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+        :root {
+            --primary-color: #ff7b00;
+            --secondary-color: #ffcc00;
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Kids style font */
+            margin: 0;
+            background: #f0f8ff;
+            overflow-x: hidden;
+            cursor: url('https://flaticon.com'), auto; /* Magic wand cursor */
+        }
+        header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 5px solid #fff;
+        }
+        nav {
+            background: #333;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        nav a:hover { color: #ffcc00; }
+
+        /* Floating Background Shapes */
+        .shape {
+            position: absolute;
+            background: rgba(255, 123, 0, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .banner {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff3cd;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+        .card {
+            background: white;
+            width: 250px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+            border: 3px solid transparent;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+        .card img { width: 100px; margin-bottom: 15px; }
+
+        .contact-form input, .contact-form textarea {
+            width: 90%;
+            max-width: 400px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            outline: none;
+        }
+        button {
+            background: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            color: white;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 0 #b35600;
+        }
+        button:active { transform: translateY(4px); box-shadow: none; }
+        
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-<header data-aos="fade-down">
+<!-- Floating Elements -->
+<div class="shape" style="width: 80px; height: 80px; top: 20%; left: 10%;"></div>
+<div class="shape" style="width: 120px; height: 120px; top: 50%; right: 5%; background: rgba(0,123,255,0.1);"></div>
+
+<header data-aos="zoom-in">
     <h1>Kids Learning World 🌍</h1>
-    <p style="font-size: 20px;">Seekhein: <span id="typing-text"></span></p>
+    <p style="font-size: 22px;">Masti aur Padhai - <span id="typing-text" style="color: #333; background: #fff; padding: 0 10px; border-radius: 5px;"></span></p>
 </header>
 
 <nav>
-    <a href="#stories">Kahaniyan</a>
-    <a href="#earth">Prithvi</a>
-    <a href="#safety">Safety</a>
+    <a href="#home">Home</a>
+    <a href="#abc">ABC</a>
+    <a href="#numbers">Numbers</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<!-- Kahaniyan Section -->
-<h2 id="stories" class="section-title">✨ Pauranik Kahaniyan</h2>
+<div class="banner" data-aos="fade-up">
+    <h2>Welcome Little Explorer! 🚀</h2>
+    <p>Chalo aaj kuch naya aur mazedaar seekhte hain.</p>
+</div>
+
 <div class="container">
-    <div class="card" data-aos="zoom-in">
-        <h3>🐘 Ganesh aur Kartikeya</h3>
-        <p>Ganeshji ne kaise poori duniya ki parikrama apne Mata-Pita ke charno mein ki.</p>
-        <button class="btn">Padhein</button>
+    <div class="card" data-aos="flip-left">
+        <img src="https://flaticon.com" alt="ABC">
+        <h3>A B C D</h3>
+        <button onclick="playClick()">Start Learning</button>
     </div>
-    <div class="card" data-aos="zoom-in">
-        <h3>🏹 Sita Mata aur Luv-Kush</h3>
-        <p>Ashram mein Luv aur Kush ki veerta aur Sita Mata ke sanskar ki kahani.</p>
-        <button class="btn">Padhein</button>
-    </div>
-    <div class="card" data-aos="zoom-in">
-        <h3>🦚 Natkhat Krishna aur Mahadev</h3>
-        <p>Kanha ki leelayein aur Bhole Nath ki shakti ki adbhut katha.</p>
-        <button class="btn">Padhein</button>
+    <div class="card" data-aos="flip-right" data-aos-delay="200">
+        <img src="https://flaticon.com" alt="123">
+        <h3>1 2 3 Numbers</h3>
+        <button onclick="playClick()">Start Counting</button>
     </div>
 </div>
 
-<!-- Prithvi Section -->
-<h2 id="earth" class="section-title">🌍 Prithvi ki Utpatti</h2>
-<div class="container">
-    <div class="card" data-aos="fade-right">
-        <h3>Prithvi Kaise Bani?</h3>
-        <p>Karodon saal pehle dhool aur gas se hamari sundar dharti bani. Jaaniye kaise!</p>
-        <button class="btn">Jaaniye</button>
+<section id="contact" data-aos="fade-up">
+    <div style="background: white; display: inline-block; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h2>Parents Corner ✉️</h2>
+        <p>Humein apna feedback bheinjein</p>
+        <form class="contact-form" action="https://formspree.io" method="POST">
+            <input type="text" name="name" placeholder="Aapka Naam" required><br>
+            <input type="email" name="email" placeholder="Aapki Email" required><br>
+            <textarea name="message" placeholder="Aapka Message"></textarea><br>
+            <button type="submit">Message Bheinjein</button>
+        </form>
     </div>
-    <div class="card" data-aos="fade-left">
-        <h3>Mahan Scientist</h3>
-        <p>Newton aur Kalam ji jaise logo ne mehnat se kaise duniya badli.</p>
-        <button class="btn">Padhein</button>
-    </div>
-</div>
-
-<!-- Safety Section -->
-<h2 id="safety" class="section-title">🛡️ Safety Corner (Zaroori Seekh)</h2>
-<div class="safety-box" data-aos="fade-up">
-    <h3>✅ Good Touch vs Bad Touch ❌</h3>
-    <p>Bachon, aapka sharir aapka hai. Agar koi bura chhuye, toh zor se <b>"NO"</b> bolein!</p>
-    <ul>
-        <li><b>Good Touch:</b> Mummy-papa ka pyaar.</li>
-        <li><b>Bad Touch:</b> Agar koi aapke kapdo ke andar chhuye ya daraye.</li>
-        <li><b>Kya Karein?</b> Turant apne parents ya teacher ko batayein.</li>
-    </ul>
-    <hr>
-    <h3>😇 Acche vs Bure Log</h3>
-    <p>Acche log hamesha madad karte hain. Jo log jhoot bolne ko kahein, unse door rahein.</p>
-</div>
+</section>
 
 <footer>
-    <p>&copy; 2026 Kids World | Banaya gaya hai ❤️ ke saath</p>
+    <p>&copy; 2026 Kids Learning World | Banaya gaya hai ❤️ ke saath</p>
 </footer>
 
 <!-- Scripts -->
 <script src="https://unpkg.com"></script>
 <script src="https://unpkg.com"></script>
+
 <script>
-    AOS.init({ duration: 1000 });
+    // 1. Initialize Animations
+    AOS.init({ duration: 1000, once: true });
+
+    // 2. Typing Effect
     var typed = new Typed('#typing-text', {
-        strings: ['Ganeshji ki Kahani', 'Prithvi kaise bani?', 'Good Touch Bad Touch', 'Sita Mata ki Katha'],
-        typeSpeed: 60, backSpeed: 40, loop: true
+        strings: ['Alphabet Seekho', 'Ginti Karo', 'Kahaniyan Suno', 'Mazedaar Games'],
+        typeSpeed: 70,
+        backSpeed: 50,
+        loop: true
     });
+
+    // 3. Sound Effect Function
+    function playClick() {
+        let audio = new Audio('https://soundjay.com');
+        audio.play();
+        alert("Chalo shuru karte hain! 🎉");
+    }
 </script>
 
 </body>
-</html>
+    </html>
+    
