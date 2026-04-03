@@ -1,434 +1,223 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍼 Baby Learning App - हिंदी & English</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #ff6b6b;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .section {
-            background: white;
-            border-radius: 20px;
-            margin: 20px 0;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 3px solid #ffd93d;
-        }
-        
-        .section h2 {
-            text-align: center;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .btn {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            border: none;
-            border-radius: 20px;
-            padding: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        
-        .btn:active {
-            transform: scale(0.98);
-        }
-        
-        .img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 5px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .drawing-area {
-            border: 3px solid #333;
-            border-radius: 15px;
-            background: white;
-            cursor: crosshair;
-            margin: 20px 0;
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .color-palette {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        
-        .color-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 4px solid white;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-        }
-        
-        .clear-btn {
-            background: #ff4444;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 10px;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .nav-btn {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 30px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-        
-        .story-text {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-        }
-        
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .btn {
-                padding: 15px;
-                font-size: 1em;
-                min-height: 100px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🍼 Baby Learning App 🎉</h1>
-        
-        <!-- Navigation -->
-        <div class="nav-buttons">
-            <button class="nav-btn" onclick="showSection('numbers')">1-100 🔢</button>
-            <button class="nav-btn" onclick="showSection('hindi')">हिंदी वर्ण 🔤</button>
-            <button class="nav-btn" onclick="showSection('english')">English ABC 🔤</button>
-            <button class="nav-btn" onclick="showSection('stories')">कहानियाँ 📖</button>
-            <button class="nav-btn" onclick="showSection('colors')">रंग 🎨</button>
-            <button class="nav-btn" onclick="showSection('animals')">जानवर 🐶</button>
-            <button class="nav-btn" onclick="showSection('rhymes')">कविताएँ 🎵</button>
-            <button class="nav-btn" onclick="showSection('shapes')">आकृतियाँ 🔷</button>
-            <button class="nav-btn" onclick="showSection('drawing')">ड्रॉइंग ✏️</button>
-            <button class="nav-btn" onclick="showSection('games')">गेम्स 🎮</button>
-            <button class="nav-btn" onclick="showSection('manners')">मैनर्स 🙏</button>
-        </div>
+<script>
 
-        <!-- Numbers Section -->
-        <div id="numbers" class="section" style="display: none;">
-            <h2>🔢 Numbers 1-100</h2>
-            <div class="grid" id="numbersGrid"></div>
-        </div>
+let currentColor = "red";
+let isDrawing = false;
+let canvas, ctx;
 
-        <!-- Hindi Varn Section -->
-        <div id="hindi" class="section" style="display: none;">
-            <h2>🔤 क से ज्ञ</h2>
-            <div class="grid" id="hindiGrid"></div>
-        </div>
+// Speech
+function speak(text){
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "hi-IN";
+    speechSynthesis.speak(utter);
+}
 
-        <!-- English ABC Section -->
-        <div id="english" class="section" style="display: none;">
-            <h2>🔤 A to Z</h2>
-            <div class="grid" id="englishGrid"></div>
-        </div>
+function speakEnglish(text){
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "en-US";
+    speechSynthesis.speak(utter);
+}
 
-        <!-- Stories Section -->
-        <div id="stories" class="section" style="display: none;">
-            <h2>📖 महान कहानियाँ</h2>
-            <div class="grid">
-                <button class="btn" onclick="playStory('pratap')">
-                    <img src="https://via.placeholder.com/60/ff6b6b/ffffff?text=MP" class="img" alt="Maharana Pratap">
-                    महाराणा प्रताप
-                </button>
-                <button class="btn" onclick="playStory('ramayan')">
-                    <img src="https://via.placeholder.com/60/4ecdc4/ffffff?text=राम" class="img" alt="Ramayan">
-                    रामायण
-                </button>
-                <button class="btn" onclick="playStory('mahabharat')">
-                    <img src="https://via.placeholder.com/60/ffd93d/000000?text=महा" class="img" alt="Mahabharat">
-                    महाभारत
-                </button>
-                <button class="btn" onclick="playStory('gita')">
-                    <img src="https://via.placeholder.com/60/a8e6cf/ffffff?text=गीता" class="img" alt="Bhagavad Gita">
-                    भगवद्गीता
-                </button>
-            </div>
-            <div id="storyContent" class="story-text" style="display: none;"></div>
-        </div>
+// Section show
+function showSection(id){
+    document.querySelectorAll(".section").forEach(sec=>{
+        sec.style.display="none";
+    });
 
-        <!-- Colors Section -->
-        <div id="colors" class="section" style="display: none;">
-            <h2>🎨 Colors</h2>
-            <div class="grid">
-                <button class="btn" onclick="speak('लाल')">🌹 लाल</button>
-                <button class="btn" onclick="speak('नारंगी')">🍊 नारंगी</button>
-                <button class="btn" onclick="speak('पीला')">☀️ पीला</button>
-                <button class="btn" onclick="speak('हरा')">🌿 हरा</button>
-                <button class="btn" onclick="speak('नीला')">🌊 नीला</button>
-                <button class="btn" onclick="speak('बैंगनी')">🍇 बैंगनी</button>
-                <button class="btn" onclick="speak('गुलाबी')">🌸 गुलाबी</button>
-                <button class="btn" onclick="speak('काला')">⚫ काला</button>
-                <button class="btn" onclick="speak('सफेद')">⚪ सफेद</button>
-            </div>
-        </div>
+    document.getElementById(id).style.display="block";
 
-        <!-- Animals Section -->
-        <div id="animals" class="section" style="display: none;">
-            <h2>🐶 जानवर</h2>
-            <div class="grid">
-                <button class="btn" onclick="playAnimal('dog')">
-                    🐕<br>कुत्ता
-                </button>
-                <button class="btn" onclick="playAnimal('cat')">
-                    🐱<br>बिल्ली
-                </button>
-                <button class="btn" onclick="playAnimal('cow')">
-                    🐄<br>गाय
-                </button>
-                <button class="btn" onclick="playAnimal('elephant')">
-                    🐘<br>हाथी
-                </button>
-                <button class="btn" onclick="playAnimal('lion')">
-                    🦁<br>शेर
-                </button>
-                <button class="btn" onclick="playAnimal('monkey')">
-                    🐒<br>बंदर
-                </button>
-            </div>
-        </div>
+    if(id==="numbers") generateNumbers();
+    if(id==="hindi") generateHindi();
+    if(id==="english") generateEnglish();
+    if(id==="drawing") initCanvas();
+}
 
-        <!-- Rhymes Section -->
-        <div id="rhymes" class="section" style="display: none;">
-            <h2>🎵 कविताएँ</h2>
-            <div class="grid">
-                <button class="btn" onclick="playRhyme('twinkle')">
-                    ⭐<br>Twinkle Twinkle
-                </button>
-                <button class="btn" onclick="playRhyme('johnny')">
-                    🍭<br>Johnny Johnny
-                </button>
-                <button class="btn" onclick="playRhyme('wheels')">
-                    🚌<br>Wheels on Bus
-                </button>
-            </div>
-        </div>
+// Numbers
+function generateNumbers(){
+    const grid=document.getElementById("numbersGrid");
+    grid.innerHTML="";
 
-        <!-- Shapes Section -->
-        <div id="shapes" class="section" style="display: none;">
-            <h2>🔷 आकृतियाँ</h2>
-            <div class="grid">
-                <button class="btn" onclick="speak('वृत्त')">⭕ वृत्त</button>
-                <button class="btn" onclick="speak('वर्ग')">◼️ वर्ग</button>
-                <button class="btn" onclick="speak('त्रिभुज')">🔺 त्रिभुज</button>
-                <button class="btn" onclick="speak('तारा')">⭐ तारा</button>
-            </div>
-        </div>
+    for(let i=1;i<=100;i++){
+        let btn=document.createElement("button");
+        btn.className="btn";
+        btn.innerHTML="🔢<br>"+i;
+        btn.onclick=()=>speakEnglish(i);
+        grid.appendChild(btn);
+    }
+}
 
-        <!-- Drawing Section -->
-        <div id="drawing" class="section" style="display: none;">
-            <h2>✏️ ड्रॉइंग</h2>
-            <div class="drawing-area" id="canvas"></div>
-            <div class="color-palette">
-                <div class="color-btn" style="background: red;" onclick="setColor('red')"></div>
-                <div class="color-btn" style="background: blue;" onclick="setColor('blue')"></div>
-                <div class="color-btn" style="background: green;" onclick="setColor('green')"></div>
-                <div class="color-btn" style="background: yellow;" onclick="setColor('yellow')"></div>
-                <div class="color-btn" style="background: purple;" onclick="setColor('purple')"></div>
-                <div class="color-btn" style="background: orange;" onclick="setColor('orange')"></div>
-                <div class="color-btn" style="background: pink;" onclick="setColor('pink')"></div>
-                <div class="color-btn" style="background: black;" onclick="setColor('black')"></div>
-            </div>
-            <button class="clear-btn" onclick="clearCanvas()">🗑️ साफ करें</button>
-        </div>
+// Hindi
+function generateHindi(){
 
-        <!-- Manners Section -->
-        <div id="manners" class="section" style="display: none;">
-            <h2>🙏 अच्छे-बुरे मैनर्स</h2>
-            <div class="grid">
-                <button class="btn" onclick="speak('अच्छा बच्चा')">👍 अच्छा बच्चा</button>
-                <button class="btn" onclick="speak('धन्यवाद बोलना')">🙏 धन्यवाद</button>
-                <button class="btn" onclick="speak('नमस्ते')">Namaste 🙌</button>
-                <button class="btn" onclick="speak('बुरा बच्चा मत बनो')">👎 बुरा बच्चा</button>
-            </div>
-        </div>
+const letters=['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ'];
 
-        <!-- Games Section -->
-        <div id="games" class="section" style="display: none;">
-            <h2>🎮 सरल गेम्स</h2>
-            <div class="grid">
-                <button class="btn" onclick="startMatchingGame()">🧩 Matching Game</button>
-                <button class="btn" onclick="startColorGame()">🎨 Color Match</button>
-                <button class="btn" onclick="startShapePuzzle()">🔷 Shape Puzzle</button>
-            </div>
-        </div>
-    </div>
+const grid=document.getElementById("hindiGrid");
+grid.innerHTML="";
 
-    <script>
-        let currentColor = 'red';
-        let isDrawing = false;
+letters.forEach(l=>{
+let btn=document.createElement("button");
+btn.className="btn";
+btn.innerHTML="📖<br>"+l;
+btn.onclick=()=>speak(l);
+grid.appendChild(btn);
+});
+}
 
-        // Speech Synthesis
-        function speak(text) {
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'hi-IN';
-            utterance.rate = 0.8;
-            utterance.pitch = 1.2;
-            speechSynthesis.speak(utterance);
-        }
+// English
+function generateEnglish(){
 
-        function speakEnglish(text) {
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            utterance.rate = 0.8;
-            utterance.pitch = 1.2;
-            speechSynthesis.speak(utterance);
-        }
+const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-        // Show Section
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(sec => sec.style.display = 'none');
-            
-            // Show selected section
-            document.getElementById(sectionId).style.display = 'block';
-            
-            // Generate content if needed
-            if (sectionId === 'numbers') generateNumbers();
-            if (sectionId === 'hindi') generateHindi();
-            if (sectionId === 'english') generateEnglish();
-        }
+const grid=document.getElementById("englishGrid");
+grid.innerHTML="";
 
-        // Generate Numbers 1-100
-        function generateNumbers() {
-            const grid = document.getElementById('numbersGrid');
-            grid.innerHTML = '';
-            for (let i = 1; i <= 100; i++) {
-                const btn = document.createElement('button');
-                btn.className = 'btn';
-                btn.innerHTML = `🔢<br>${i}`;
-                btn.onclick = () => speakEnglish(i.toString());
-                grid.appendChild(btn);
-            }
-        }
+letters.forEach(l=>{
+let btn=document.createElement("button");
+btn.className="btn";
+btn.innerHTML="📘<br>"+l;
+btn.onclick=()=>speakEnglish(l);
+grid.appendChild(btn);
+});
+}
 
-        // Generate Hindi Varn
-        function generateHindi() {
-            const hindiVarn = ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ'];
-            const grid = document.getElementById('hindiGrid');
-            grid.innerHTML = '';
-            hindiVarn.forEach(varn => {
-                const btn = document.createElement('button');
-                btn.className = 'btn';
-                btn.innerHTML = `📜<br>${varn}`;
-                btn.onclick = () => speak(varn);
-                grid.appendChild(btn);
-            });
-        }
+// Stories
+function playStory(story){
 
-        // Generate English ABC
-        function generateEnglish() {
-            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-            const grid = document.getElementById('englishGrid');
-            grid.innerHTML = '';
-            alphabet.forEach(letter => {
-                const btn = document.createElement('button');
-                btn.className = 'btn';
-                btn.innerHTML = `📚<br>${letter}`;
-                btn.onclick = () => speakEnglish(letter);
-                grid.appendChild(btn);
-            });
-        }
+const box=document.getElementById("storyContent");
 
-        // Stories
-        function playStory(story) {
-            const content = document.getElementById('storyContent');
-            let storyText = '';
-            
-            switch(story) {
-                case 'pratap':
-                    storyText = 'महाराणा प्रताप मेवाड़ के वीर राजा थे। उन्होंने मुगलों से कभी हार नहीं मानी। चावल का द
+let text="";
+
+switch(story){
+
+case "pratap":
+text="महाराणा प्रताप मेवाड़ के वीर राजा थे। उन्होंने मुगलों के सामने कभी हार नहीं मानी। उन्होंने अपने देश और स्वाभिमान की रक्षा के लिए कठिन जीवन भी स्वीकार किया।";
+break;
+
+case "ramayan":
+text="रामायण भगवान राम की कहानी है। राम ने रावण को हराकर सीता माता को वापस लाया और दुनिया को सच्चाई का रास्ता दिखाया।";
+break;
+
+case "mahabharat":
+text="महाभारत पांडवों और कौरवों की महान कहानी है। इसमें सिखाया गया है कि सत्य और धर्म की हमेशा जीत होती है।";
+break;
+
+case "gita":
+text="भगवद गीता में भगवान कृष्ण ने अर्जुन को जीवन का ज्ञान दिया और बताया कि हमें अपना कर्तव्य ईमानदारी से करना चाहिए।";
+break;
+
+}
+
+box.innerText=text;
+box.style.display="block";
+
+speak(text);
+}
+
+// Animals
+function playAnimal(name){
+
+const sounds={
+dog:"भौं भौं",
+cat:"म्याऊ",
+cow:"माँ",
+lion:"गर्रर",
+monkey:"ऊ ऊ",
+elephant:"पॉं"
+};
+
+speak(sounds[name]||name);
+}
+
+// Rhymes
+function playRhyme(name){
+
+let text="";
+
+if(name==="twinkle"){
+text="Twinkle twinkle little star how I wonder what you are";
+}
+
+if(name==="johnny"){
+text="Johnny Johnny yes papa eating sugar no papa";
+}
+
+if(name==="wheels"){
+text="The wheels on the bus go round and round";
+}
+
+speakEnglish(text);
+}
+
+// Drawing
+function initCanvas(){
+
+const area=document.getElementById("canvas");
+
+area.innerHTML="<canvas id='drawCanvas' width='900' height='400'></canvas>";
+
+canvas=document.getElementById("drawCanvas");
+ctx=canvas.getContext("2d");
+
+canvas.addEventListener("mousedown",startDraw);
+canvas.addEventListener("mouseup",stopDraw);
+canvas.addEventListener("mousemove",draw);
+
+canvas.addEventListener("touchstart",startDraw);
+canvas.addEventListener("touchend",stopDraw);
+canvas.addEventListener("touchmove",draw);
+}
+
+function startDraw(e){
+isDrawing=true;
+ctx.beginPath();
+}
+
+function stopDraw(){
+isDrawing=false;
+}
+
+function draw(e){
+
+if(!isDrawing) return;
+
+let rect=canvas.getBoundingClientRect();
+
+let x=(e.touches?e.touches[0].clientX:e.clientX)-rect.left;
+let y=(e.touches?e.touches[0].clientY:e.clientY)-rect.top;
+
+ctx.lineWidth=5;
+ctx.lineCap="round";
+ctx.strokeStyle=currentColor;
+
+ctx.lineTo(x,y);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(x,y);
+}
+
+// Color
+function setColor(color){
+currentColor=color;
+}
+
+// Clear
+function clearCanvas(){
+if(ctx){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+}
+
+// Games
+function startMatchingGame(){
+alert("Matching Game coming soon 🎮");
+}
+
+function startColorGame(){
+alert("Color Game coming soon 🎨");
+}
+
+function startShapePuzzle(){
+alert("Shape Puzzle coming soon 🔷");
+}
+
+        </script>
