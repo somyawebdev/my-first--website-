@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
 
 <meta charset="UTF-8">
@@ -17,12 +16,11 @@ text-align:center;
 }
 
 h1{
-color:#ff4d4d;
+color:#ff3333;
 }
 
 .menu button{
-
-padding:15px 20px;
+padding:15px;
 margin:5px;
 font-size:18px;
 border:none;
@@ -30,7 +28,6 @@ border-radius:20px;
 background:#ff6b6b;
 color:white;
 cursor:pointer;
-
 }
 
 .section{
@@ -45,24 +42,17 @@ gap:10px;
 }
 
 .btn{
-
 background:#ffd93d;
 padding:20px;
 border-radius:20px;
-font-size:20px;
+font-size:18px;
 border:none;
 cursor:pointer;
-
-}
-
-img{
-width:80px;
 }
 
 canvas{
-
 border:3px solid black;
-
+background:white;
 }
 
 </style>
@@ -80,9 +70,9 @@ border:3px solid black;
 <button onclick="show('english')">English</button>
 <button onclick="show('animals')">Animals</button>
 <button onclick="show('colors')">Colors</button>
-<button onclick="show('stories')">Stories</button>
-<button onclick="show('rhymes')">Rhymes</button>
 <button onclick="show('shapes')">Shapes</button>
+<button onclick="show('rhymes')">Poems</button>
+<button onclick="show('stories')">Stories</button>
 <button onclick="show('drawing')">Drawing</button>
 
 </div>
@@ -91,7 +81,7 @@ border:3px solid black;
 
 <div id="numbers" class="section">
 
-<h2>1 to 100 Numbers</h2>
+<h2>1 से 100 तक गिनती</h2>
 
 <div class="grid" id="numbersGrid"></div>
 
@@ -125,10 +115,14 @@ border:3px solid black;
 
 <div class="grid">
 
-<button class="btn" onclick="speak('Dog')">🐶<br>Dog</button>
-<button class="btn" onclick="speak('Cat')">🐱<br>Cat</button>
-<button class="btn" onclick="speak('Lion')">🦁<br>Lion</button>
-<button class="btn" onclick="speak('Elephant')">🐘<br>Elephant</button>
+<button class="btn" onclick="speak('कुत्ता')">🐶 Dog</button>
+<button class="btn" onclick="speak('बिल्ली')">🐱 Cat</button>
+<button class="btn" onclick="speak('शेर')">🦁 Lion</button>
+<button class="btn" onclick="speak('हाथी')">🐘 Elephant</button>
+<button class="btn" onclick="speak('घोड़ा')">🐴 Horse</button>
+<button class="btn" onclick="speak('बंदर')">🐒 Monkey</button>
+<button class="btn" onclick="speak('गाय')">🐄 Cow</button>
+<button class="btn" onclick="speak('ऊंट')">🐪 Camel</button>
 
 </div>
 
@@ -138,14 +132,16 @@ border:3px solid black;
 
 <div id="colors" class="section">
 
-<h2>Colors</h2>
+<h2>रंग</h2>
 
 <div class="grid">
 
-<button class="btn" onclick="speak('Red color')">🟥 Red</button>
-<button class="btn" onclick="speak('Blue color')">🟦 Blue</button>
-<button class="btn" onclick="speak('Green color')">🟩 Green</button>
-<button class="btn" onclick="speak('Yellow color')">🟨 Yellow</button>
+<button class="btn" onclick="speak('लाल रंग')">🟥 Red</button>
+<button class="btn" onclick="speak('नीला रंग')">🟦 Blue</button>
+<button class="btn" onclick="speak('हरा रंग')">🟩 Green</button>
+<button class="btn" onclick="speak('पीला रंग')">🟨 Yellow</button>
+<button class="btn" onclick="speak('गुलाबी रंग')">🌸 Pink</button>
+<button class="btn" onclick="speak('काला रंग')">⬛ Black</button>
 
 </div>
 
@@ -159,10 +155,10 @@ border:3px solid black;
 
 <div class="grid">
 
-<button class="btn" onclick="speak('Circle')">⭕</button>
-<button class="btn" onclick="speak('Square')">◼️</button>
-<button class="btn" onclick="speak('Triangle')">🔺</button>
-<button class="btn" onclick="speak('Star')">⭐</button>
+<button class="btn" onclick="speak('वृत्त')">⭕ Circle</button>
+<button class="btn" onclick="speak('वर्ग')">◼️ Square</button>
+<button class="btn" onclick="speak('त्रिकोण')">🔺 Triangle</button>
+<button class="btn" onclick="speak('तारा')">⭐ Star</button>
 
 </div>
 
@@ -172,13 +168,32 @@ border:3px solid black;
 
 <div id="rhymes" class="section">
 
-<h2>Rhymes</h2>
+<h2>कविताएँ</h2>
 
-<button class="btn" onclick="speak('Twinkle twinkle little star')">⭐ Twinkle</button>
+<div class="grid">
 
-<button class="btn" onclick="speak('Johnny johnny yes papa')">🍭 Johnny</button>
+<button class="btn" onclick="speak('चंदा मामा दूर के')">🌙 चंदा मामा</button>
+<button class="btn" onclick="speak('मछली जल की रानी है')">🐟 मछली</button>
+<button class="btn" onclick="speak('नानी तेरी मोरनी को मोर ले गए')">🦚 मोरनी</button>
+<button class="btn" onclick="speak('लकड़ी की काठी काठी पे घोड़ा')">🐴 लकड़ी की काठी</button>
+<button class="btn" onclick="speak('आलू कचालू बेटा कहाँ गए थे')">🥔 आलू कचालू</button>
+<button class="btn" onclick="speak('चिड़िया रानी बड़ी सयानी')">🐦 चिड़िया</button>
+<button class="btn" onclick="speak('सूरज निकला चिड़िया बोली')">🌞 सूरज</button>
+<button class="btn" onclick="speak('चल मेरे घोड़े टिक टिक टिक')">🐎 घोड़ा</button>
+<button class="btn" onclick="speak('काला कौआ चिट्ठी लाया')">🐦 कौआ</button>
+<button class="btn" onclick="speak('गुब्बारे वाला आया')">🎈 गुब्बारे</button>
+<button class="btn" onclick="speak('आओ बच्चों तुम्हें दिखाएँ')">🇮🇳 आओ बच्चों</button>
+<button class="btn" onclick="speak('बारिश आई छम छम')">🌧 बारिश</button>
+<button class="btn" onclick="speak('टमाटर लाल लाल')">🍅 टमाटर</button>
+<button class="btn" onclick="speak('चूहा बिल्ली खेल रहे थे')">🐭 चूहा</button>
+<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ')">🌳 पेड़</button>
+<button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के')">🇮🇳 बच्चे</button>
+<button class="btn" onclick="speak('ट्विंकल ट्विंकल लिटिल स्टार')">⭐ Twinkle</button>
+<button class="btn" onclick="speak('जॉनी जॉनी यस पापा')">🍭 Johnny</button>
+<button class="btn" onclick="speak('बस के पहिए गोल गोल घूमते हैं')">🚌 Bus</button>
+<button class="btn" onclick="speak('नन्हा मुन्ना राही हूँ')">👶 नन्हा मुन्ना</button>
 
-<button class="btn" onclick="speak('Wheels on the bus go round')">🚌 Wheels</button>
+</div>
 
 </div>
 
@@ -186,172 +201,4 @@ border:3px solid black;
 
 <div id="stories" class="section">
 
-<h2>Stories</h2>
-
-<button class="btn" onclick="story('pratap')">Maharana Pratap</button>
-
-<button class="btn" onclick="story('ramayan')">Ramayan</button>
-
-<button class="btn" onclick="story('mahabharat')">Mahabharat</button>
-
-<button class="btn" onclick="story('gita')">Bhagavad Gita</button>
-
-<p id="storyText"></p>
-
-</div>
-
-<!-- DRAWING -->
-
-<div id="drawing" class="section">
-
-<h2>Drawing</h2>
-
-<canvas id="canvas" width="300" height="300"></canvas>
-
-<br>
-
-<button onclick="clearCanvas()">Clear</button>
-
-</div>
-
-<script>
-
-function show(id){
-
-document.querySelectorAll('.section').forEach(s=>s.style.display='none')
-
-document.getElementById(id).style.display='block'
-
-}
-
-function speak(text){
-
-let speech=new SpeechSynthesisUtterance(text)
-
-speech.lang="en-US"
-
-speechSynthesis.speak(speech)
-
-}
-
-function story(type){
-
-let text=""
-
-if(type=="pratap")
-
-text="Maharana Pratap was a brave king of Mewar."
-
-if(type=="ramayan")
-
-text="Ramayan is the story of Lord Rama."
-
-if(type=="mahabharat")
-
-text="Mahabharat is the great battle between Pandavas and Kauravas."
-
-if(type=="gita")
-
-text="Bhagavad Gita teaches us about duty."
-
-document.getElementById("storyText").innerText=text
-
-speak(text)
-
-}
-
-/* Numbers */
-
-let numbers=document.getElementById("numbersGrid")
-
-for(let i=1;i<=100;i++){
-
-let b=document.createElement("button")
-
-b.className="btn"
-
-b.innerText=i
-
-b.onclick=()=>speak(i)
-
-numbers.appendChild(b)
-
-}
-
-/* Hindi */
-
-let hindi=['क','ख','ग','घ','च','छ','ज','झ','ट','ठ','ड','ढ','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ']
-
-let grid=document.getElementById("hindiGrid")
-
-hindi.forEach(h=>{
-
-let b=document.createElement("button")
-
-b.className="btn"
-
-b.innerText=h
-
-b.onclick=()=>speak(h)
-
-grid.appendChild(b)
-
-})
-
-/* English */
-
-let alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
-
-let egrid=document.getElementById("englishGrid")
-
-alpha.forEach(a=>{
-
-let b=document.createElement("button")
-
-b.className="btn"
-
-b.innerText=a
-
-b.onclick=()=>speak(a)
-
-egrid.appendChild(b)
-
-})
-
-/* Drawing */
-
-let canvas=document.getElementById("canvas")
-
-let ctx=canvas.getContext("2d")
-
-let draw=false
-
-canvas.onmousedown=()=>draw=true
-
-canvas.onmouseup=()=>draw=false
-
-canvas.onmousemove=e=>{
-
-if(draw){
-
-ctx.lineWidth=5
-
-ctx.lineTo(e.offsetX,e.offsetY)
-
-ctx.stroke()
-
-}
-
-}
-
-function clearCanvas(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-}
-
-</script>
-
-</body>
-
-    </html>
+<h2>कहानियाँ</
