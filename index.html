@@ -1,223 +1,182 @@
-<script>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Learning App</title>
 
-let currentColor = "red";
-let isDrawing = false;
-let canvas, ctx;
+<style>
 
-// Speech
-function speak(text){
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "hi-IN";
-    speechSynthesis.speak(utter);
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-function speakEnglish(text){
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "en-US";
-    speechSynthesis.speak(utter);
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#ff9a9e,#fecfef);
+min-height:100vh;
 }
 
-// Section show
-function showSection(id){
-    document.querySelectorAll(".section").forEach(sec=>{
-        sec.style.display="none";
-    });
-
-    document.getElementById(id).style.display="block";
-
-    if(id==="numbers") generateNumbers();
-    if(id==="hindi") generateHindi();
-    if(id==="english") generateEnglish();
-    if(id==="drawing") initCanvas();
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
 }
 
-// Numbers
-function generateNumbers(){
-    const grid=document.getElementById("numbersGrid");
-    grid.innerHTML="";
-
-    for(let i=1;i<=100;i++){
-        let btn=document.createElement("button");
-        btn.className="btn";
-        btn.innerHTML="🔢<br>"+i;
-        btn.onclick=()=>speakEnglish(i);
-        grid.appendChild(btn);
-    }
+h1{
+text-align:center;
+color:#ff4d4d;
+margin-bottom:20px;
 }
 
-// Hindi
-function generateHindi(){
-
-const letters=['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ'];
-
-const grid=document.getElementById("hindiGrid");
-grid.innerHTML="";
-
-letters.forEach(l=>{
-let btn=document.createElement("button");
-btn.className="btn";
-btn.innerHTML="📖<br>"+l;
-btn.onclick=()=>speak(l);
-grid.appendChild(btn);
-});
+.section{
+display:none;
+background:white;
+padding:25px;
+border-radius:20px;
+margin:20px 0;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-// English
-function generateEnglish(){
-
-const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
-const grid=document.getElementById("englishGrid");
-grid.innerHTML="";
-
-letters.forEach(l=>{
-let btn=document.createElement("button");
-btn.className="btn";
-btn.innerHTML="📘<br>"+l;
-btn.onclick=()=>speakEnglish(l);
-grid.appendChild(btn);
-});
+.section.active{
+display:block;
 }
 
-// Stories
-function playStory(story){
-
-const box=document.getElementById("storyContent");
-
-let text="";
-
-switch(story){
-
-case "pratap":
-text="महाराणा प्रताप मेवाड़ के वीर राजा थे। उन्होंने मुगलों के सामने कभी हार नहीं मानी। उन्होंने अपने देश और स्वाभिमान की रक्षा के लिए कठिन जीवन भी स्वीकार किया।";
-break;
-
-case "ramayan":
-text="रामायण भगवान राम की कहानी है। राम ने रावण को हराकर सीता माता को वापस लाया और दुनिया को सच्चाई का रास्ता दिखाया।";
-break;
-
-case "mahabharat":
-text="महाभारत पांडवों और कौरवों की महान कहानी है। इसमें सिखाया गया है कि सत्य और धर्म की हमेशा जीत होती है।";
-break;
-
-case "gita":
-text="भगवद गीता में भगवान कृष्ण ने अर्जुन को जीवन का ज्ञान दिया और बताया कि हमें अपना कर्तव्य ईमानदारी से करना चाहिए।";
-break;
-
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:15px;
 }
 
-box.innerText=text;
-box.style.display="block";
-
-speak(text);
+.btn{
+background:linear-gradient(45deg,#ff6b6b,#ffd93d);
+border:none;
+border-radius:20px;
+padding:20px;
+font-size:18px;
+font-weight:bold;
+color:white;
+cursor:pointer;
 }
 
-// Animals
-function playAnimal(name){
-
-const sounds={
-dog:"भौं भौं",
-cat:"म्याऊ",
-cow:"माँ",
-lion:"गर्रर",
-monkey:"ऊ ऊ",
-elephant:"पॉं"
-};
-
-speak(sounds[name]||name);
+.nav-buttons{
+text-align:center;
 }
 
-// Rhymes
-function playRhyme(name){
-
-let text="";
-
-if(name==="twinkle"){
-text="Twinkle twinkle little star how I wonder what you are";
+.nav-btn{
+background:#4ecdc4;
+color:white;
+border:none;
+padding:10px 18px;
+margin:5px;
+border-radius:20px;
+cursor:pointer;
 }
 
-if(name==="johnny"){
-text="Johnny Johnny yes papa eating sugar no papa";
+.story-text{
+margin-top:20px;
+padding:20px;
+background:#f2f2f2;
+border-radius:10px;
 }
 
-if(name==="wheels"){
-text="The wheels on the bus go round and round";
+canvas{
+border:3px solid black;
+border-radius:10px;
+background:white;
 }
 
-speakEnglish(text);
+.color-btn{
+width:40px;
+height:40px;
+border-radius:50%;
+border:3px solid white;
+display:inline-block;
+margin:5px;
+cursor:pointer;
 }
 
-// Drawing
-function initCanvas(){
+</style>
+</head>
 
-const area=document.getElementById("canvas");
+<body>
 
-area.innerHTML="<canvas id='drawCanvas' width='900' height='400'></canvas>";
+<div class="container">
 
-canvas=document.getElementById("drawCanvas");
-ctx=canvas.getContext("2d");
+<h1>Baby Learning App</h1>
 
-canvas.addEventListener("mousedown",startDraw);
-canvas.addEventListener("mouseup",stopDraw);
-canvas.addEventListener("mousemove",draw);
+<div class="nav-buttons">
 
-canvas.addEventListener("touchstart",startDraw);
-canvas.addEventListener("touchend",stopDraw);
-canvas.addEventListener("touchmove",draw);
-}
+<button class="nav-btn" onclick="showSection('numbers')">Numbers</button>
+<button class="nav-btn" onclick="showSection('hindi')">Hindi</button>
+<button class="nav-btn" onclick="showSection('english')">English</button>
+<button class="nav-btn" onclick="showSection('stories')">Stories</button>
+<button class="nav-btn" onclick="showSection('animals')">Animals</button>
+<button class="nav-btn" onclick="showSection('drawing')">Drawing</button>
 
-function startDraw(e){
-isDrawing=true;
-ctx.beginPath();
-}
+</div>
 
-function stopDraw(){
-isDrawing=false;
-}
+<div id="numbers" class="section">
+<h2>Numbers 1-100</h2>
+<div class="grid" id="numbersGrid"></div>
+</div>
 
-function draw(e){
+<div id="hindi" class="section">
+<h2>Hindi Alphabet</h2>
+<div class="grid" id="hindiGrid"></div>
+</div>
 
-if(!isDrawing) return;
+<div id="english" class="section">
+<h2>English ABC</h2>
+<div class="grid" id="englishGrid"></div>
+</div>
 
-let rect=canvas.getBoundingClientRect();
+<div id="stories" class="section">
 
-let x=(e.touches?e.touches[0].clientX:e.clientX)-rect.left;
-let y=(e.touches?e.touches[0].clientY:e.clientY)-rect.top;
+<h2>Stories</h2>
 
-ctx.lineWidth=5;
-ctx.lineCap="round";
-ctx.strokeStyle=currentColor;
+<div class="grid">
 
-ctx.lineTo(x,y);
-ctx.stroke();
+<button class="btn" onclick="playStory('pratap')">Maharana Pratap</button>
+<button class="btn" onclick="playStory('ramayan')">Ramayan</button>
+<button class="btn" onclick="playStory('mahabharat')">Mahabharat</button>
+<button class="btn" onclick="playStory('gita')">Bhagavad Gita</button>
 
-ctx.beginPath();
-ctx.moveTo(x,y);
-}
+</div>
 
-// Color
-function setColor(color){
-currentColor=color;
-}
+<div id="storyContent" class="story-text"></div>
 
-// Clear
-function clearCanvas(){
-if(ctx){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-}
-}
+</div>
 
-// Games
-function startMatchingGame(){
-alert("Matching Game coming soon 🎮");
-}
+<div id="animals" class="section">
 
-function startColorGame(){
-alert("Color Game coming soon 🎨");
-}
+<h2>Animals</h2>
 
-function startShapePuzzle(){
-alert("Shape Puzzle coming soon 🔷");
-}
+<div class="grid">
 
-        </script>
+<button class="btn" onclick="playAnimal('Dog says woof')">🐶 Dog</button>
+<button class="btn" onclick="playAnimal('Cat says meow')">🐱 Cat</button>
+<button class="btn" onclick="playAnimal('Cow says moo')">🐄 Cow</button>
+<button class="btn" onclick="playAnimal('Lion roars')">🦁 Lion</button>
+<button class="btn" onclick="playAnimal('Elephant sound')">🐘 Elephant</button>
+<button class="btn" onclick="playAnimal('Monkey sound')">🐒 Monkey</button>
+
+</div>
+
+</div>
+
+<div id="drawing" class="section">
+
+<h2>Drawing Board</h2>
+
+<canvas id="canvas" width="800" height="400"></canvas>
+
+<br><br>
+
+<div>
+
+<div class="color-btn" style="background:red" onclick="setColor('red')"></div>
+<div class="color-btn" style="background:blue" onclick="setColor('blue')"></div>
+<div class="color
