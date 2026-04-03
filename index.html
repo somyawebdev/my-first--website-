@@ -345,9 +345,6 @@ speech.rate=0.9;
 window.speechSynthesis.speak(speech);
 }
 
-</script>नी है, जीवन उसका पानी है')">🐟 मछली जल की रानी</button>
-
-
 <h2>कहानियाँ</h2>
 
 <button class="btn" onclick="story('lionmouse')">शेर और चूहा</button>
@@ -746,7 +743,51 @@ speak(text)
 
 <button class="btn" onclick="speak('चूहा बिल्ली खेल रहे थे')<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 15px; padding: 20px; text-align: center;">
 
-    <!-- हर कार्ड पर क्लिक करने से आवाज़ आएगी -->
+ 
+
+<!-- आवाज़ के लिए यह कोड फ़ाइल के सबसे नीचे </body> के ऊपर डालें -->
+<script>
+  function speak(text) {
+    let speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = 'en-US';
+    window.speechSynthesis.speak(speech);
+  }
+</script>
+">🐭 चूहा बिल्ली</button>
+
+<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ')">🌳 पेड़ लगाओ</button>
+
+<button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के')">🇮🇳 बच्चे</button>
+
+<h2>कहानियाँ</h2>
+
+<button class="btn" onclick="story('lionmouse')">शेर और चूहा</button>
+
+<button class="btn" onclick="story('crow')">प्यासा कौआ</button>
+
+<button class="btn" onclick="story('foxgrapes')">लोमड़ी और अंगूर</button>
+
+<button class="btn" onclick="story('antgrass')">चींटी और टिड्डा</button>
+
+<button class="btn" onclick="story('goldenegg')">सोने के अंडे वाली मुर्गी</button>
+
+<button class="btn" onclick="story('rabbittortoise')">खरगोश और कछुआ</button>
+
+<button class="btn" onclick="story('boywolf')">झूठा गड़रिया</button>
+
+<button class="btn" onclick="story('greedydog')">लालची कुत्ता</button>
+
+<button class="btn" onclick="story('farmer')">किसान और उसके बेटे</button>
+
+<button class="btn" onclick="story('honesty')">ईमानदार लकड़हारा</button>
+
+<p id="storyText"></p>
+
+<h2>Alphabet</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 15px; padding: 20px; text-align: center;">
+
+    <!-- यहाँ से एबीसीडी शुरू -->
     <div onclick="speak('A for Apple')" style="background:white; padding:15px; border-radius:15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor:pointer;">
         <img src="https://icons8.com" width="60"><br><b>A for Apple</b>
     </div>
@@ -828,7 +869,7 @@ speak(text)
 
 </div>
 
-<!-- आवाज़ के लिए यह कोड फ़ाइल के सबसे नीचे </body> के ऊपर डालें -->
+<!-- ये 5 लाइन आवाज़ के लिए ज़रूरी हैं, इसे सबसे नीचे </body> के ऊपर डाल दें -->
 <script>
   function speak(text) {
     let speech = new SpeechSynthesisUtterance();
@@ -836,39 +877,8 @@ speak(text)
     speech.lang = 'en-US';
     window.speechSynthesis.speak(speech);
   }
-</script>
-">🐭 चूहा बिल्ली</button>
-
-<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ')">🌳 पेड़ लगाओ</button>
-
-<button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के')">🇮🇳 बच्चे</button>
-
-<h2>कहानियाँ</h2>
-
-<button class="btn" onclick="story('lionmouse')">शेर और चूहा</button>
-
-<button class="btn" onclick="story('crow')">प्यासा कौआ</button>
-
-<button class="btn" onclick="story('foxgrapes')">लोमड़ी और अंगूर</button>
-
-<button class="btn" onclick="story('antgrass')">चींटी और टिड्डा</button>
-
-<button class="btn" onclick="story('goldenegg')">सोने के अंडे वाली मुर्गी</button>
-
-<button class="btn" onclick="story('rabbittortoise')">खरगोश और कछुआ</button>
-
-<button class="btn" onclick="story('boywolf')">झूठा गड़रिया</button>
-
-<button class="btn" onclick="story('greedydog')">लालची कुत्ता</button>
-
-<button class="btn" onclick="story('farmer')">किसान और उसके बेटे</button>
-
-<button class="btn" onclick="story('honesty')">ईमानदार लकड़हारा</button>
-
-<p id="storyText"></p>
-
-<h2>Alphabet</h2>
-
+        </script>
+    
 
   </button>
 
