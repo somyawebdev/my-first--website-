@@ -1,257 +1,434 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-<title>Kids Learning World</title>
-
-<style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f0f8ff;
-}
-
-header{
-background:linear-gradient(45deg,#ff7b00,#ffcc00);
-color:white;
-text-align:center;
-padding:40px;
-}
-
-nav{
-background:#333;
-padding:15px;
-text-align:center;
-}
-
-nav a{
-color:white;
-margin:15px;
-text-decoration:none;
-font-size:18px;
-}
-
-nav a:hover{
-color:yellow;
-}
-
-.banner{
-text-align:center;
-padding:60px;
-background:#fff3cd;
-}
-
-.container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-padding:20px;
-}
-
-.card{
-background:white;
-width:220px;
-margin:15px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-text-align:center;
-}
-
-.card img{
-width:120px;
-}
-
-section{
-padding:40px;
-text-align:center;
-}
-
-footer{
-background:#333;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-button{
-background:#ff7b00;
-border:none;
-padding:10px 20px;
-color:white;
-border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-background:#ff5500;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍼 Baby Learning App - हिंदी & English</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ff6b6b;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            background: white;
+            border-radius: 20px;
+            margin: 20px 0;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid #ffd93d;
+        }
+        
+        .section h2 {
+            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border: none;
+            border-radius: 20px;
+            padding: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 5px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .drawing-area {
+            border: 3px solid #333;
+            border-radius: 15px;
+            background: white;
+            cursor: crosshair;
+            margin: 20px 0;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-palette {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .color-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 4px solid white;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        
+        .clear-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .story-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .btn {
+                padding: 15px;
+                font-size: 1em;
+                min-height: 100px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <h1>🍼 Baby Learning App 🎉</h1>
+        
+        <!-- Navigation -->
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showSection('numbers')">1-100 🔢</button>
+            <button class="nav-btn" onclick="showSection('hindi')">हिंदी वर्ण 🔤</button>
+            <button class="nav-btn" onclick="showSection('english')">English ABC 🔤</button>
+            <button class="nav-btn" onclick="showSection('stories')">कहानियाँ 📖</button>
+            <button class="nav-btn" onclick="showSection('colors')">रंग 🎨</button>
+            <button class="nav-btn" onclick="showSection('animals')">जानवर 🐶</button>
+            <button class="nav-btn" onclick="showSection('rhymes')">कविताएँ 🎵</button>
+            <button class="nav-btn" onclick="showSection('shapes')">आकृतियाँ 🔷</button>
+            <button class="nav-btn" onclick="showSection('drawing')">ड्रॉइंग ✏️</button>
+            <button class="nav-btn" onclick="showSection('games')">गेम्स 🎮</button>
+            <button class="nav-btn" onclick="showSection('manners')">मैनर्स 🙏</button>
+        </div>
 
-<header>
-<h1>Kids Learning World 🌍</h1>
-<p>Fun Learning for Kids – ABC, Numbers & Hindi</p>
-</header>
+        <!-- Numbers Section -->
+        <div id="numbers" class="section" style="display: none;">
+            <h2>🔢 Numbers 1-100</h2>
+            <div class="grid" id="numbersGrid"></div>
+        </div>
 
-<nav>
-<a href="#abc">ABC</a>
-<a href="#numbers">Numbers</a>
-<a href="#hindi">Hindi</a>
-<a href="#game">Game</a>
-</nav>
+        <!-- Hindi Varn Section -->
+        <div id="hindi" class="section" style="display: none;">
+            <h2>🔤 क से ज्ञ</h2>
+            <div class="grid" id="hindiGrid"></div>
+        </div>
 
-<div class="banner">
-<h2>Welcome to Kids Learning World</h2>
-<p>Learn Alphabets, Numbers and Hindi in a Fun Way!</p>
-</div>
+        <!-- English ABC Section -->
+        <div id="english" class="section" style="display: none;">
+            <h2>🔤 A to Z</h2>
+            <div class="grid" id="englishGrid"></div>
+        </div>
 
-<section id="abc">
+        <!-- Stories Section -->
+        <div id="stories" class="section" style="display: none;">
+            <h2>📖 महान कहानियाँ</h2>
+            <div class="grid">
+                <button class="btn" onclick="playStory('pratap')">
+                    <img src="https://via.placeholder.com/60/ff6b6b/ffffff?text=MP" class="img" alt="Maharana Pratap">
+                    महाराणा प्रताप
+                </button>
+                <button class="btn" onclick="playStory('ramayan')">
+                    <img src="https://via.placeholder.com/60/4ecdc4/ffffff?text=राम" class="img" alt="Ramayan">
+                    रामायण
+                </button>
+                <button class="btn" onclick="playStory('mahabharat')">
+                    <img src="https://via.placeholder.com/60/ffd93d/000000?text=महा" class="img" alt="Mahabharat">
+                    महाभारत
+                </button>
+                <button class="btn" onclick="playStory('gita')">
+                    <img src="https://via.placeholder.com/60/a8e6cf/ffffff?text=गीता" class="img" alt="Bhagavad Gita">
+                    भगवद्गीता
+                </button>
+            </div>
+            <div id="storyContent" class="story-text" style="display: none;"></div>
+        </div>
 
-<h2>Learn ABC 🔤</h2>
+        <!-- Colors Section -->
+        <div id="colors" class="section" style="display: none;">
+            <h2>🎨 Colors</h2>
+            <div class="grid">
+                <button class="btn" onclick="speak('लाल')">🌹 लाल</button>
+                <button class="btn" onclick="speak('नारंगी')">🍊 नारंगी</button>
+                <button class="btn" onclick="speak('पीला')">☀️ पीला</button>
+                <button class="btn" onclick="speak('हरा')">🌿 हरा</button>
+                <button class="btn" onclick="speak('नीला')">🌊 नीला</button>
+                <button class="btn" onclick="speak('बैंगनी')">🍇 बैंगनी</button>
+                <button class="btn" onclick="speak('गुलाबी')">🌸 गुलाबी</button>
+                <button class="btn" onclick="speak('काला')">⚫ काला</button>
+                <button class="btn" onclick="speak('सफेद')">⚪ सफेद</button>
+            </div>
+        </div>
 
-<div class="container" id="abcContainer"></div>
+        <!-- Animals Section -->
+        <div id="animals" class="section" style="display: none;">
+            <h2>🐶 जानवर</h2>
+            <div class="grid">
+                <button class="btn" onclick="playAnimal('dog')">
+                    🐕<br>कुत्ता
+                </button>
+                <button class="btn" onclick="playAnimal('cat')">
+                    🐱<br>बिल्ली
+                </button>
+                <button class="btn" onclick="playAnimal('cow')">
+                    🐄<br>गाय
+                </button>
+                <button class="btn" onclick="playAnimal('elephant')">
+                    🐘<br>हाथी
+                </button>
+                <button class="btn" onclick="playAnimal('lion')">
+                    🦁<br>शेर
+                </button>
+                <button class="btn" onclick="playAnimal('monkey')">
+                    🐒<br>बंदर
+                </button>
+            </div>
+        </div>
 
-</section>
+        <!-- Rhymes Section -->
+        <div id="rhymes" class="section" style="display: none;">
+            <h2>🎵 कविताएँ</h2>
+            <div class="grid">
+                <button class="btn" onclick="playRhyme('twinkle')">
+                    ⭐<br>Twinkle Twinkle
+                </button>
+                <button class="btn" onclick="playRhyme('johnny')">
+                    🍭<br>Johnny Johnny
+                </button>
+                <button class="btn" onclick="playRhyme('wheels')">
+                    🚌<br>Wheels on Bus
+                </button>
+            </div>
+        </div>
 
-<section id="numbers">
+        <!-- Shapes Section -->
+        <div id="shapes" class="section" style="display: none;">
+            <h2>🔷 आकृतियाँ</h2>
+            <div class="grid">
+                <button class="btn" onclick="speak('वृत्त')">⭕ वृत्त</button>
+                <button class="btn" onclick="speak('वर्ग')">◼️ वर्ग</button>
+                <button class="btn" onclick="speak('त्रिभुज')">🔺 त्रिभुज</button>
+                <button class="btn" onclick="speak('तारा')">⭐ तारा</button>
+            </div>
+        </div>
 
-<h2>Learn Counting 1-100 🔢</h2>
+        <!-- Drawing Section -->
+        <div id="drawing" class="section" style="display: none;">
+            <h2>✏️ ड्रॉइंग</h2>
+            <div class="drawing-area" id="canvas"></div>
+            <div class="color-palette">
+                <div class="color-btn" style="background: red;" onclick="setColor('red')"></div>
+                <div class="color-btn" style="background: blue;" onclick="setColor('blue')"></div>
+                <div class="color-btn" style="background: green;" onclick="setColor('green')"></div>
+                <div class="color-btn" style="background: yellow;" onclick="setColor('yellow')"></div>
+                <div class="color-btn" style="background: purple;" onclick="setColor('purple')"></div>
+                <div class="color-btn" style="background: orange;" onclick="setColor('orange')"></div>
+                <div class="color-btn" style="background: pink;" onclick="setColor('pink')"></div>
+                <div class="color-btn" style="background: black;" onclick="setColor('black')"></div>
+            </div>
+            <button class="clear-btn" onclick="clearCanvas()">🗑️ साफ करें</button>
+        </div>
 
-<div class="container" id="numberContainer"></div>
+        <!-- Manners Section -->
+        <div id="manners" class="section" style="display: none;">
+            <h2>🙏 अच्छे-बुरे मैनर्स</h2>
+            <div class="grid">
+                <button class="btn" onclick="speak('अच्छा बच्चा')">👍 अच्छा बच्चा</button>
+                <button class="btn" onclick="speak('धन्यवाद बोलना')">🙏 धन्यवाद</button>
+                <button class="btn" onclick="speak('नमस्ते')">Namaste 🙌</button>
+                <button class="btn" onclick="speak('बुरा बच्चा मत बनो')">👎 बुरा बच्चा</button>
+            </div>
+        </div>
 
-</section>
+        <!-- Games Section -->
+        <div id="games" class="section" style="display: none;">
+            <h2>🎮 सरल गेम्स</h2>
+            <div class="grid">
+                <button class="btn" onclick="startMatchingGame()">🧩 Matching Game</button>
+                <button class="btn" onclick="startColorGame()">🎨 Color Match</button>
+                <button class="btn" onclick="startShapePuzzle()">🔷 Shape Puzzle</button>
+            </div>
+        </div>
+    </div>
 
-<section id="hindi">
+    <script>
+        let currentColor = 'red';
+        let isDrawing = false;
 
-<h2>Hindi Alphabet 🇮🇳</h2>
+        // Speech Synthesis
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'hi-IN';
+            utterance.rate = 0.8;
+            utterance.pitch = 1.2;
+            speechSynthesis.speak(utterance);
+        }
 
-<div class="container">
+        function speakEnglish(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.8;
+            utterance.pitch = 1.2;
+            speechSynthesis.speak(utterance);
+        }
 
-<div class="card"><h3>क – कबूतर</h3></div>
-<div class="card"><h3>ख – खरगोश</h3></div>
-<div class="card"><h3>ग – गमला</h3></div>
-<div class="card"><h3>घ – घर</h3></div>
-<div class="card"><h3>ङ – अंगूर</h3></div>
-<div class="card"><h3>च – चम्मच</h3></div>
-<div class="card"><h3>छ – छतरी</h3></div>
-<div class="card"><h3>ज – जहाज</h3></div>
-<div class="card"><h3>झ – झंडा</h3></div>
-<div class="card"><h3>ञ – ज्ञान</h3></div>
-<div class="card"><h3>ट – टमाटर</h3></div>
-<div class="card"><h3>ठ – ठेला</h3></div>
-<div class="card"><h3>ड – डमरू</h3></div>
-<div class="card"><h3>ढ – ढोल</h3></div>
-<div class="card"><h3>ण – बाण</h3></div>
-<div class="card"><h3>त – तरबूज</h3></div>
-<div class="card"><h3>थ – थाली</h3></div>
-<div class="card"><h3>द – दरवाज़ा</h3></div>
-<div class="card"><h3>ध – धनुष</h3></div>
-<div class="card"><h3>न – नल</h3></div>
-<div class="card"><h3>प – पतंग</h3></div>
-<div class="card"><h3>फ – फल</h3></div>
-<div class="card"><h3>ब – बकरी</h3></div>
-<div class="card"><h3>भ – भालू</h3></div>
-<div class="card"><h3>म – मछली</h3></div>
-<div class="card"><h3>य – यज्ञ</h3></div>
-<div class="card"><h3>र – रस्सी</h3></div>
-<div class="card"><h3>ल – लड्डू</h3></div>
-<div class="card"><h3>व – वन</h3></div>
-<div class="card"><h3>श – शेर</h3></div>
-<div class="card"><h3>ष – षट्कोण</h3></div>
-<div class="card"><h3>स – साँप</h3></div>
-<div class="card"><h3>ह – हाथी</h3></div>
-<div class="card"><h3>क्ष – क्षत्रिय</h3></div>
-<div class="card"><h3>त्र – त्रिशूल</h3></div>
-<div class="card"><h3>ज्ञ – ज्ञान</h3></div>
+        // Show Section
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.style.display = 'none');
+            
+            // Show selected section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Generate content if needed
+            if (sectionId === 'numbers') generateNumbers();
+            if (sectionId === 'hindi') generateHindi();
+            if (sectionId === 'english') generateEnglish();
+        }
 
-</div>
+        // Generate Numbers 1-100
+        function generateNumbers() {
+            const grid = document.getElementById('numbersGrid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 100; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.innerHTML = `🔢<br>${i}`;
+                btn.onclick = () => speakEnglish(i.toString());
+                grid.appendChild(btn);
+            }
+        }
 
-</section>
+        // Generate Hindi Varn
+        function generateHindi() {
+            const hindiVarn = ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ'];
+            const grid = document.getElementById('hindiGrid');
+            grid.innerHTML = '';
+            hindiVarn.forEach(varn => {
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.innerHTML = `📜<br>${varn}`;
+                btn.onclick = () => speak(varn);
+                grid.appendChild(btn);
+            });
+        }
 
-<section id="game">
+        // Generate English ABC
+        function generateEnglish() {
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+            const grid = document.getElementById('englishGrid');
+            grid.innerHTML = '';
+            alphabet.forEach(letter => {
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.innerHTML = `📚<br>${letter}`;
+                btn.onclick = () => speakEnglish(letter);
+                grid.appendChild(btn);
+            });
+        }
 
-<h2>🎮 Guess the Number Game</h2>
-
-<button onclick="playGame()">Play Game</button>
-
-</section>
-
-<footer>
-<p>© 2026 Kids Learning World</p>
-</footer>
-
-<script>
-
-const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-const words=[
-"Apple","Ball","Cat","Dog","Elephant","Fish","Grapes","Hat","Ice Cream","Jug","Kite","Lion","Monkey","Nest","Orange","Parrot","Queen","Rabbit","Sun","Tiger","Umbrella","Van","Watch","Xylophone","Yak","Zebra"
-]
-
-let abcContainer=document.getElementById("abcContainer")
-
-for(let i=0;i<letters.length;i++){
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`
-<h3>${letters[i]} for ${words[i]}</h3>
-<img src="https://source.unsplash.com/120x120/?${words[i]}">
-<br><br>
-<button onclick="speak('${letters[i]} for ${words[i]}')">Hear</button>
-`
-
-abcContainer.appendChild(card)
-
-}
-
-let numberContainer=document.getElementById("numberContainer")
-
-for(let i=1;i<=100;i++){
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`<h3>${i}</h3>`
-
-numberContainer.appendChild(card)
-
-}
-
-function playGame(){
-
-let number=Math.floor(Math.random()*5)+1
-
-let guess=prompt("Guess number between 1-5")
-
-if(guess==number){
-
-alert("🎉 Correct!")
-
-}else{
-
-alert("Wrong! Correct number was "+number)
-
-}
-
-}
-
-function speak(text){
-
-let speech=new SpeechSynthesisUtterance(text)
-
-speech.lang="en-US"
-
-window.speechSynthesis.speak(speech)
-
-}
-
-</script>
-
-</body>
-    </html>
+        // Stories
+        function playStory(story) {
+            const content = document.getElementById('storyContent');
+            let storyText = '';
+            
+            switch(story) {
+                case 'pratap':
+                    storyText = 'महाराणा प्रताप मेवाड़ के वीर राजा थे। उन्होंने मुगलों से कभी हार नहीं मानी। चावल का द
