@@ -1,204 +1,157 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kids Learning World</title>
+<title>Kids Learning</title>
 
 <style>
-
 body{
 font-family:Arial;
-background:linear-gradient(45deg,#ff9a9e,#fad0c4);
 text-align:center;
+background:#f0f8ff;
 }
 
-h1{
-color:#ff3333;
-}
-
-.menu button{
-padding:15px;
+.btn{
+padding:10px 15px;
 margin:5px;
-font-size:18px;
+font-size:16px;
 border:none;
-border-radius:20px;
-background:#ff6b6b;
+border-radius:8px;
+background:#ff9800;
 color:white;
 cursor:pointer;
 }
 
-.section{
-display:none;
-margin-top:20px;
+.btn:hover{
+background:#e68900;
 }
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-gap:10px;
-}
-
-.btn{
-background:#ffd93d;
-padding:20px;
-border-radius:20px;
-font-size:18px;
-border:none;
-cursor:pointer;
-}
-
-canvas{
-border:3px solid black;
-background:white;
-}
-
 </style>
+
+<script>
+
+function speak(text){
+
+let speech = new SpeechSynthesisUtterance(text)
+
+speech.lang = "hi-IN"
+
+speech.rate = 0.9
+
+speechSynthesis.speak(speech)
+
+}
+
+function story(type){
+
+let text=""
+
+if(type=="lionmouse")
+text="एक शेर ने एक छोटे चूहे को पकड़ लिया। चूहे ने माफी मांगी और बाद में जाल काटकर शेर की जान बचाई।"
+
+if(type=="crow")
+text="एक प्यासा कौआ घड़े में पत्थर डालकर पानी ऊपर लाया और पानी पिया।"
+
+if(type=="foxgrapes")
+text="एक लोमड़ी अंगूर तक नहीं पहुँच पाई और बोली अंगूर खट्टे हैं।"
+
+if(type=="antgrass")
+text="चींटी मेहनत करती रही और टिड्डा खेलता रहा। सर्दी आने पर टिड्डे को पछताना पड़ा।"
+
+if(type=="goldenegg")
+text="एक मुर्गी रोज सोने का अंडा देती थी लेकिन लालच ने सब नष्ट कर दिया।"
+
+if(type=="rabbittortoise")
+text="एक तेज दौड़ने वाला खरगोश घमंड में सो गया और धीरे चलने वाला कछुआ दौड़ जीत गया।"
+
+if(type=="boywolf")
+text="एक लड़का बार-बार झूठ बोलता था कि भेड़िया आया। जब सच में भेड़िया आया तो कोई मदद के लिए नहीं आया।"
+
+if(type=="greedydog")
+text="एक लालची कुत्ते ने पानी में अपनी परछाई देखी और अपना मांस भी खो दिया।"
+
+if(type=="farmer")
+text="एक किसान ने अपने बेटों को मेहनत का महत्व सिखाया।"
+
+if(type=="honesty")
+text="एक ईमानदार लकड़हारे को भगवान ने सोने और चांदी की कुल्हाड़ी इनाम में दी।"
+
+document.getElementById("storyText").innerText=text
+
+speak(text)
+
+}
+
+</script>
 
 </head>
 
 <body>
 
-<h1>Kids Learning World</h1>
-
-<div class="menu">
-
-<button onclick="show('numbers')">Numbers</button>
-<button onclick="show('hindi')">Hindi</button>
-<button onclick="show('english')">English</button>
-<button onclick="show('animals')">Animals</button>
-<button onclick="show('colors')">Colors</button>
-<button onclick="show('shapes')">Shapes</button>
-<button onclick="show('rhymes')">Poems</button>
-<button onclick="show('stories')">Stories</button>
-<button onclick="show('drawing')">Drawing</button>
-
-</div>
-
-<!-- NUMBERS -->
-
-<div id="numbers" class="section">
-
-<h2>1 से 100 तक गिनती</h2>
-
-<div class="grid" id="numbersGrid"></div>
-
-</div>
-
-<!-- HINDI -->
-
-<div id="hindi" class="section">
-
-<h2>क से ज्ञ</h2>
-
-<div class="grid" id="hindiGrid"></div>
-
-</div>
-
-<!-- ENGLISH -->
-
-<div id="english" class="section">
-
-<h2>A to Z</h2>
-
-<div class="grid" id="englishGrid"></div>
-
-</div>
-
-<!-- ANIMALS -->
-
-<div id="animals" class="section">
-
-<h2>Animals</h2>
-
-<div class="grid">
-
-<button class="btn" onclick="speak('कुत्ता')">🐶 Dog</button>
-<button class="btn" onclick="speak('बिल्ली')">🐱 Cat</button>
-<button class="btn" onclick="speak('शेर')">🦁 Lion</button>
-<button class="btn" onclick="speak('हाथी')">🐘 Elephant</button>
-<button class="btn" onclick="speak('घोड़ा')">🐴 Horse</button>
-<button class="btn" onclick="speak('बंदर')">🐒 Monkey</button>
-<button class="btn" onclick="speak('गाय')">🐄 Cow</button>
-<button class="btn" onclick="speak('ऊंट')">🐪 Camel</button>
-
-</div>
-
-</div>
-
-<!-- COLORS -->
-
-<div id="colors" class="section">
-
-<h2>रंग</h2>
-
-<div class="grid">
-
-<button class="btn" onclick="speak('लाल रंग')">🟥 Red</button>
-<button class="btn" onclick="speak('नीला रंग')">🟦 Blue</button>
-<button class="btn" onclick="speak('हरा रंग')">🟩 Green</button>
-<button class="btn" onclick="speak('पीला रंग')">🟨 Yellow</button>
-<button class="btn" onclick="speak('गुलाबी रंग')">🌸 Pink</button>
-<button class="btn" onclick="speak('काला रंग')">⬛ Black</button>
-
-</div>
-
-</div>
-
-<!-- SHAPES -->
-
-<div id="shapes" class="section">
-
-<h2>Shapes</h2>
-
-<div class="grid">
-
-<button class="btn" onclick="speak('वृत्त')">⭕ Circle</button>
-<button class="btn" onclick="speak('वर्ग')">◼️ Square</button>
-<button class="btn" onclick="speak('त्रिकोण')">🔺 Triangle</button>
-<button class="btn" onclick="speak('तारा')">⭐ Star</button>
-
-</div>
-
-</div>
-
-<!-- RHYMES -->
-
-<div id="rhymes" class="section">
-
 <h2>कविताएँ</h2>
 
-<div class="grid">
+<button class="btn" onclick="speak('चंदा मामा दूर के, पुए पकाए बूर के')">🌙 चंदा मामा</button>
 
-<button class="btn" onclick="speak('चंदा मामा दूर के')">🌙 चंदा मामा</button>
-<button class="btn" onclick="speak('मछली जल की रानी है')">🐟 मछली</button>
-<button class="btn" onclick="speak('नानी तेरी मोरनी को मोर ले गए')">🦚 मोरनी</button>
+<button class="btn" onclick="speak('मछली जल की रानी है, जीवन उसका पानी है')">🐟 मछली जल की रानी</button>
+
+<button class="btn" onclick="speak('नानी तेरी मोरनी को मोर ले गए')">🦚 नानी तेरी मोरनी</button>
+
 <button class="btn" onclick="speak('लकड़ी की काठी काठी पे घोड़ा')">🐴 लकड़ी की काठी</button>
+
+<button class="btn" onclick="speak('ट्विंकल ट्विंकल लिटिल स्टार')">⭐ ट्विंकल स्टार</button>
+
+<button class="btn" onclick="speak('जॉनी जॉनी यस पापा')">🍭 जॉनी जॉनी</button>
+
+<button class="btn" onclick="speak('बस के पहिए गोल गोल घूमते हैं')">🚌 बस कविता</button>
+
 <button class="btn" onclick="speak('आलू कचालू बेटा कहाँ गए थे')">🥔 आलू कचालू</button>
-<button class="btn" onclick="speak('चिड़िया रानी बड़ी सयानी')">🐦 चिड़िया</button>
-<button class="btn" onclick="speak('सूरज निकला चिड़िया बोली')">🌞 सूरज</button>
+
+<button class="btn" onclick="speak('एक था राजा एक थी रानी')">👑 राजा रानी</button>
+
+<button class="btn" onclick="speak('चिड़िया रानी बड़ी सयानी')">🐦 चिड़िया रानी</button>
+
+<button class="btn" onclick="speak('सूरज निकला चिड़िया बोली')">🌞 सूरज निकला</button>
+
 <button class="btn" onclick="speak('चल मेरे घोड़े टिक टिक टिक')">🐎 घोड़ा</button>
+
 <button class="btn" onclick="speak('काला कौआ चिट्ठी लाया')">🐦 कौआ</button>
-<button class="btn" onclick="speak('गुब्बारे वाला आया')">🎈 गुब्बारे</button>
+
+<button class="btn" onclick="speak('गुब्बारे वाला आया')">🎈 गुब्बारे वाला</button>
+
 <button class="btn" onclick="speak('आओ बच्चों तुम्हें दिखाएँ')">🇮🇳 आओ बच्चों</button>
+
 <button class="btn" onclick="speak('बारिश आई छम छम')">🌧 बारिश</button>
+
 <button class="btn" onclick="speak('टमाटर लाल लाल')">🍅 टमाटर</button>
-<button class="btn" onclick="speak('चूहा बिल्ली खेल रहे थे')">🐭 चूहा</button>
-<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ')">🌳 पेड़</button>
+
+<button class="btn" onclick="speak('चूहा बिल्ली खेल रहे थे')">🐭 चूहा बिल्ली</button>
+
+<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ')">🌳 पेड़ लगाओ</button>
+
 <button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के')">🇮🇳 बच्चे</button>
-<button class="btn" onclick="speak('ट्विंकल ट्विंकल लिटिल स्टार')">⭐ Twinkle</button>
-<button class="btn" onclick="speak('जॉनी जॉनी यस पापा')">🍭 Johnny</button>
-<button class="btn" onclick="speak('बस के पहिए गोल गोल घूमते हैं')">🚌 Bus</button>
-<button class="btn" onclick="speak('नन्हा मुन्ना राही हूँ')">👶 नन्हा मुन्ना</button>
 
-</div>
+<h2>कहानियाँ</h2>
 
-</div>
+<button class="btn" onclick="story('lionmouse')">शेर और चूहा</button>
 
-<!-- STORIES -->
+<button class="btn" onclick="story('crow')">प्यासा कौआ</button>
 
-<div id="stories" class="section">
+<button class="btn" onclick="story('foxgrapes')">लोमड़ी और अंगूर</button>
 
-<h2>कहानियाँ</
+<button class="btn" onclick="story('antgrass')">चींटी और टिड्डा</button>
+
+<button class="btn" onclick="story('goldenegg')">सोने के अंडे वाली मुर्गी</button>
+
+<button class="btn" onclick="story('rabbittortoise')">खरगोश और कछुआ</button>
+
+<button class="btn" onclick="story('boywolf')">झूठा गड़रिया</button>
+
+<button class="btn" onclick="story('greedydog')">लालची कुत्ता</button>
+
+<button class="btn" onclick="story('farmer')">किसान और उसके बेटे</button>
+
+<button class="btn" onclick="story('honesty')">ईमानदार लकड़हारा</button>
+
+<p id="storyText"></p>
+
+</body>
+</html>
