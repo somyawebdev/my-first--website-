@@ -1,3 +1,30 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e0f7fa; /* हल्का नीला आसमान */
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    /* उड़ती हुई तितलियाँ */
+    .butterfly {
+        position: fixed;
+        font-size: 40px;
+        z-index: -1;
+        animation: fly 12s linear infinite;
+    }
+
+    @keyframes fly {
+        0% { left: -50px; top: 20%; transform: rotate(0deg); }
+        50% { top: 60%; transform: rotate(20deg); }
+        100% { left: 110%; top: 20%; transform: rotate(0deg); }
+    }
+
+    .b2 { animation-duration: 18s; animation-delay: 3s; top: 40% !important; }
+    .b3 { animation-duration: 15s; animation-delay: 7s; top: 70% !important; }
+</style>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,20 +36,7 @@ body{
 font-family:Arial;
 text-align:center;
 background:#f0f8ff;
-}
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>somya Kids Learning</title>
-
-<style>
-body{
-font-family:Arial;
-text-align:center;
-background:#f0f8ff;
-}
-
+    
 .btn {
     padding: 22px 36px;   /* अंदर से बहुत बड़ा */
     margin: 12px;
