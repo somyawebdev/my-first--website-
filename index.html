@@ -1,133 +1,357 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Learning World - Full</title>
-    <style>
-        body { font-family: 'Comic Sans MS', sans-serif; background: #fff9e6; text-align: center; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        .section { background: white; border-radius: 25px; padding: 20px; margin: 20px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border: 4px solid #ffcc00; }
-        h2 { color: #ff4500; font-size: 28px; border-bottom: 2px dashed #ff4500; padding-bottom: 10px; }
-        
-        /* Bade Buttons */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
-        button { 
-            padding: 20px; font-size: 22px; cursor: pointer; border: none; 
-            border-radius: 20px; background: #FFD700; transition: 0.3s;
-            box-shadow: 0 6px #b8860b; font-weight: bold; display: flex; flex-direction: column; align-items: center;
-        }
-        button:active { box-shadow: 0 0; transform: translateY(4px); }
-        button img { width: 50px; height: 50px; margin-bottom: 10px; }
 
-        /* Story Style */
-        .story-btn { background: #ffebcc; width: 100%; margin: 10px 0; padding: 25px; font-size: 24px; text-align: left; }
-        .story-btn:hover { background: #ffd180; }
-        
-        .manner-good { background: #d4edda; color: #155724; }
-        .manner-bad { background: #f8d7da; color: #721c24; }
-    </style>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kids Learning World</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+text-align:center;
+}
+
+h1{
+color:#ff4d4d;
+}
+
+.menu button{
+
+padding:15px 20px;
+margin:5px;
+font-size:18px;
+border:none;
+border-radius:20px;
+background:#ff6b6b;
+color:white;
+cursor:pointer;
+
+}
+
+.section{
+display:none;
+margin-top:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:10px;
+}
+
+.btn{
+
+background:#ffd93d;
+padding:20px;
+border-radius:20px;
+font-size:20px;
+border:none;
+cursor:pointer;
+
+}
+
+img{
+width:80px;
+}
+
+canvas{
+
+border:3px solid black;
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
-    <h1>🎨 Kids Learning App 🎨</h1>
+<h1>Kids Learning World</h1>
 
-    <!-- 1. Counting Section -->
-    <div class="section">
-        <h2>🔢 1 to 100 Counting</h2>
-        <div class="grid" id="count-div"></div>
-    </div>
+<div class="menu">
 
-    <!-- 2. Hindi Varnmala -->
-    <div class="section">
-        <h2>🕉️ क से ज्ञ तक</h2>
-        <div class="grid" id="hindi-div"></div>
-    </div>
+<button onclick="show('numbers')">Numbers</button>
+<button onclick="show('hindi')">Hindi</button>
+<button onclick="show('english')">English</button>
+<button onclick="show('animals')">Animals</button>
+<button onclick="show('colors')">Colors</button>
+<button onclick="show('stories')">Stories</button>
+<button onclick="show('rhymes')">Rhymes</button>
+<button onclick="show('shapes')">Shapes</button>
+<button onclick="show('drawing')">Drawing</button>
 
-    <!-- 3. Stories Section (History & Mythology) -->
-    <div class="section">
-        <h2>📖 कहानियाँ (Stories with Voice)</h2>
-        
-        <button class="story-btn" onclick="speakStory('महाराणा प्रताप', 'महाराणा प्रताप मेवाड़ के वीर राजा थे। उनके पास एक बहादुर घोड़ा था जिसका नाम चेतक था। उन्होंने कभी हार नहीं मानी और हल्दीघाटी के युद्ध में बहादुरी से लड़े।')">
-            🛡️ महाराणा प्रताप की कहानी
-        </button>
+</div>
 
-        <button class="story-btn" onclick="speakStory('रामायण', 'रामायण भगवान श्री राम की कहानी है। राम जी ने माता सीता को रावण की कैद से छुड़ाने के लिए लंका पर चढ़ाई की और बुराई का अंत किया।')">
-            🏹 रामायण की कहानी
-        </button>
+<!-- NUMBERS -->
 
-        <button class="story-btn" onclick="speakStory('महाभारत', 'महाभारत पांडवों और कौरवों के बीच धर्म का युद्ध था। इसमें भगवान कृष्ण ने अर्जुन के सारथी बनकर उन्हें जीत दिलाई।')">
-            ⚔️ महाभारत की कहानी
-        </button>
+<div id="numbers" class="section">
 
-        <button class="story-btn" onclick="speakStory('भगवत गीता', 'भगवत गीता में भगवान कृष्ण ने कर्म करने का संदेश दिया है। उन्होंने कहा कि फल की चिंता किए बिना अपना कर्तव्य निभाओ।')">
-            ☸️ भगवत गीता का ज्ञान
-        </button>
-    </div>
+<h2>1 to 100 Numbers</h2>
 
-    <!-- 4. Good & Bad Manners -->
-    <div class="section">
-        <h2>🌈 Good & Bad Manners</h2>
-        <div class="grid">
-            <button class="manner-good" onclick="speak('Good Manner: Always say Thank You and Sorry')">🤝 Thank You / Sorry</button>
-            <button class="manner-good" onclick="speak('Good Manner: Brush your teeth twice a day')">🪥 Brush Daily</button>
-            <button class="manner-bad" onclick="speak('Bad Manner: Do not bite your nails')">💅 Nail Biting</button>
-            <button class="manner-bad" onclick="speak('Bad Manner: Never tell a lie')">🤥 Telling Lies</button>
-        </div>
-    </div>
+<div class="grid" id="numbersGrid"></div>
 
-    <!-- 5. Colors & Animals -->
-    <div class="section">
-        <h2>🐶 Animals & 🎨 Colors</h2>
-        <div class="grid">
-            <button style="background: red; color:white;" onclick="speak('Red Color')">🍎 RED</button>
-            <button style="background: blue; color:white;" onclick="speak('Blue Color')">🌊 BLUE</button>
-            <button onclick="speak('Lion')">🦁 LION</button>
-            <button onclick="speak('Elephant')">🐘 ELEPHANT</button>
-        </div>
-    </div>
+</div>
 
-    <!-- 6. Rhymes Section -->
-    <div class="section">
-        <h2>🎵 Kids Rhymes</h2>
-        <button class="story-btn" onclick="speak('Twinkle twinkle little star, how I wonder what you are')">⭐ Twinkle Twinkle</button>
-        <button class="story-btn" onclick="speak('Johny Johny Yes Papa, Eating sugar? No papa')">🍭 Johny Johny</button>
-    </div>
+<!-- HINDI -->
+
+<div id="hindi" class="section">
+
+<h2>क से ज्ञ</h2>
+
+<div class="grid" id="hindiGrid"></div>
+
+</div>
+
+<!-- ENGLISH -->
+
+<div id="english" class="section">
+
+<h2>A to Z</h2>
+
+<div class="grid" id="englishGrid"></div>
+
+</div>
+
+<!-- ANIMALS -->
+
+<div id="animals" class="section">
+
+<h2>Animals</h2>
+
+<div class="grid">
+
+<button class="btn" onclick="speak('Dog')">🐶<br>Dog</button>
+<button class="btn" onclick="speak('Cat')">🐱<br>Cat</button>
+<button class="btn" onclick="speak('Lion')">🦁<br>Lion</button>
+<button class="btn" onclick="speak('Elephant')">🐘<br>Elephant</button>
+
+</div>
+
+</div>
+
+<!-- COLORS -->
+
+<div id="colors" class="section">
+
+<h2>Colors</h2>
+
+<div class="grid">
+
+<button class="btn" onclick="speak('Red color')">🟥 Red</button>
+<button class="btn" onclick="speak('Blue color')">🟦 Blue</button>
+<button class="btn" onclick="speak('Green color')">🟩 Green</button>
+<button class="btn" onclick="speak('Yellow color')">🟨 Yellow</button>
+
+</div>
+
+</div>
+
+<!-- SHAPES -->
+
+<div id="shapes" class="section">
+
+<h2>Shapes</h2>
+
+<div class="grid">
+
+<button class="btn" onclick="speak('Circle')">⭕</button>
+<button class="btn" onclick="speak('Square')">◼️</button>
+<button class="btn" onclick="speak('Triangle')">🔺</button>
+<button class="btn" onclick="speak('Star')">⭐</button>
+
+</div>
+
+</div>
+
+<!-- RHYMES -->
+
+<div id="rhymes" class="section">
+
+<h2>Rhymes</h2>
+
+<button class="btn" onclick="speak('Twinkle twinkle little star')">⭐ Twinkle</button>
+
+<button class="btn" onclick="speak('Johnny johnny yes papa')">🍭 Johnny</button>
+
+<button class="btn" onclick="speak('Wheels on the bus go round')">🚌 Wheels</button>
+
+</div>
+
+<!-- STORIES -->
+
+<div id="stories" class="section">
+
+<h2>Stories</h2>
+
+<button class="btn" onclick="story('pratap')">Maharana Pratap</button>
+
+<button class="btn" onclick="story('ramayan')">Ramayan</button>
+
+<button class="btn" onclick="story('mahabharat')">Mahabharat</button>
+
+<button class="btn" onclick="story('gita')">Bhagavad Gita</button>
+
+<p id="storyText"></p>
+
+</div>
+
+<!-- DRAWING -->
+
+<div id="drawing" class="section">
+
+<h2>Drawing</h2>
+
+<canvas id="canvas" width="300" height="300"></canvas>
+
+<br>
+
+<button onclick="clearCanvas()">Clear</button>
+
 </div>
 
 <script>
-    // Voice Function
-    function speak(text) {
-        let msg = new SpeechSynthesisUtterance();
-        msg.text = text;
-        msg.lang = 'hi-IN'; // Indian Hindi/English Voice
-        window.speechSynthesis.speak(msg);
-    }
 
-    function speakStory(title, detail) {
-        speak(title + "... " + detail);
-    }
+function show(id){
 
-    // 1-100 Loop
-    const countDiv = document.getElementById('count-div');
-    for(let i=1; i<=100; i++) {
-        let b = document.createElement('button');
-        b.innerText = i;
-        b.onclick = () => speak(i);
-        countDiv.appendChild(b);
-    }
+document.querySelectorAll('.section').forEach(s=>s.style.display='none')
 
-    // Hindi Characters
-    const varns = ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ'];
-    const hindiDiv = document.getElementById('hindi-div');
-    varns.forEach(v => {
-        let b = document.createElement('button');
-        b.innerText = v;
-        b.onclick = () => speak(v);
-        hindiDiv.appendChild(b);
-    });
+document.getElementById(id).style.display='block'
+
+}
+
+function speak(text){
+
+let speech=new SpeechSynthesisUtterance(text)
+
+speech.lang="en-US"
+
+speechSynthesis.speak(speech)
+
+}
+
+function story(type){
+
+let text=""
+
+if(type=="pratap")
+
+text="Maharana Pratap was a brave king of Mewar."
+
+if(type=="ramayan")
+
+text="Ramayan is the story of Lord Rama."
+
+if(type=="mahabharat")
+
+text="Mahabharat is the great battle between Pandavas and Kauravas."
+
+if(type=="gita")
+
+text="Bhagavad Gita teaches us about duty."
+
+document.getElementById("storyText").innerText=text
+
+speak(text)
+
+}
+
+/* Numbers */
+
+let numbers=document.getElementById("numbersGrid")
+
+for(let i=1;i<=100;i++){
+
+let b=document.createElement("button")
+
+b.className="btn"
+
+b.innerText=i
+
+b.onclick=()=>speak(i)
+
+numbers.appendChild(b)
+
+}
+
+/* Hindi */
+
+let hindi=['क','ख','ग','घ','च','छ','ज','झ','ट','ठ','ड','ढ','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ']
+
+let grid=document.getElementById("hindiGrid")
+
+hindi.forEach(h=>{
+
+let b=document.createElement("button")
+
+b.className="btn"
+
+b.innerText=h
+
+b.onclick=()=>speak(h)
+
+grid.appendChild(b)
+
+})
+
+/* English */
+
+let alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
+
+let egrid=document.getElementById("englishGrid")
+
+alpha.forEach(a=>{
+
+let b=document.createElement("button")
+
+b.className="btn"
+
+b.innerText=a
+
+b.onclick=()=>speak(a)
+
+egrid.appendChild(b)
+
+})
+
+/* Drawing */
+
+let canvas=document.getElementById("canvas")
+
+let ctx=canvas.getContext("2d")
+
+let draw=false
+
+canvas.onmousedown=()=>draw=true
+
+canvas.onmouseup=()=>draw=false
+
+canvas.onmousemove=e=>{
+
+if(draw){
+
+ctx.lineWidth=5
+
+ctx.lineTo(e.offsetX,e.offsetY)
+
+ctx.stroke()
+
+}
+
+}
+
+function clearCanvas(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+}
+
 </script>
 
 </body>
-</html>
+
+    </html>
