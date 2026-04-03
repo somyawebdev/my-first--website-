@@ -3,139 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Learning World</title>
+    <title>Kids Learning World - Full</title>
     <style>
-        body { font-family: 'Comic Sans MS', sans-serif; background-color: #f0f8ff; text-align: center; padding: 20px; }
-        h1 { color: #ff4500; text-shadow: 2px 2px #ffd700; }
-        .section { background: white; border-radius: 20px; padding: 20px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; padding: 10px; }
+        body { font-family: 'Comic Sans MS', sans-serif; background: #fff9e6; text-align: center; }
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+        .section { background: white; border-radius: 25px; padding: 20px; margin: 20px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border: 4px solid #ffcc00; }
+        h2 { color: #ff4500; font-size: 28px; border-bottom: 2px dashed #ff4500; padding-bottom: 10px; }
         
-        /* बड़े और सुंदर बटन */
+        /* Bade Buttons */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
         button { 
-            padding: 20px; font-size: 24px; cursor: pointer; border: none; 
-            border-radius: 15px; background: #FFD700; transition: 0.3s;
-            box-shadow: 0 4px #b8860b; font-weight: bold;
+            padding: 20px; font-size: 22px; cursor: pointer; border: none; 
+            border-radius: 20px; background: #FFD700; transition: 0.3s;
+            box-shadow: 0 6px #b8860b; font-weight: bold; display: flex; flex-direction: column; align-items: center;
         }
         button:active { box-shadow: 0 0; transform: translateY(4px); }
-        button:hover { background: #FFA500; transform: scale(1.1); }
+        button img { width: 50px; height: 50px; margin-bottom: 10px; }
 
-        .story-card { background: #e6fffa; padding: 15px; border-radius: 10px; margin: 10px; cursor: pointer; }
-        .canvas-area { border: 2px solid #000; background: white; margin-top: 10px; }
+        /* Story Style */
+        .story-btn { background: #ffebcc; width: 100%; margin: 10px 0; padding: 25px; font-size: 24px; text-align: left; }
+        .story-btn:hover { background: #ffd180; }
+        
+        .manner-good { background: #d4edda; color: #155724; }
+        .manner-bad { background: #f8d7da; color: #721c24; }
     </style>
 </head>
 <body>
 
-    <h1>🌟 Kids Learning Portal 🌟</h1>
+<div class="container">
+    <h1>🎨 Kids Learning App 🎨</h1>
 
-    <!-- 1 to 100 Counting -->
+    <!-- 1. Counting Section -->
     <div class="section">
         <h2>🔢 1 to 100 Counting</h2>
-        <div class="grid" id="counting-grid"></div>
+        <div class="grid" id="count-div"></div>
     </div>
 
-    <!-- क to ज्ञ -->
+    <!-- 2. Hindi Varnmala -->
     <div class="section">
-        <h2>🕉️ हिंदी वर्णमाला (क से ज्ञ)</h2>
-        <div class="grid" id="hindi-grid"></div>
+        <h2>🕉️ क से ज्ञ तक</h2>
+        <div class="grid" id="hindi-div"></div>
     </div>
 
-    <!-- A to Z -->
+    <!-- 3. Stories Section (History & Mythology) -->
     <div class="section">
-        <h2>🔤 ABC (A to Z)</h2>
-        <div class="grid" id="abc-grid"></div>
-    </div>
-
-    <!-- Stories Section -->
-    <div class="section">
-        <h2>📖 कहानियाँ (Stories)</h2>
-        <div class="story-card" onclick="speakStory('Maharana Pratap', 'महाराणा प्रताप मेवाड़ के महान हिंदू राजा थे। उनके घोड़े का नाम चेतक था।')">
+        <h2>📖 कहानियाँ (Stories with Voice)</h2>
+        
+        <button class="story-btn" onclick="speakStory('महाराणा प्रताप', 'महाराणा प्रताप मेवाड़ के वीर राजा थे। उनके पास एक बहादुर घोड़ा था जिसका नाम चेतक था। उन्होंने कभी हार नहीं मानी और हल्दीघाटी के युद्ध में बहादुरी से लड़े।')">
             🛡️ महाराणा प्रताप की कहानी
-        </div>
-        <div class="story-card" onclick="speakStory('Ramayana', 'रामायण भगवान श्री राम की कहानी है। उन्होंने रावण को हराकर बुराई पर जीत पाई थी।')">
+        </button>
+
+        <button class="story-btn" onclick="speakStory('रामायण', 'रामायण भगवान श्री राम की कहानी है। राम जी ने माता सीता को रावण की कैद से छुड़ाने के लिए लंका पर चढ़ाई की और बुराई का अंत किया।')">
             🏹 रामायण की कहानी
-        </div>
-        <div class="story-card" onclick="speakStory('Bhagavad Gita', 'भगवत गीता में भगवान कृष्ण ने अर्जुन को धर्म का मार्ग दिखाया था।')">
-            ☸️ भगवत गीता
-        </div>
+        </button>
+
+        <button class="story-btn" onclick="speakStory('महाभारत', 'महाभारत पांडवों और कौरवों के बीच धर्म का युद्ध था। इसमें भगवान कृष्ण ने अर्जुन के सारथी बनकर उन्हें जीत दिलाई।')">
+            ⚔️ महाभारत की कहानी
+        </button>
+
+        <button class="story-btn" onclick="speakStory('भगवत गीता', 'भगवत गीता में भगवान कृष्ण ने कर्म करने का संदेश दिया है। उन्होंने कहा कि फल की चिंता किए बिना अपना कर्तव्य निभाओ।')">
+            ☸️ भगवत गीता का ज्ञान
+        </button>
     </div>
 
-    <!-- Manners -->
+    <!-- 4. Good & Bad Manners -->
     <div class="section">
         <h2>🌈 Good & Bad Manners</h2>
-        <button onclick="speak('Always help others')">🤝 Good: Help Others</button>
-        <button onclick="speak('Do not fight')">🚫 Bad: Fighting</button>
+        <div class="grid">
+            <button class="manner-good" onclick="speak('Good Manner: Always say Thank You and Sorry')">🤝 Thank You / Sorry</button>
+            <button class="manner-good" onclick="speak('Good Manner: Brush your teeth twice a day')">🪥 Brush Daily</button>
+            <button class="manner-bad" onclick="speak('Bad Manner: Do not bite your nails')">💅 Nail Biting</button>
+            <button class="manner-bad" onclick="speak('Bad Manner: Never tell a lie')">🤥 Telling Lies</button>
+        </div>
     </div>
 
-    <!-- Drawing Board -->
+    <!-- 5. Colors & Animals -->
     <div class="section">
-        <h2>✏️ Drawing Board</h2>
-        <canvas id="paintCanvas" width="300" height="200" class="canvas-area"></canvas><br>
-        <button onclick="clearCanvas()">Clear Canvas</button>
+        <h2>🐶 Animals & 🎨 Colors</h2>
+        <div class="grid">
+            <button style="background: red; color:white;" onclick="speak('Red Color')">🍎 RED</button>
+            <button style="background: blue; color:white;" onclick="speak('Blue Color')">🌊 BLUE</button>
+            <button onclick="speak('Lion')">🦁 LION</button>
+            <button onclick="speak('Elephant')">🐘 ELEPHANT</button>
+        </div>
     </div>
 
-    <script>
-        // आवाज़ के लिए फंक्शन
-        function speak(text) {
-            let msg = new SpeechSynthesisUtterance();
-            msg.text = text;
-            msg.lang = 'hi-IN'; // हिंदी के लिए
-            window.speechSynthesis.speak(msg);
-        }
+    <!-- 6. Rhymes Section -->
+    <div class="section">
+        <h2>🎵 Kids Rhymes</h2>
+        <button class="story-btn" onclick="speak('Twinkle twinkle little star, how I wonder what you are')">⭐ Twinkle Twinkle</button>
+        <button class="story-btn" onclick="speak('Johny Johny Yes Papa, Eating sugar? No papa')">🍭 Johny Johny</button>
+    </div>
+</div>
 
-        function speakStory(title, content) {
-            speak(title + ". " + content);
-        }
+<script>
+    // Voice Function
+    function speak(text) {
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        msg.lang = 'hi-IN'; // Indian Hindi/English Voice
+        window.speechSynthesis.speak(msg);
+    }
 
-        // 1-100 Counting Generator
-        const countGrid = document.getElementById('counting-grid');
-        for (let i = 1; i <= 100; i++) {
-            let btn = document.createElement('button');
-            btn.innerText = i;
-            btn.onclick = () => speak(i);
-            countGrid.appendChild(btn);
-        }
+    function speakStory(title, detail) {
+        speak(title + "... " + detail);
+    }
 
-        // A-Z Generator
-        const abcGrid = document.getElementById('abc-grid');
-        for (let i = 65; i <= 90; i++) {
-            let char = String.fromCharCode(i);
-            let btn = document.createElement('button');
-            btn.innerText = char;
-            btn.onclick = () => speak(char);
-            abcGrid.appendChild(btn);
-        }
+    // 1-100 Loop
+    const countDiv = document.getElementById('count-div');
+    for(let i=1; i<=100; i++) {
+        let b = document.createElement('button');
+        b.innerText = i;
+        b.onclick = () => speak(i);
+        countDiv.appendChild(b);
+    }
 
-        // क-ज्ञ List
-        const hindiChars = ['क', 'ख', 'ग', 'घ', 'च', 'छ', 'ज', 'झ', 'ट', 'ठ', 'ड', 'ढ', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह', 'क्ष', 'त्र', 'ज्ञ'];
-        const hindiGrid = document.getElementById('hindi-grid');
-        hindiChars.forEach(char => {
-            let btn = document.createElement('button');
-            btn.innerText = char;
-            btn.onclick = () => speak(char);
-            hindiGrid.appendChild(btn);
-        });
+    // Hindi Characters
+    const varns = ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ'];
+    const hindiDiv = document.getElementById('hindi-div');
+    varns.forEach(v => {
+        let b = document.createElement('button');
+        b.innerText = v;
+        b.onclick = () => speak(v);
+        hindiDiv.appendChild(b);
+    });
+</script>
 
-        // Drawing Logic
-        const canvas = document.getElementById('paintCanvas');
-        const ctx = canvas.getContext('2d');
-        let painting = false;
-
-        canvas.addEventListener('mousedown', () => painting = true);
-        canvas.addEventListener('mouseup', () => { painting = false; ctx.beginPath(); });
-        canvas.addEventListener('mousemove', draw);
-
-        function draw(e) {
-            if (!painting) return;
-            ctx.lineWidth = 5;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = 'red';
-            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-        }
-
-        function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
-    </script>
 </body>
 </html>
