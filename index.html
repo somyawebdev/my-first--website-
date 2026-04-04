@@ -408,7 +408,36 @@ window.speechSynthesis.speak(speech);
 
 <p id="storyText"></p>
   
+</div>
+    <button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के, सच्चे और महान हैं')">🇮🇳 बच्चे</button>
 
+    <!-- कहानियों के बटन -->
+    <button class="btn" onclick="story('foxgrapes')">🦊 लोमड़ी और अंगूर</button>
+    <button class="btn" onclick="story('antgrass')">🐜 चींटी और टिड्डा</button>
+    <button class="btn" onclick="story('goldenegg')">🥚 सोने के अंडे वाली मुर्गी</button>
+    <button class="btn" onclick="story('rabbitortoise')">🐢 खरगोश और कछुआ</button>
+    <button class="btn" onclick="story('boywolf')">🐺 झूठा गड़ेरिया</button>
+    <button class="btn" onclick="story('greedydog')">🐶 लालची कुत्ता</button>
+    <button class="btn" onclick="story('farmer')">👨‍🌾 किसान और उसके बेटे</button>
+    <button class="btn" onclick="story('honesty')">🪓 ईमानदार लकड़हारा</button>
+
+    <p id="storyText"></p>
+</div> <!-- कंटेनर बंद -->
+
+<h2 style="margin-top: 40px; color: #ff6600;">🅰️ Alphabet</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+    <!-- A for Apple -->
+    <button class="btn" onclick="speak('A for Apple')" style="width: 120px; height: 150px;">
+        <img src="images/apple.png" width="80" alt="Apple"><br><b>A</b>
+    </button>
+
+    <!-- B for Ball -->
+    <button class="btn" onclick="speak('B for Ball')" style="width: 120px; height: 150px;">
+        <img src="images/ball.png" width="80" alt="Ball"><br><b>B</b>
+    </button>
+  </div>
+                                                                     
 <h2>Alphabet</h2>
 
 <button class="btn" onclick="speak('A for Apple')">
