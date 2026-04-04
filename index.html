@@ -1,39 +1,36 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>somya Kids Learning</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #e0f7fa; /* हल्का नीला आसमान */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        /* उड़ती हुई तितलियाँ */
+        .butterfly {
+            position: fixed;
+            font-size: 40px;
+            z-index: -1;
+            animation: fly 10s linear infinite;
+        }
+        @keyframes fly {
+            0% { left: -50px; top: 20%; transform: rotate(0deg); }
+            100% { left: 110%; top: 20%; transform: rotate(0deg); }
+        }
+        .b2 { animation-duration: 15s; top: 50% !important; }
+    </style>
+</head>
+<body>
+    <div class="butterfly">🦋</div>
+    <div class="butterfly b2">🦋</div>
 
-<style>
-body{
-font-family:Arial;
-text-align:center;
-background:#f0f8ff;
-}
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>somya Kids Learning</title>
+    <img src="logo.png" width="120" style="margin-top:20px; border-radius:50%;">
+    <h1 style="color: #ff6600;">सौम्या किड्स लर्निंग 🎈</h1>
 
-<style>
-body{
-font-family:Arial;
-text-align:center;
-background:#f0f8ff;
-}
-
-.btn {
-    padding: 22px 36px;   /* अंदर से बहुत बड़ा */
-    margin: 12px;
-    font-size: 28px;      /* टेक्स्ट बड़ा */
-    font-weight: 700;
-    border: none;
-    border-radius: 20px;  /* गोल और मॉडर्न */
-    min-width: 110px;     /* चौड़ाई */
-    min-height: 80px;     /* ऊँचाई */
-    background: #ff9800;
-    color: white;
     cursor: pointer;
 }
 }
@@ -107,7 +104,7 @@ speak(text)
 
 <button class="btn" onclick="speak('चंदा मामा दूर के, पुए पकाए बूर के')">🌙 चंदा मामा</button>
 
-<button class="btn" onclick="speak('मछली जल की रा<div id="storyButtons">
+<button class="btn" onclick="speak('मछली जल की रेनी है ')"मछली जल की रानी</button>
 
 <button class="btn" onclick="showStory('twofriends')">दो दोस्त</button>
 <button class="btn" onclick="showStory('thirstycrow2')">प्यासा कौआ</button>
@@ -348,9 +345,6 @@ speech.rate=0.9;
 window.speechSynthesis.speak(speech);
 }
 
-</script>नी है, जीवन उसका पानी है')">🐟 मछली जल की रानी</button>
-
-
 <h2>कहानियाँ</h2>
 
 <button class="btn" onclick="story('lionmouse')">शेर और चूहा</button>
@@ -389,7 +383,10 @@ window.speechSynthesis.speak(speech);
 
 <button class="btn" onclick="speak('चूहा बिल्ली खेल रहे थे, आपस में झगड़ रहे थे')">🐭 चूहा बिल्ली</button>
 
-<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ, धरती को स्वर्ग बनाओ')">🌳 पेड़ लगाओ</button>
+<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ, धरती को स्वर्ग <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; padding: 20px;">
+
+
+बनाओ')">🌳 पेड़ लगाओ</button>
 
 <button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के, सच्चे और महान के')">🇮🇳 बच्चे</button>ton class="btn" onclick="story('crow')">प्यासा कौआ</button>
 
@@ -413,110 +410,10 @@ window.speechSynthesis.speak(speech);
 
 <h2>Alphabet</h2>
 
-<button class="btn" onclick="speak('A for Apple')">
-<img src="images/apple.png" width="80"><br>A
-</button>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; padding: 20px;">
 
-<button class="btn" onclick="speak('B for Ball')">
-<img src="images/ball.png" width="80"><br>B
-</button>
-
-<button class="btn" onclick="speak('C for Cat')">
-<img src="images/cat.png" width="80"><br>C
-</button>
-
-<button class="btn" onclick="speak('D for Dog')">
-<img src="images/dog.png" width="80"><br>D
-</button>
-
-<button class="btn" onclick="speak('E for Elephant')">
-<img src="images/elephant.png" width="80"><br>E
-</button>
-
-<button class="btn" onclick="speak('F for Fish')">
-<img src="images/fish.png" width="80"><br>F
-</button>
-
-<button class="btn" onclick="speak('G for Goat')">
-<img src="images/goat.png" width="80"><br>G
-</button>
-
-<button class="btn" onclick="speak('H for Hen')">
-<img src="images/hen.png" width="80"><br>H
-</button>
-
-<button class="btn" onclick="speak('I for Ice Cream')">
-<img src="images/icecream.png" width="80"><br>I
-</button>
-
-<button class="btn" onclick="speak('J for Jug')">
-<img src="images/jug.png" width="80"><br>J
-</button>
-
-<button class="btn" onclick="speak('K for Kite')">
-<img src="images/kite.png" width="80"><br>K
-</button>
-
-<button class="btn" onclick="speak('L for Lion')">
-<img src="images/lion.png" width="80"><br>L
-</button>
-
-<button class="btn" onclick="speak('M for Monkey')">
-<img src="images/monkey.png" width="80"><br>M
-</button>
-
-<button class="btn" onclick="speak('N for Nest')">
-<img src="images/nest.png" width="80"><br>N
-</button>
-
-<button class="btn" onclick="speak('O for Orange')">
-<img src="images/orange.png" width="80"><br>O
-</button>
-
-<button class="btn" onclick="speak('P for Parrot')">
-<img src="images/parrot.png" width="80"><br>P
-</button>
-
-<button class="btn" onclick="speak('Q for Queen')">
-<img src="images/queen.png" width="80"><br>Q
-</button>
-
-<button class="btn" onclick="speak('R for Rabbit')">
-<img src="images/rabbit.png" width="80"><br>R
-</button>
-
-<button class="btn" onclick="speak('S for Sun')">
-<img src="images/sun.png" width="80"><br>S
-</button>
-
-<button class="btn" onclick="speak('T for Tiger')">
-<img src="images/tiger.png" width="80"><br>T
-</button>
-
-<button class="btn" onclick="speak('U for Umbrella')">
-<img src="images/umbrella.png" width="80"><br>U
-</button>
-
-<button class="btn" onclick="speak('V for Van')">
-<img src="images/van.png" width="80"><br>V
-</button>
-
-<button class="btn" onclick="speak('W for Watch')">
-<img src="images/watch.png" width="80"><br>W
-</button>
-
-<button class="btn" onclick="speak('X for Xylophone')">
-<img src="images/xylophone.png" width="80"><br>X
-</button>
-
-<button class="btn" onclick="speak('Y for Yak')">
-<img src="images/yak.png" width="80"><br>Y
-</button>
-
-<button class="btn" onclick="speak('Z for Zebra')">
-<img src="images/zebra.png" width="80"><br>Z
-  </button>
-
+    
+   
 <h2>Numbers</h2>
 
 <button class="btn" onclick="speak('1')">1</button>
@@ -539,3 +436,47 @@ window.speechSynthesis.speak(speech);
 <button class="btn" onclick="speak('10')">18</button>
 <button class="btn" onclick="speak('19')">19</button><button class="btn" onclick="speak('20')">20</button>
 <button class="btn" onclick="speak('21')">21</button>
+<button class="btn" onclick="speak('22')">22</button>
+<button class="btn" onclick="speak('23')">23</button>
+<button class="btn" onclick="speak('24')">24</button>
+<button class="btn" onclick="speak('25')">25</button>
+<button class="btn" onclick="speak('26')">26</button>
+<button class="btn" onclick="speak('27')">27</button>
+<button class="btn" onclick="speak('28')">28</button>
+<button class="btn" onclick="speak('29')">29</button>
+
+<button class="btn" onclick="speak('30')">30</button>
+<button class="btn" onclick="speak('31')">31</button>
+<button class="btn" onclick="speak('32')">32</button>
+<button class="btn" onclick="speak('33')">33</button>
+<button class="btn" onclick="speak('34')">34</button>
+<button class="btn" onclick="speak('35')">35</button>
+<button class="btn" onclick="speak('36')">36</button>
+<button class="btn" onclick="speak('37')">37</button>
+<button class="btn" onclick="speak('38')">38</button>
+<button class="btn" onclick="speak('39')">39</button>
+
+<button class="btn" onclick="speak('40')">40</button>
+<button class="btn" onclick="speak('41')">41</button>
+<button class="btn" onclick="speak('42')">42</button>
+<button class="btn" onclick="speak('43')">43</button>
+<button class="btn" onclick="speak('44')">44</button>
+<button class="btn" onclick="speak('45')">45</button><button class="btn" onclick="speak('46')">46</button>
+<button class="btn" onclick="speak('47')">47</button>
+<button class="btn" onclick="speak('48')">48</button>
+<button class="btn" onclick="speak('49')">49</button>
+<button class="btn" onclick="speak('50')">50</button>
+<button class="btn" onclick="speak('51')">51</button>
+<button class="btn" onclick="speak('52')">52</button>
+<button class="btn" onclick="speak('53')">53</button>
+<button class="btn" onclick="speak('54')">54</button>
+<button class="btn" onclick="speak('55')">55</button>
+<button class="btn" onclick="speak('56')">56</button>
+<button class="btn" onclick="speak('57')">57</button>
+<button class="btn" onclick="speak('58')">58</button>
+<button class="btn" onclick="speak('59')">59</button>
+<button class="btn" onclick="speak('60')">60</button>
+<button class="btn" onclick="speak('61')">61</button>
+<button class="btn" onclick="speak('62')">62</button>
+<button class="btn" onclick="speak('63')">63</button>
+<button class="btn" 
