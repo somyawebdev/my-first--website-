@@ -1337,7 +1337,92 @@ function speakText(text) {
 
     </div>
 </div>
-  
+<!-- बच्चों के लिए अच्छी आदतें और फलों के नाम -->
+<div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 1000px; margin: 20px auto; padding: 10px;">
+
+    <!-- सेक्शन 1: अच्छी आदतें (Daily Good Habits) -->
+    <div style="background-color: #f1f8e9; padding: 25px; border-radius: 20px; margin-bottom: 30px; border: 2px solid #8bc34a;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="color: #33691e; font-size: 26px;">🌟 आज की अच्छी आदतें (Good Habits) 🌟</h2>
+            <p style="color: #555;">अच्छी बातें सुनें और सीखें</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+            <div style="background: white; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <span style="font-size: 17px; color: #2e7d32;">1. सुबह जल्दी उठें और बड़ों को प्रणाम करें।</span>
+                <button onclick="speakHabit('सुबह जल्दी उठें और बड़ों को प्रणाम करें')" style="background: #8bc34a; border: none; padding: 8px; border-radius: 50%; cursor: pointer;">🔊</button>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <span style="font-size: 17px; color: #2e7d32;">2. खाने से पहले और बाद में हाथ धोएं।</span>
+                <button onclick="speakHabit('खाने से पहले और बाद में हाथ धोएं')" style="background: #8bc34a; border: none; padding: 8px; border-radius: 50%; cursor: pointer;">🔊</button>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <span style="font-size: 17px; color: #2e7d32;">3. रोज़ाना दो बार ब्रश करें।</span>
+                <button onclick="speakHabit('रोज़ाना दो बार ब्रश करें')" style="background: #8bc34a; border: none; padding: 8px; border-radius: 50%; cursor: pointer;">🔊</button>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <span style="font-size: 17px; color: #2e7d32;">4. कूड़ा हमेशा कूड़ेदान (Dustbin) में डालें।</span>
+                <button onclick="speakHabit('कूड़ा हमेशा कूड़ेदान में डालें')" style="background: #8bc34a; border: none; padding: 8px; border-radius: 50%; cursor: pointer;">🔊</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- सेक्शन 2: 20 फलों के नाम (20 Fruits Names) -->
+    <div style="background-color: #fff3e0; padding: 25px; border-radius: 20px; border: 2px solid #ffb74d;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="color: #e65100; font-size: 26px;">🍎 फलों के नाम (Fruits Names) 🍎</h2>
+            <p style="color: #555;">नाम सुनने के लिए फल पर क्लिक करें</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px;">
+            <!-- फल 1 से 20 तक -->
+            <button onclick="speakFruit('Apple, सेब')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍎 Apple (सेब)</button>
+            <button onclick="speakFruit('Mango, आम')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🥭 Mango (आम)</button>
+            <button onclick="speakFruit('Banana, केला')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍌 Banana (केला)</button>
+            <button onclick="speakFruit('Orange, संतरा')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍊 Orange (संतरा)</button>
+            <button onclick="speakFruit('Grapes, अंगूर')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍇 Grapes (अंगूर)</button>
+            <button onclick="speakFruit('Papaya, पपीता')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍈 Papaya (पपीता)</button>
+            <button onclick="speakFruit('Watermelon, तरबूज')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍉 Watermelon (तरबूज)</button>
+            <button onclick="speakFruit('Pineapple, अनानास')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍍 Pineapple (अनानास)</button>
+            <button onclick="speakFruit('Pomegranate, अनार')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍎 Pomegranate (अनार)</button>
+            <button onclick="speakFruit('Guava, अमरूद')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍏 Guava (अमरूद)</button>
+            <button onclick="speakFruit('Strawberry, स्ट्रॉबेरी')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍓 Strawberry (स्ट्रॉबेरी)</button>
+            <button onclick="speakFruit('Cherry, चेरी')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍒 Cherry (चेरी)</button>
+            <button onclick="speakFruit('Kiwi, कीवी')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🥝 Kiwi (कीवी)</button>
+            <button onclick="speakFruit('Pear, नाशपाती')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍐 Pear (नाशपाती)</button>
+            <button onclick="speakFruit('Coconut, नारियल')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🥥 Coconut (नारियल)</button>
+            <button onclick="speakFruit('Peach, आड़ू')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍑 Peach (आड़ू)</button>
+            <button onclick="speakFruit('Custard Apple, शरीफा')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍈 Custard Apple (शरीफा)</button>
+            <button onclick="speakFruit('Plum, बेर')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🟣 Plum (बेर)</button>
+            <button onclick="speakFruit('Muskmelon, खरबूजा')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🍈 Muskmelon (खरबूजा)</button>
+            <button onclick="speakFruit('Lychee, लीची')" style="padding: 12px; background: white; border: 1px solid #ffb74d; border-radius: 10px; cursor: pointer; font-size: 16px;">🔴 Lychee (लीची)</button>
+        </div>
+    </div>
+</div>
+
+<!-- आवाज़ के लिए JavaScript (अगर पहले से है तो दोबारा न डालें) -->
+<script>
+function speakHabit(text) {
+    window.speechSynthesis.cancel();
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    msg.lang = 'hi-IN';
+    msg.rate = 0.8; // धीमी आवाज़
+    window.speechSynthesis.speak(msg);
+}
+
+function speakFruit(text) {
+    window.speechSynthesis.cancel();
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    msg.lang = 'hi-IN'; // हिंदी-इंग्लिश दोनों बोलेगा
+    msg.rate = 0.9;
+    window.speechSynthesis.speak(msg);
+}
+              </script>
+  </div>
+    </div>
+</div>
 </body>
 </html>
 
