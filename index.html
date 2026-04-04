@@ -2,7 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Kids Learning</title>
+<title>somya Kids Learning</title>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background:#f0f8ff;
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>somya Kids Learning</title>
 
 <style>
 body{
@@ -11,19 +23,53 @@ text-align:center;
 background:#f0f8ff;
 }
 
-.btn{
-padding:10px 15px;
-margin:5px;
-font-size:16px;
-border:none;
-border-radius:8px;
-background:#ff9800;
-color:white;
-cursor:pointer;
+.btn {
+    padding: 22px 36px;   /* अंदर से बहुत बड़ा */
+    margin: 12px;
+    font-size: 28px;      /* टेक्स्ट बड़ा */
+    font-weight: 700;
+    border: none;
+    border-radius: 20px;  /* गोल और मॉडर्न */
+    min-width: 110px;     /* चौड़ाई */
+    min-height: 80px;     /* ऊँचाई */
+    background: #ff9800;
+    color: white;
+    cursor: pointer;
+}
+}
+    
+    /* प्रीमियम ऑरेंज ग्रेडिएंट */
+    background: linear-gradient(145deg, #ff9800, #fb8c00);
+    color: white;
+    
+    cursor: pointer;
+    text-transform: uppercase; /* बटनों को हेडलाइन जैसा लुक देने के लिए */
+    letter-spacing: 1px;
+    
+    /* प्रोफेशनल शैडो (गहराई के लिए) */
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+    
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    outline: none;
 }
 
-.btn:hover{
-background:#e68900;
+/* बटन पर माउस ले जाने पर (Hover Effect) */
+.btn:hover {
+    background: linear-gradient(145deg, #fb8c00, #f57c00);
+    transform: scale(1.05) translateY(-3px); /* हल्का सा बड़ा और ऊपर उठेगा */
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
+}
+
+/* बटन दबाने पर (Click Effect) */
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(255, 152, 0, 0.2);
+    }
+    
+.btn:hover {
+    background: yellow#e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 </style>
 
@@ -45,36 +91,6 @@ function story(type){
 
 let text=""
 
-if(type=="lionmouse")
-text="एक शेर ने एक छोटे चूहे को पकड़ लिया। चूहे ने माफी मांगी और बाद में जाल काटकर शेर की जान बचाई।"
-
-if(type=="crow")
-text="एक प्यासा कौआ घड़े में पत्थर डालकर पानी ऊपर लाया और पानी पिया।"
-
-if(type=="foxgrapes")
-text="एक लोमड़ी अंगूर तक नहीं पहुँच पाई और बोली अंगूर खट्टे हैं।"
-
-if(type=="antgrass")
-text="चींटी मेहनत करती रही और टिड्डा खेलता रहा। सर्दी आने पर टिड्डे को पछताना पड़ा।"
-
-if(type=="goldenegg")
-text="एक मुर्गी रोज सोने का अंडा देती थी लेकिन लालच ने सब नष्ट कर दिया।"
-
-if(type=="rabbittortoise")
-text="एक तेज दौड़ने वाला खरगोश घमंड में सो गया और धीरे चलने वाला कछुआ दौड़ जीत गया।"
-
-if(type=="boywolf")
-text="एक लड़का बार-बार झूठ बोलता था कि भेड़िया आया। जब सच में भेड़िया आया तो कोई मदद के लिए नहीं आया।"
-
-if(type=="greedydog")
-text="एक लालची कुत्ते ने पानी में अपनी परछाई देखी और अपना मांस भी खो दिया।"
-
-if(type=="farmer")
-text="एक किसान ने अपने बेटों को मेहनत का महत्व सिखाया।"
-
-if(type=="honesty")
-text="एक ईमानदार लकड़हारे को भगवान ने सोने और चांदी की कुल्हाड़ी इनाम में दी।"
-
 document.getElementById("storyText").innerText=text
 
 speak(text)
@@ -86,54 +102,296 @@ speak(text)
 </head>
 
 <body>
-
+ <img src="logo.png" width="150" style="display: block; margin: 10px auto;">
 <h2>कविताएँ</h2>
 
 <button class="btn" onclick="speak('चंदा मामा दूर के, पुए पकाए बूर के')">🌙 चंदा मामा</button>
 
-<button class="btn" onclick="speak('मछली जल की रानी है, जीवन उसका पानी है')">🐟 मछली जल की रानी</button>
+<button class="btn" onclick="speak('मछली जल की रा<div id="storyButtons">
 
-<button class="btn" onclick="speak('नानी तेरी मोरनी को मोर ले गए')">🦚 नानी तेरी मोरनी</button>
+<button class="btn" onclick="showStory('twofriends')">दो दोस्त</button>
+<button class="btn" onclick="showStory('thirstycrow2')">प्यासा कौआ</button>
+<button class="btn" onclick="showStory('dogbone')">लालची कुत्ता</button>
+<button class="btn" onclick="showStory('milkmaid')">दूध वाली लड़की</button>
+<button class="btn" onclick="showStory('lazyson')">आलसी बेटा</button>
+<button class="btn" onclick="showStory('cleverrabbit')">चतुर खरगोश</button>
+<button class="btn" onclick="showStory('elephantants')">हाथी और चींटियाँ</button>
+<button class="btn" onclick="showStory('lionhare')">शेर और खरगोश</button>
+<button class="btn" onclick="showStory('wiseowl')">बुद्धिमान उल्लू</button>
+<button class="btn" onclick="showStory('kindboy')">दयालु लड़का</button>
+<button class="btn" onclick="showStory('monkeycap')">टोपी वाला और बंदर</button>
+<button class="btn" onclick="showStory('honestboy')">ईमानदार लड़का</button>
+<button class="btn" onclick="showStory('kindking')">दयालु राजा</button>
+<button class="btn" onclick="showStory('catbell')">बिल्ली के गले में घंटी</button>
+<button class="btn" onclick="showStory('honestfarmer')">ईमानदार किसान</button>
+<button class="btn" onclick="showStory('sharing')">बाँटकर खाना</button>
+<button class="btn" onclick="showStory('kindgirl')">दयालु लड़की</button>
+<button class="btn" onclick="showStory('helpfulfriend')">मददगार दोस्त</button>
+<button class="btn" onclick="showStory('truthboy')">सच बोलने वाला लड़का</button>
+<button class="btn" onclick="showStory('bravegirl')">बहादुर लड़की</button><button class="btn" onclick="showStory('honestwoodcutter')">ईमानदार लकड़हारा</button>
 
-<button class="btn" onclick="speak('लकड़ी की काठी काठी पे घोड़ा')">🐴 लकड़ी की काठी</button>
+<button class="btn" onclick="showStory('lionrat')">शेर और चूहा</button>
 
-<button class="btn" onclick="speak('ट्विंकल ट्विंकल लिटिल स्टार')">⭐ ट्विंकल स्टार</button>
+<button class="btn" onclick="showStory('clevercrow')">चतुर कौआ</button>
 
-<button class="btn" onclick="speak('जॉनी जॉनी यस पापा')">🍭 जॉनी जॉनी</button>
+<button class="btn" onclick="showStory('greedyfarmer')">लालची किसान</button>
 
-<button class="btn" onclick="speak('बस के पहिए गोल गोल घूमते हैं')">🚌 बस कविता</button>
+<button class="btn" onclick="showStory('twocatsmonkey')">दो बिल्लियाँ और बंदर</button>
 
-<button class="btn" onclick="speak('आलू कचालू बेटा कहाँ गए थे')">🥔 आलू कचालू</button>
+<button class="btn" onclick="showStory('lazyboy')">आलसी लड़का</button>
 
-<button class="btn" onclick="speak('एक था राजा एक थी रानी')">👑 राजा रानी</button>
+<button class="btn" onclick="showStory('kindfarmer')">दयालु किसान</button>
 
-<button class="btn" onclick="speak('चिड़िया रानी बड़ी सयानी')">🐦 चिड़िया रानी</button>
+<button class="btn" onclick="showStory('smartdeer')">घमंडी हिरण</button>
 
-<button class="btn" onclick="speak('सूरज निकला चिड़िया बोली')">🌞 सूरज निकला</button>
+<button class="btn" onclick="showStory('liondonkey')">शेर और गधा</button>
 
-<button class="btn" onclick="speak('चल मेरे घोड़े टिक टिक टिक')">🐎 घोड़ा</button>
+<button class="btn" onclick="showStory('cleverboy')">चतुर लड़का</button>
 
-<button class="btn" onclick="speak('काला कौआ चिट्ठी लाया')">🐦 कौआ</button>
+<button class="btn" onclick="showStory('kindteacher')">दयालु शिक्षक</button>
 
-<button class="btn" onclick="speak('गुब्बारे वाला आया')">🎈 गुब्बारे वाला</button>
+<button class="btn" onclick="showStory('hardworkgirl')">मेहनती लड़की</button>
 
-<button class="btn" onclick="speak('आओ बच्चों तुम्हें दिखाएँ')">🇮🇳 आओ बच्चों</button>
+<button class="btn" onclick="showStory('smartmonkey')">चतुर बंदर</button>
 
-<button class="btn" onclick="speak('बारिश आई छम छम')">🌧 बारिश</button>
+<button class="btn" onclick="showStory('honestshop')">ईमानदार दुकानदार</button>
 
-<button class="btn" onclick="speak('टमाटर लाल लाल')">🍅 टमाटर</button>
+<button class="btn" onclick="showStory('kindmother')">प्यारी माँ</button>
 
-<button class="btn" onclick="speak('चूहा बिल्ली खेल रहे थे')">🐭 चूहा बिल्ली</button>
+<button class="btn" onclick="showStory('helpfulman')">मददगार आदमी</button>
 
-<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ')">🌳 पेड़ लगाओ</button>
+<button class="btn" onclick="showStory('truthking')">सच्चा राजा</button>
 
-<button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के')">🇮🇳 बच्चे</button>
+<button class="btn" onclick="showStory('kindchild')">दयालु बच्चा</button>
+
+<button class="btn" onclick="showStory('smartfarmer')">चतुर किसान</button>
+
+<button class="btn" onclick="showStory('goodfriend')">अच्छा दोस्त</button>
+
+</div>
+
+<div id="storyBox" style="margin-top:20px;font-size:22px;padding:20px;"></div>
+
+<script>
+
+function showStory(type){
+
+let text="";
+
+if(type=="twofriends"){
+text="दो दोस्त जंगल से गुजर रहे थे। अचानक एक भालू आ गया। एक दोस्त पेड़ पर चढ़ गया और दूसरा जमीन पर लेटकर सांस रोककर पड़ा रहा। भालू उसे सूंघकर चला गया। सीख: सच्चा दोस्त वही है जो मुसीबत में साथ दे।";
+}
+
+if(type=="thirstycrow2"){
+text="एक कौआ बहुत प्यासा था। उसे एक घड़ा मिला जिसमें थोड़ा पानी था। उसने छोटे पत्थर घड़े में डाले और पानी ऊपर आ गया। फिर उसने पानी पी लिया। सीख: समझदारी से हर समस्या का हल निकलता है।";
+}
+
+if(type=="dogbone"){
+text="एक कुत्ते को रास्ते में हड्डी मिली। पानी में अपनी परछाई देखकर उसने सोचा कि दूसरे कुत्ते के पास बड़ी हड्डी है। उसने भौंकने के लिए मुँह खोला और उसकी हड्डी पानी में गिर गई। सीख: लालच बुरा होता है।";
+}
+
+if(type=="milkmaid"){
+text="एक लड़की दूध का घड़ा लेकर बाजार जा रही थी। वह सोच रही थी कि दूध बेचकर अमीर बन जाएगी। खुशी में सिर हिलाया और घड़ा गिरकर टूट गया। सीख: हवा में महल नहीं बनाना चाहिए।";
+}
+
+if(type=="lazyson"){
+text="एक किसान का बेटा आलसी था। किसान ने कहा खेत में खजाना है। बेटे ने पूरा खेत खोद डाला। खजाना नहीं मिला लेकिन खेत में खूब फसल हुई। सीख: मेहनत ही असली खजाना है।";
+}
+
+if(type=="cleverrabbit"){
+text="एक शेर रोज जानवरों को खा जाता था। एक चतुर खरगोश ने उसे कुएँ में उसकी परछाई दिखाकर कूदवा दिया। सीख: बुद्धि ताकत से बड़ी होती है।";
+}
+
+if(type=="elephantants"){
+text="एक हाथी रोज चींटियों का घर तोड़ देता था। एक दिन चींटियाँ उसकी सूंड में घुस गईं। हाथी दर्द से परेशान हो गया और माफी माँगी। सीख: किसी को छोटा समझकर परेशान नहीं करना चाहिए।";
+}
+
+if(type=="lionhare"){
+text="एक घमंडी शेर जंगल में सबको डराता था। एक छोटे खरगोश ने अपनी बुद्धि से उसे कुएँ में गिरा दिया। सीख: समझदारी ताकत से बड़ी होती है।";
+}
+
+if(type=="wiseowl"){
+text="जंगल में एक बुद्धिमान उल्लू रहता था। जब भी जानवरों में झगड़ा होता वह उन्हें समझाकर सुलह करा देता। सीख: बुद्धिमानी से समस्या हल होती है।";
+}
+
+if(type=="kindboy"){
+text="एक लड़के ने घायल पक्षी को देखा। उसने उसका इलाज किया और कुछ दिनों बाद पक्षी ठीक होकर उड़ गया। सीख: दया सबसे बड़ा गुण है।";
+}
+
+if(type=="monkeycap"){
+text="एक टोपी बेचने वाला पेड़ के नीचे सो गया। बंदरों ने उसकी टोपियाँ पहन लीं। उसने अपनी टोपी जमीन पर फेंकी तो बंदरों ने भी फेंक दी। उसने सारी टोपियाँ उठा लीं। सीख: समझदारी से समस्या हल होती है।";
+}
+
+if(type=="honestboy"){
+text="एक लड़के को रास्ते में पैसे से भरा बटुआ मिला। उसने ईमानदारी से मालिक को लौटा दिया। मालिक ने उसे इनाम दिया। सीख: ईमानदारी सबसे बड़ी संपत्ति है।";
+}
+
+if(type=="kindking"){
+text="एक राजा हमेशा गरीबों की मदद करता था। लोग उसे बहुत प्यार करते थे। उसके राज्य में खुशी और शांति थी। सीख: दयालुता महान गुण है।";
+}
+
+if(type=="catbell"){
+text="चूहों ने सोचा कि बिल्ली के गले में घंटी बाँध देंगे। लेकिन कोई भी बिल्ली के पास जाने को तैयार नहीं हुआ। सीख: सलाह देना आसान है, काम करना कठिन।";
+}
+
+if(type=="honestfarmer"){
+text="एक किसान को खेत में पैसों से भरा थैला मिला। उसने उसे गाँव के मुखिया को दे दिया ताकि असली मालिक मिल सके। सीख: ईमानदारी सबसे बड़ा गुण है।";
+}
+
+if(type=="sharing"){
+text="दो बच्चे एक रोटी के लिए झगड़ रहे थे। माँ ने कहा इसे बराबर बाँट लो। दोनों ने बाँटकर खाया और खुश हो गए। सीख: बाँटने से खुशी बढ़ती है।";
+}
+
+if(type=="kindgirl"){
+text="एक लड़की रोज पक्षियों के लिए दाना और पानी रखती थी। धीरे-धीरे बहुत सारे पक्षी आने लगे। सीख: दया और सेवा से दुनिया सुंदर बनती है।";
+}
+
+if(type=="helpfulfriend"){
+text="एक लड़का नदी पार नहीं कर पा रहा था। उसका दोस्त आया और उसकी मदद करके उसे सुरक्षित पार करा दिया। सीख: दूसरों की मदद करना अच्छा है।";
+}
+
+if(type=="truthboy"){
+text="एक लड़का हमेशा सच बोलता था। लोग उस पर भरोसा करते थे और उसका सम्मान करते थे। सीख: सच बोलने से विश्वास मिलता है।";
+}
+
+if(type=="bravegirl"){
+text="एक बहादुर लड़की ने आग लगने पर अपने छोटे भाई को सुरक्षित बाहर निकाल लिया। सभी ने उसकी तारीफ की। सीख: साहस बहुत बड़ी ताकत है।";if(type=="honestwoodcutter"){
+text="एक लकड़हारा जंगल में लकड़ी काट रहा था। उसकी कुल्हाड़ी नदी में गिर गई। वह दुखी होकर बैठ गया। तभी भगवान प्रकट हुए और सोने व चाँदी की कुल्हाड़ी दिखाकर पूछा। लकड़हारे ने कहा यह मेरी नहीं है। उसकी ईमानदारी से खुश होकर भगवान ने उसे तीनों कुल्हाड़ियाँ दे दीं। सीख: ईमानदारी का फल अच्छा मिलता है।";
+}
+
+if(type=="lionrat"){
+text="एक दिन शेर ने एक छोटे चूहे को पकड़ लिया। चूहे ने कहा मुझे छोड़ दो, मैं कभी आपकी मदद करूँगा। शेर हँसते हुए उसे छोड़ देता है। कुछ दिन बाद शेर जाल में फँस जाता है। चूहा जाल काटकर उसे बचा लेता है। सीख: छोटा भी बड़े की मदद कर सकता है।";
+}
+
+if(type=="clevercrow"){
+text="एक कौआ बहुत प्यासा था। उसे एक घड़ा मिला जिसमें थोड़ा पानी था। उसने घड़े में कंकड़ डाले और पानी ऊपर आ गया। फिर उसने पानी पी लिया। सीख: समझदारी से समस्या हल होती है।";
+}
+
+if(type=="greedyfarmer"){
+text="एक किसान को सोने के अंडे देने वाली मुर्गी मिली। वह रोज एक अंडा देता था। किसान लालच में आकर सोचता है कि सारे अंडे एक साथ मिल जाएँ। उसने मुर्गी को मार दिया लेकिन अंदर कुछ नहीं मिला। सीख: लालच बुरी बला है।";
+}
+
+if(type=="twocatsmonkey"){
+text="दो बिल्लियाँ रोटी के टुकड़े को लेकर झगड़ रही थीं। एक बंदर आया और बोला मैं बराबर बाँट दूँगा। वह हर बार थोड़ा-थोड़ा खाकर रोटी खत्म कर देता है। सीख: झगड़े में तीसरा फायदा उठा लेता है।";
+}
+
+if(type=="lazyboy"){
+text="एक लड़का हमेशा काम से बचता था और दिनभर खेलता था। जब परीक्षा आई तो वह पढ़ा नहीं था और असफल हो गया। तब उसे समझ आया कि मेहनत जरूरी है। सीख: आलस नुकसान देता है।";
+}
+
+if(type=="kindfarmer"){
+text="एक किसान ने घायल पक्षी को अपने घर लाकर उसकी देखभाल की। कुछ दिनों बाद पक्षी ठीक होकर उड़ गया। किसान को बहुत खुशी हुई। सीख: दया सबसे बड़ा गुण है।";
+}
+
+if(type=="smartdeer"){
+text="एक हिरण नदी का पानी पी रहा था। उसने अपनी परछाई देखी और अपने सींगों की तारीफ करने लगा। अचानक शेर आ गया। हिरण भागा लेकिन सींग झाड़ियों में फँस गए। सीख: घमंड नहीं करना चाहिए।";
+}
+
+if(type=="liondonkey"){
+text="एक शेर और गधा शिकार करने निकले। गधे ने जोर से आवाज लगाई और जानवर डरकर भागने लगे। शेर ने आसानी से शिकार पकड़ लिया। सीख: मिलकर काम करने से सफलता मिलती है।";
+}
+
+if(type=="cleverboy"){
+text="एक चतुर लड़के ने देखा कि दुकान वाला गलत पैसे लौटा रहा है। उसने तुरंत सही पैसे वापस कर दिए। दुकानदार खुश हुआ और उसे इनाम दिया। सीख: ईमानदारी सबसे अच्छी नीति है।";
+}
+
+if(type=="kindteacher"){
+text="एक शिक्षक अपने विद्यार्थियों को प्यार से पढ़ाते थे। बच्चे भी उन्हें बहुत मानते थे और मेहनत से पढ़ते थे। सीख: अच्छा शिक्षक जीवन बदल देता है।";
+}
+
+if(type=="hardworkgirl"){
+text="एक लड़की रोज मेहनत से पढ़ाई करती थी। धीरे-धीरे वह कक्षा की सबसे अच्छी छात्रा बन गई। सीख: मेहनत का फल मीठा होता है।";
+}
+
+if(type=="smartmonkey"){
+text="एक बंदर नदी पार करना चाहता था। उसने लकड़ी का सहारा लिया और सुरक्षित पार पहुँच गया। सीख: समझदारी से काम करना चाहिए।";
+}
+
+if(type=="honestshop"){
+text="एक दुकानदार हमेशा सही सामान और सही दाम देता था। लोग उस पर भरोसा करते थे और उसकी दुकान पर ज्यादा ग्राहक आने लगे। सीख: ईमानदारी से सम्मान मिलता है।";
+}
+
+if(type=="kindmother"){
+text="एक माँ अपने बच्चों को प्यार और अच्छे संस्कार देती थी। बच्चे बड़े होकर अच्छे इंसान बने। सीख: अच्छे संस्कार जीवन बनाते हैं।";
+}
+
+if(type=="helpfulman"){
+text="एक आदमी ने रास्ते में गिरा हुआ बूढ़ा व्यक्ति देखा। उसने उसे उठाकर घर पहुँचाया। बूढ़े ने उसे आशीर्वाद दिया। सीख: दूसरों की मदद करना महान काम है।";
+}
+
+if(type=="truthking"){
+text="एक राजा हमेशा सच बोलता था और न्याय करता था। इसलिए प्रजा उसे बहुत पसंद करती थी। सीख: सच्चाई से सम्मान मिलता है।";
+}
+
+if(type=="kindchild"){
+text="एक बच्चे ने देखा कि उसका दोस्त उदास है। उसने उसे खिलौना देकर खुश कर दिया। सीख: दूसरों को खुश करना अच्छा काम है।";
+}
+
+if(type=="smartfarmer"){
+text="एक किसान ने अपने खेत में नई तकनीक से खेती की। उसकी फसल पहले से ज्यादा हुई। सीख: समझदारी से काम करने से सफलता मिलती है।";
+}
+
+if(type=="goodfriend"){
+text="दो दोस्त हमेशा एक-दूसरे की मदद करते थे। मुश्किल समय में भी वे साथ खड़े रहे। सीख: सच्ची दोस्ती जीवन की सबसे बड़ी ताकत है।";
+    }
+}
+
+document.getElementById("storyBox").innerText=text;
+speak(text);
+
+}
+
+function speak(text){
+let speech = new SpeechSynthesisUtterance(text);
+speech.lang="hi-IN";
+speech.rate=0.9;
+window.speechSynthesis.speak(speech);
+}
+
+</script>नी है, जीवन उसका पानी है')">🐟 मछली जल की रानी</button>
+
 
 <h2>कहानियाँ</h2>
 
 <button class="btn" onclick="story('lionmouse')">शेर और चूहा</button>
 
-<button class="btn" onclick="story('crow')">प्यासा कौआ</button>
+<but<button class="btn" onclick="speak('मछली जल की रानी है, जीवन उसका पानी है, हाथ लगाओ डर जाएगी, बाहर निकालो मर जाएगी')">🐟 मछली जल की रानी</button>
+
+<button class="btn" onclick="speak('नानी तेरी मोरनी को मोर ले गए, बाकी जो बचा था काले चोर ले गए')">🦚 नानी तेरी मोरनी</button>
+
+<button class="btn" onclick="speak('लकड़ी की काठी, काठी पे घोड़ा, घोड़े की दुम पे जो मारा हथौड़ा')">🐴 लकड़ी की काठी</button>
+
+<button class="btn" onclick="speak('ट्विंकल ट्विंकल लिटिल स्टार, हाउ आई वंडर व्हाट यू आर')">⭐ ट्विंकल स्टार</button>
+
+<button class="btn" onclick="speak('जॉनी जॉनी यस पापा, ईटिंग शुगर नो पापा, टेलिंग लाइज़ नो पापा, ओपन योर माउथ हा हा हा')">🍭 जॉनी जॉनी</button>
+
+<button class="btn" onclick="speak('बस के पहिए गोल गोल घूमते हैं, पूरे शहर में घूमते हैं')">🚌 बस कविता</button>
+
+<button class="btn" onclick="speak('आलू कचालू बेटा कहाँ गए थे, बैंगन की टोकरी में सो रहे थे')">🥔 आलू कचालू</button>
+
+<button class="btn" onclick="speak('एक था राजा एक थी रानी, दोनों करते थे मनमानी')">👑 राजा रानी</button>
+
+<button class="btn" onclick="speak('चिड़िया रानी बड़ी सयानी, दिन भर करती आती-जाती')">🐦 चिड़िया रानी</button>
+
+<button class="btn" onclick="speak('सूरज निकला चिड़िया बोली, कलियों ने भी आँखें खोली')">🌞 सूरज निकला</button>
+
+<button class="btn" onclick="speak('चल मेरे घोड़े टिक टिक टिक, रुकने का तू नाम न ले')">🐎 घोड़ा</button>
+
+<button class="btn" onclick="speak('काला कौआ चिट्ठी लाया, खुशियों का पैगाम लाया')">🐦 कौआ</button>
+
+<button class="btn" onclick="speak('गुब्बारे वाला आया, रंग बिरंगे गुब्बारे लाया')">🎈 गुब्बारे वाला</button>
+
+<button class="btn" onclick="speak('आओ बच्चों तुम्हें दिखाएँ झांकी हिंदुस्तान की')">🇮🇳 आओ बच्चों</button>
+
+<button class="btn" onclick="speak('बारिश आई छम छम छम, बच्चे बोले हम भी हम')">🌧 बारिश</button>
+
+<button class="btn" onclick="speak('टमाटर लाल लाल, जैसे गाल गुलाल')">🍅 टमाटर</button>
+
+<button class="btn" onclick="speak('चूहा बिल्ली खेल रहे थे, आपस में झगड़ रहे थे')">🐭 चूहा बिल्ली</button>
+
+<button class="btn" onclick="speak('पेड़ लगाओ पेड़ बचाओ, धरती को स्वर्ग बनाओ')">🌳 पेड़ लगाओ</button>
+
+<button class="btn" onclick="speak('हम बच्चे हिंदुस्तान के, सच्चे और महान के')">🇮🇳 बच्चे</button>ton class="btn" onclick="story('crow')">प्यासा कौआ</button>
 
 <button class="btn" onclick="story('foxgrapes')">लोमड़ी और अंगूर</button>
 
@@ -153,5 +411,131 @@ speak(text)
 
 <p id="storyText"></p>
 
-</body>
-    </html>
+<h2>Alphabet</h2>
+
+<button class="btn" onclick="speak('A for Apple')">
+<img src="images/apple.png" width="80"><br>A
+</button>
+
+<button class="btn" onclick="speak('B for Ball')">
+<img src="images/ball.png" width="80"><br>B
+</button>
+
+<button class="btn" onclick="speak('C for Cat')">
+<img src="images/cat.png" width="80"><br>C
+</button>
+
+<button class="btn" onclick="speak('D for Dog')">
+<img src="images/dog.png" width="80"><br>D
+</button>
+
+<button class="btn" onclick="speak('E for Elephant')">
+<img src="images/elephant.png" width="80"><br>E
+</button>
+
+<button class="btn" onclick="speak('F for Fish')">
+<img src="images/fish.png" width="80"><br>F
+</button>
+
+<button class="btn" onclick="speak('G for Goat')">
+<img src="images/goat.png" width="80"><br>G
+</button>
+
+<button class="btn" onclick="speak('H for Hen')">
+<img src="images/hen.png" width="80"><br>H
+</button>
+
+<button class="btn" onclick="speak('I for Ice Cream')">
+<img src="images/icecream.png" width="80"><br>I
+</button>
+
+<button class="btn" onclick="speak('J for Jug')">
+<img src="images/jug.png" width="80"><br>J
+</button>
+
+<button class="btn" onclick="speak('K for Kite')">
+<img src="images/kite.png" width="80"><br>K
+</button>
+
+<button class="btn" onclick="speak('L for Lion')">
+<img src="images/lion.png" width="80"><br>L
+</button>
+
+<button class="btn" onclick="speak('M for Monkey')">
+<img src="images/monkey.png" width="80"><br>M
+</button>
+
+<button class="btn" onclick="speak('N for Nest')">
+<img src="images/nest.png" width="80"><br>N
+</button>
+
+<button class="btn" onclick="speak('O for Orange')">
+<img src="images/orange.png" width="80"><br>O
+</button>
+
+<button class="btn" onclick="speak('P for Parrot')">
+<img src="images/parrot.png" width="80"><br>P
+</button>
+
+<button class="btn" onclick="speak('Q for Queen')">
+<img src="images/queen.png" width="80"><br>Q
+</button>
+
+<button class="btn" onclick="speak('R for Rabbit')">
+<img src="images/rabbit.png" width="80"><br>R
+</button>
+
+<button class="btn" onclick="speak('S for Sun')">
+<img src="images/sun.png" width="80"><br>S
+</button>
+
+<button class="btn" onclick="speak('T for Tiger')">
+<img src="images/tiger.png" width="80"><br>T
+</button>
+
+<button class="btn" onclick="speak('U for Umbrella')">
+<img src="images/umbrella.png" width="80"><br>U
+</button>
+
+<button class="btn" onclick="speak('V for Van')">
+<img src="images/van.png" width="80"><br>V
+</button>
+
+<button class="btn" onclick="speak('W for Watch')">
+<img src="images/watch.png" width="80"><br>W
+</button>
+
+<button class="btn" onclick="speak('X for Xylophone')">
+<img src="images/xylophone.png" width="80"><br>X
+</button>
+
+<button class="btn" onclick="speak('Y for Yak')">
+<img src="images/yak.png" width="80"><br>Y
+</button>
+
+<button class="btn" onclick="speak('Z for Zebra')">
+<img src="images/zebra.png" width="80"><br>Z
+  </button>
+
+<h2>Numbers</h2>
+
+<button class="btn" onclick="speak('1')">1</button>
+<button class="btn" onclick="speak('2')">2</button>
+<button class="btn" onclick="speak('3')">3</button>
+<button class="btn" onclick="speak('4')">4</button>
+<button class="btn" onclick="speak('5')">5</button>
+<button class="btn" onclick="speak('6')">6</button>
+<button class="btn" onclick="speak('7')">7</button>
+<button class="btn" onclick="speak('8')">8</button>
+<button class="btn" onclick="speak('9')">9</button>
+<button class="btn" onclick="speak('10')">10</button><button class="btn" onclick="speak('1')">1</button>
+<button class="btn" onclick="speak('11')">11</button>
+<button class="btn" onclick="speak('12')">12</button>
+<button class="btn" onclick="speak('13')">13</button>
+<button class="btn" onclick="speak('14')">14</button>
+<button class="btn" onclick="speak('15')">15</button>
+<button class="btn" onclick="speak('16')">16</button>
+<button class="btn" onclick="speak('17')">17</button>
+<button class="btn" onclick="speak('10')">18</button>
+<button class="btn" onclick="speak('19')">19</button><button class="btn" onclick="speak('20')">20</button>
+<button class="btn" onclick="speak('21')">21</button>
