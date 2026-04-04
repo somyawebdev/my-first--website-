@@ -1,90 +1,44 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
+    <title>Document</title>
     <style>
-        /* क्लीन और मॉडर्न लुक */
-        @import url('https://googleapis.com');
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f7ff; /* हल्का नीला प्रोफेशनल बैकग्राउंड */
-            color: #333;
-            margin: 0;
+            background-color: aliceblue;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
         }
-
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 90%;
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        img {
-            width: 120px;
-            border-radius: 50%;
-            border: 4px solid #2563eb;
-            margin-bottom: 20px;
-        }
-
         h1 {
-            color: #1e40af;
-            font-size: 24px;
-            margin-bottom: 10px;
+            color: cadetblue;
         }
-
-        p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        .btn-handsome {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-handsome:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        img {
+            max-width: 150px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <img src="logo.png" alt="Logo"> <!-- अपनी फोटो का नाम यहाँ सही करें -->
-        <h1>Welcome to My Site</h1>
-        <p>This is a professional starter website ready for sale.</p>
-        <button class="btn-handsome" onclick="speak('Welcome to my professional website')">Click Me</button>
-    </div>
-
+    <img src="logo.png" alt="Logo">
+    <h1>Welcome to My Site</h1>
+    
     <script>
         function speak(text) {
             let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = "hi-IN";
+            window.speechSynthesis.speak(speech);
+        }
+        // पुराने कोड में अगर कोई और फंक्शन था तो यहाँ जोड़ सकते हैं
+    </script>
+</body>
+</html>
+
             speech.lang = "hi-IN";
             window.speechSynthesis.speak(speech);
         }
