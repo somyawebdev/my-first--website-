@@ -1,85 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Kids Number Learning</title>
-<style>
-body{
-    font-family: 'Arial', sans-serif;
-    text-align:center;
-    margin:0;
-    background: linear-gradient(to bottom, #a8edea, #fed6e3);
-    overflow-x:hidden;
-}
-
-h1{
-    color:#ff4500;
-    margin-top:20px;
-    font-size:2.2em;
-    text-shadow: 2px 2px #fff;
-}
-
-.container{
-    display:grid;
-    grid-template-columns:repeat(10,1fr);
-    gap:12px;
-    padding:20px;
-}
-
-.btn{
-    padding:15px;
-    font-size:18px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(135deg, #ff9a9e, #fad0c4);
-    color:white;
-    cursor:pointer;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-}
-
-.btn:hover{
-    transform: scale(1.15) rotate(-5deg);
-    box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
-}
-
-/* Butterfly animation */
-.butterfly{
-    width: 50px;
-    position: absolute;
-    animation: fly 8s linear infinite;
-}
-
-@keyframes fly{
-    0% { transform: translate(0,0) rotate(0deg);}
-    25% { transform: translate(200px,100px) rotate(45deg);}
-    50% { transform: translate(400px,50px) rotate(-30deg);}
-    75% { transform: translate(600px,150px) rotate(60deg);}
-    100% { transform: translate(800px,0) rotate(0deg);}
-}
-</style>
+  <meta charset="UTF-8">
+  <style>
+    body {
+        background-color: #e0f7fa; /* हल्का नीला बैकग्राउंड */
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        text-align: center;
+        margin: 0;
+        overflow-x: hidden;
+    }
+    
+    /* उड़ती हुई तितलियाँ */
+    .butterfly {
+        position: fixed;
+        font-size: 40px;
+        z-index: -1;
+        animation: fly 10s linear infinite;
+    }
+    
+    @keyframes fly {
+        0% { left: -50px; top: 20%; transform: rotate(0deg); }
+        100% { left: 110%; top: 20%; transform: rotate(0deg); }
+    }
+    
+    .b2 { animation-duration: 15s; top: 50% !important; }
+  </style>
 </head>
-<body>logo.png
+<body>
+  <div class="butterfly">🦋</div>
+  <div class="butterfly b2">🦋</div>
+  
+  <img src="logo.png" width="120" style="margin-top:20px; border-radius:50%;">
+  <h1 style="color: #ff6600;">सौम्या किड्स लर्निंग 🍎</h1>
 
-<h1>somya Kids Number Learning (1 - 100)</h1>
+  <style>
+    /* प्रीमियम बटन स्टाइल */
+    .btn {
+        background: linear-gradient(145deg, #ff0800, #fb8c00);
+        color: white;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        
+        box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        position: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    
+    /* बटन पर माउस ले जाने पर */
+    .btn:hover {
+        background: linear-gradient(145deg, #fb8c00, #f57c00);
+        transform: scale(1.05) translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
+    }
+    
+    /* बटन दबाने पर */
+    .btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 10px rgba(255, 152, 0, 0.2);
+    }
+    
+    .btn:hover {
+        background: yellow;
+        color: #e68900;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+  </style>
 
-<!-- Butterfly animation -->
-<img src="https://i.ibb.co/4V2fH8W/butterfly.png" class="butterfly" />
-
-<div class="container">
-<!-- Buttons 1 to 100 -->
-<script>
-for(let i=1;i<=100;i++){
-    let btn = document.createElement('button');
-    btn.className='btn';
-    btn.textContent=i;
-    btn.onclick = function(){
-        let speech = new SpeechSynthesisUtterance(i.toString());
-        speech.lang='en-US';
+  <script>
+    function speak(text) {
+        let speech = new SpeechSynthesisUtterance(text);
+        speech.lang = "hi-IN";
         speech.rate = 0.9;
         window.speechSynthesis.speak(speech);
-    };
-    document.write(btn.outerHTML);
+    }
+    
+    function story(type) {
+        // आपकी पुरानी स्टोरी का फंक्शन
+    }
+  </script>
+</body>
+</html>
 }
 </script>
 </div>
