@@ -1,90 +1,97 @@
-<<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
     <style>
+        /* क्लीन और मॉडर्न लुक */
+        @import url('https://googleapis.com');
+
         body {
-            background-color: #e0f7fa; /* हल्का नीला आसमान */
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff; /* हल्का नीला प्रोफेशनल बैकग्राउंड */
+            color: #333;
             margin: 0;
-            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
         }
-        /* उड़ती हुई तितलियाँ */
-        .butterfly {
-            position: fixed;
-            font-size: 40px;
-            z-index: -1;
-            animation: fly 10s linear infinite;
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
         }
-        @keyframes fly {
-            0% { left: -50px; top: 20%; transform: rotate(0deg); }
-            100% { left: 110%; top: 20%; transform: rotate(0deg); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .b2 { animation-duration: 15s; top: 50% !important; }
+
+        img {
+            width: 120px;
+            border-radius: 50%;
+            border: 4px solid #2563eb;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #1e40af;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .btn-handsome {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-handsome:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
     </style>
 </head>
 <body>
-    <div class="butterfly">🦋</div>
-    <div class="butterfly b2">🦋</div>
 
-    <img src="logo.png" width="120" style="margin-top:20px; border-radius:50%;">
-    <h1 style="color: #ff6600;">सौम्या किड्स लर्निंग 🎈</h1>
+    <div class="container">
+        <img src="logo.png" alt="Logo"> <!-- अपनी फोटो का नाम यहाँ सही करें -->
+        <h1>Welcome to My Site</h1>
+        <p>This is a professional starter website ready for sale.</p>
+        <button class="btn-handsome" onclick="speak('Welcome to my professional website')">Click Me</button>
+    </div>
 
-    cursor: pointer;
-}
-}
-    
-    /* प्रीमियम ऑरेंज ग्रेडिएंट */
-    background: linear-gradient(145deg, #ff9800, #fb8c00);
-    color: white;
-    
-    cursor: pointer;
-    text-transform: uppercase; /* बटनों को हेडलाइन जैसा लुक देने के लिए */
-    letter-spacing: 1px;
-    
-    /* प्रोफेशनल शैडो (गहराई के लिए) */
-    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
-    
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    outline: none;
-}
+    <script>
+        function speak(text) {
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = "hi-IN";
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
 
-/* बटन पर माउस ले जाने पर (Hover Effect) */
-.btn:hover {
-    background: linear-gradient(145deg, #fb8c00, #f57c00);
-    transform: scale(1.05) translateY(-3px); /* हल्का सा बड़ा और ऊपर उठेगा */
-    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
-}
-
-/* बटन दबाने पर (Click Effect) */
-.btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 10px rgba(255, 152, 0, 0.2);
-    }
-    
-.btn:hover {
-    background: yellow#e68900;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-</style>
-
-<script>
-
-function speak(text){
-
-let speech = new SpeechSynthesisUtterance(text)
-
-speech.lang = "hi-IN"
-
-speech.rate = 0.9
-
-speechSynthesis.speak(speech)
-
-}
-
-function story(type){
+</body>
+</html>
 
 let text=""
 
