@@ -2082,6 +2082,53 @@ window.speechSynthesis.speak(speech);
 
 </div>
   </div>
+  <!-- 🎮 Guess the Animal Game -->
+<div style="background:#fff3e0;padding:25px;border-radius:20px;margin-top:30px;text-align:center;">
+
+<h2 style="color:#e65100;">🎮 Guess The Animal</h2>
+
+<p id="question" style="font-size:20px;font-weight:bold;">
+Which animal says "Meow"? 🐾
+</p>
+
+<div style="margin-top:15px;">
+
+<button onclick="checkAnswer('Cat')" 
+style="background:#ff5252;color:white;border:none;padding:12px 20px;border-radius:12px;margin:5px;">
+🐱 Cat
+</button>
+
+<button onclick="checkAnswer('Dog')" 
+style="background:#4caf50;color:white;border:none;padding:12px 20px;border-radius:12px;margin:5px;">
+🐶 Dog
+</button>
+
+<button onclick="checkAnswer('Cow')" 
+style="background:#2196f3;color:white;border:none;padding:12px 20px;border-radius:12px;margin:5px;">
+🐮 Cow
+</button>
+
+</div>
+
+<p id="result" style="font-size:18px;margin-top:15px;"></p>
+
+</div>
+
+<script>
+function checkAnswer(answer){
+let result = document.getElementById("result");
+
+if(answer === "Cat"){
+result.innerHTML="✅ Correct! Cat says Meow!";
+result.style.color="green";
+speechSynthesis.speak(new SpeechSynthesisUtterance("Correct! Cat says Meow"));
+}else{
+result.innerHTML="❌ Try Again!";
+result.style.color="red";
+speechSynthesis.speak(new SpeechSynthesisUtterance("Try again"));
+}
+}
+</script>
 
 </body>
 </html>
